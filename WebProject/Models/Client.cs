@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 
 namespace WebProject.Models
 {
-    public class Client
+    public class Client : Entity
     {
-        public int Id { get; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Client(int id, string firstName, string lastName)
+        public Client(int id, string firstName, string lastName) : base(id)
         {
-            Id = id;
             FirstName = firstName;
             LastName = lastName;
         }

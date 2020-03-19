@@ -12091,11 +12091,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ArhiS\\Desktop\\fu\\c#\\WebProject\\WebProject\\WebProject.csproj",
+      "projectUniqueName": "D:\\fu\\c#\\WebProject\\WebProject\\WebProject.csproj",
       "projectName": "WebProject",
-      "projectPath": "C:\\Users\\ArhiS\\Desktop\\fu\\c#\\WebProject\\WebProject\\WebProject.csproj",
+      "projectPath": "D:\\fu\\c#\\WebProject\\WebProject\\WebProject.csproj",
       "packagesPath": "C:\\Users\\ArhiS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ArhiS\\Desktop\\fu\\c#\\WebProject\\WebProject\\obj\\",
+      "outputPath": "D:\\fu\\c#\\WebProject\\WebProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
