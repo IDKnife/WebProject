@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CourseWork.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.Products">
+            <summary>
+            Получить список товаров.
+            </summary>
+            <returns>Список товаров.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.AddProduct(CourseWork.WebApi.ViewModels.ProductViewModel)">
+            <summary>
+            Добавить товар.
+            </summary>
+            <param name="product">Товар.</param>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="T:CourseWork.WebApi.ViewModels.ProductViewModel">
+            <summary>
+            Модель данных товара.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ProductViewModel.Id">
+            <summary>
+            Уникальный идентификатор.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ProductViewModel.Name">
+            <summary>
+            Наименование товара.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ProductViewModel.Price">
+            <summary>
+            Стоимость товара.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ProductViewModel.Category">
+            <summary>
+            Категория товара.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ProductViewModel.Description">
+            <summary>
+            Описание товара.
+            </summary>
+        </member>
+        <member name="M:CourseWork.WebApi.ViewModels.ProductViewModel.ToEntity">
+            <summary>
+            Преобразовать модель в сущность.
+            </summary>
+            <returns>Сущность.</returns>
+        </member>
+    </members>
+</doc>
