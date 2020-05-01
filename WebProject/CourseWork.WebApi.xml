@@ -4,6 +4,32 @@
         <name>CourseWork.WebApi</name>
     </assembly>
     <members>
+        <member name="M:CourseWork.WebApi.Controllers.ClientController.Clients">
+            <summary>
+            Получить список клиентов.
+            </summary>
+            <returns>Список клиентов.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.ClientController.AddClient(CourseWork.WebApi.ViewModels.ClientViewModel)">
+            <summary>
+            Добавить клиента.
+            </summary>
+            <param name="сlient">Клиент.</param>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.Orders">
+            <summary>
+            Получить список заказов.
+            </summary>
+            <returns>Список заказов.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.AddOrder(CourseWork.WebApi.ViewModels.OrderViewModel)">
+            <summary>
+            Добавить заказ.
+            </summary>
+            <param name="order">заказ.</param>
+            <returns>Ответ сервера.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.Products">
             <summary>
             Получить список товаров.
@@ -16,6 +42,88 @@
             </summary>
             <param name="product">Товар.</param>
             <returns>Ответ сервера.</returns>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.Id">
+            <summary>
+            Уникальный идентификатор.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.FirstName">
+            <summary>
+            Имя клиента.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.LastName">
+            <summary>
+            Фамилия клиента.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.SecondName">
+            <summary>
+            Отчество клиента.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.Access">
+            <summary>
+            Уровень доступа клиента.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.PhoneNumber">
+            <summary>
+            Номер телефона клиента.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.Email">
+            <summary>
+            Электронный почтовый адрес клиента.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.Orders">
+            <summary>
+            Список заказов клиента.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.Password">
+            <summary>
+            Пароль клиента.
+            </summary>
+        </member>
+        <member name="M:CourseWork.WebApi.ViewModels.ClientViewModel.ToEntity">
+            <summary>
+            Преобразовать модель в сущность.
+            </summary>
+            <returns>Сущность.</returns>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.Id">
+            <summary>
+            Уникальный идентификатор.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.Client">
+            <summary>
+            Клиент, которому заказ принадлежит.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.Basket">
+            <summary>
+            Корзина товаров заказа.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.Date">
+            <summary>
+            Дата заказа.
+            </summary>
+        </member>
+        <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.State">
+            <summary>
+            Статус заказа.
+            </summary>
+        </member>
+        <member name="M:CourseWork.WebApi.ViewModels.OrderViewModel.ToEntity">
+            <summary>
+            Преобразовать модель в сущность.
+            </summary>
+            <returns>Сущность.</returns>
         </member>
         <member name="T:CourseWork.WebApi.ViewModels.ProductViewModel">
             <summary>
