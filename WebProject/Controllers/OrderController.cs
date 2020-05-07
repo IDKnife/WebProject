@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Services.Interfaces;
 using CourseWork.WebApi.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseWork.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("DefaultPolicy")]
     [ApiController]
     public class OrderController : ControllerBase
     {

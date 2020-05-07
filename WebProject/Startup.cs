@@ -41,6 +41,14 @@ namespace CourseWork.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+            services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
+            {
+                builder
+                    .WithMethods("Access-Control-Allow-Methods,GET,POST,PUT,DELETE,PATCH,OPTIONS")
+                    .WithHeaders("Access-Control-Allow-Origin,Access-Control-Allow-Methods")
+                    .AllowAnyHeader()
+                    .WithOrigins("https://localhost:5011", "http://localhost:5010");
+            }));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -60,6 +68,7 @@ namespace CourseWork.WebApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             app.UseRouting();
+            app.UseCors();
             app.UseEndpoints(endPoints => endPoints.MapControllers());
         }
     }

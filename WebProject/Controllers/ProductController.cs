@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CourseWork.Services.Interfaces;
 using CourseWork.WebApi.ViewModels;
+using Microsoft.AspNetCore.Cors;
 
 namespace CourseWork.WebApi.Controllers
 {
@@ -26,6 +27,7 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Список товаров.</returns>
         [HttpGet]
         [Route("Products")]
+        [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(List<Product>),StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Products()
@@ -48,6 +50,7 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("AddProduct")]
+        [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddProduct([FromBody]ProductViewModel product)
