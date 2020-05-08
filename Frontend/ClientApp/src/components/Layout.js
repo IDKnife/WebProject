@@ -3,6 +3,8 @@ import { Container } from 'reactstrap';
 import { NavMenu } from './NavMenu';
 import { SearchTab } from './SearchTab';
 import { Categories } from './Categories';
+import { MainPage } from './MainPage';
+import './Layout.css';
 
 export class Layout extends Component {
     static displayName = Layout.name;
@@ -11,11 +13,13 @@ export class Layout extends Component {
         return (
             <div>
                 <Categories />
-                <NavMenu />
-                <SearchTab />
-                <Container>
-                    {this.props.children}
-                </Container>
+                <div id="top" >
+                    <NavMenu />
+                    <SearchTab />
+                    <div id="container">
+                        <MainPage />
+                    </div>
+                </div>
             </div>
         );
     }

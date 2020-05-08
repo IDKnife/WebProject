@@ -20,11 +20,12 @@ html {
 
 header {
     margin-top: 0;
-    display: inline-block !important;
 }
 
 #second-nav {
     height: 40px;
+    position: relative;
+    top: 40px;
 }
 
 #search {

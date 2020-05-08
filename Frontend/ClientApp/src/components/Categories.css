@@ -25,10 +25,18 @@ html {
 }
 
 #categories {
-    /*position: fixed;
-    left: 0;
-    top: 0;*/
-    display: inline-block !important;
-    width: 150px;
+    width: 100%;
     padding-left: 5px;
+    height: 100vh;
+    box-shadow: none;
+    border: solid lightgray 1px;
+    margin-bottom: 0 !important;
+}
+
+header {
+    width: 8%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
