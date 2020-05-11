@@ -1,0 +1,15 @@
+﻿body {
+}
+
+div, h1 {
+    color: black;
+}
+a {
+    display: inline-block !important;
+    padding: 0 !important;
+}
+
+p {
+    display: inline-block !important;
+    padding: 0 5px 0 5px;
+}

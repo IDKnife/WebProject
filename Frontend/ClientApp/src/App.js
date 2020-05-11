@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
-import { Home } from './components/Home';
+import { MainPage } from './components/MainPage';
 import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import { AddProduct } from './components/AddProduct';
+import { ProductPage } from './components/ProductPage';
+import { Deleted } from './components/Deleted'
 
 import './custom.css'
 
@@ -13,9 +15,10 @@ export default class App extends Component {
   render () {
     return (
       <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
+        <Route exact path='/' component={MainPage} />
+        <Route path='/add_product' component={AddProduct} />
+        <Route path='/product:id' component={ProductPage} />
+        <Route path='/deleted:id' component={Deleted} />
       </Layout>
     );
   }

@@ -28,17 +28,20 @@ namespace CourseWork.Repositories.Implementations
 
         public async Task DeleteEntity(Product entity)
         {
-            await Entities.DeleteOneAsync(new BsonDocument("_id", new ObjectId(entity.Id.ToString())));
+            var filter = Builders<Product>.Filter.Eq("_id", entity.Id);
+            await Entities.DeleteOneAsync(filter);
         }
 
         public async Task UpdateEntity(Product entity)
         {
-            await Entities.ReplaceOneAsync(new BsonDocument("_id", entity.Id.ToString()), entity);
+            var filter = Builders<Product>.Filter.Eq("_id", entity.Id);
+            await Entities.ReplaceOneAsync(filter, entity);
         }
 
         public async Task<Product> GetEntity(int id)
         {
-            return await Entities.Find(new BsonDocument("_id", new ObjectId(id.ToString()))).FirstOrDefaultAsync();
+            var filter = Builders<Product>.Filter.Eq("_id", id);
+            return await Entities.Find(filter).FirstOrDefaultAsync();
         }
     }
 }

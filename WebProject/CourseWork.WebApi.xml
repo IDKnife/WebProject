@@ -43,6 +43,17 @@
             <param name="product">Товар.</param>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.Product(System.Int32)">
+            <summary>
+            Получить товар по Id.
+            </summary>
+            <returns>Товар.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.Delete(CourseWork.WebApi.ViewModels.ProductViewModel)">
+            <summary>
+            Удалить товар.
+            </summary>
+        </member>
         <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.Id">
             <summary>
             Уникальный идентификатор.

@@ -65,5 +65,48 @@ namespace CourseWork.WebApi.Controllers
                 return BadRequest(e.ToString());
             }
         }
+
+        /// <summary>
+        /// Получить товар по Id.
+        /// </summary>
+        /// <returns>Товар.</returns>
+        [HttpGet]
+        [Route("GetProduct/{id?}")]
+        [EnableCors("DefaultPolicy")]
+        [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Product(int id)
+        {
+            try
+            {
+                var product = await _productService.GetProduct(id);
+                return Ok(product);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Удалить товар.
+        /// </summary>
+        [HttpPost]
+        [Route("DeleteProduct")]
+        [EnableCors("DefaultPolicy")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Delete([FromBody]ProductViewModel product)
+        {
+            try
+            {
+                await _productService.DeleteProduct(product.ToEntity() as Product);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
     }
 }

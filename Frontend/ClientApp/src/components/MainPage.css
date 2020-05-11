@@ -6,15 +6,17 @@ table {
 }
 
 tr {
-    display : flex;
-    justify-content : space-around;
+    margin-top: 10px;
+    display: flex;
 }
 
 td {
+    margin-right: 70px;
     height: 150px;
     width: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    border: solid lightgray 1px;
 }

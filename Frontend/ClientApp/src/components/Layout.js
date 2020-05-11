@@ -17,7 +17,9 @@ export class Layout extends Component {
                     <NavMenu />
                     <SearchTab />
                     <div id="container">
-                        <MainPage />
+                        <Container>
+                            {this.props.children}
+                        </Container>
                     </div>
                 </div>
             </div>
