@@ -26,15 +26,19 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Список товаров.</returns>
         [HttpGet]
-        [Route("Products")]
+        [Route("Products/{name?}/{category?}")]
         [EnableCors("DefaultPolicy")]
-        [ProducesResponseType(typeof(List<Product>),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Products()
+        public async Task<IActionResult> Products(string name = null, string category = null)
         {
             try
             {
-                var products = await _productService.GetProducts();
+                IList<Product> products;
+                if ((name != null) || (category != null))
+                    products = await _productService.GetProducts(name, category);
+                else
+                    products = await _productService.GetProducts();
                 return Ok(products);
             }
             catch (Exception e)
@@ -91,6 +95,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Удалить товар.
         /// </summary>
+        /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("DeleteProduct")]
         [EnableCors("DefaultPolicy")]
@@ -101,6 +106,29 @@ namespace CourseWork.WebApi.Controllers
             try
             {
                 await _productService.DeleteProduct(product.ToEntity() as Product);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Обновить товар.
+        /// </summary>
+        /// <param name="product">Товар.</param>
+        /// <returns>Ответ сервера.</returns>
+        [HttpPost]
+        [Route("UpdateProduct")]
+        [EnableCors("DefaultPolicy")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateProduct([FromBody]ProductViewModel product)
+        {
+            try
+            {
+                await _productService.UpdateProduct(product.ToEntity() as Product);
                 return Ok();
             }
             catch (Exception e)

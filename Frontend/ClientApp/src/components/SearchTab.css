@@ -31,3 +31,8 @@ header {
 #search {
     height: 25px;
 }
+
+#btn {
+    display: inline-block;
+    margin: 0;
+}

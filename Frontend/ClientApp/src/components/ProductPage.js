@@ -44,7 +44,7 @@ export class ProductPage extends Component {
                     <div><strong>Price</strong>:{product.price}</div>
                     <div><strong>Category</strong>:{product.category}</div>
                     <div><strong>Description</strong>:{product.description}</div>
-                    <NavLink tag={Link} to={ `/deleted${product.id}` }>Delete</NavLink><p>|</p><NavLink tag={Link} to={`/`}>Change</NavLink>
+                    <NavLink tag={Link} to={`/deleted${product.id}`}>Delete</NavLink><p>|</p><NavLink tag={Link} to={`/update_product${product.id}` }>Change</NavLink>
                 </div>
             );
         }

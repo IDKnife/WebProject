@@ -23,7 +23,7 @@ export class NavMenu extends Component {
 
     render() {
         return (
-            <header>
+            <header id="first">
                 <Navbar id="first-nav" className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Container>
                         <NavbarBrand>8(495)*******</NavbarBrand>
@@ -31,7 +31,7 @@ export class NavMenu extends Component {
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="#">Info</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/info">Info</NavLink>
                                 </NavItem>
                         { /*   <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="#">Delivery</NavLink>

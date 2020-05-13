@@ -8,11 +8,21 @@ export class SearchTab extends Component {
 
     constructor(props) {
         super(props);
-
+        this.onClick = this.onClick.bind(this);
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
             collapsed: true
         };
+    }
+
+    onClick() {
+        let elem = document.getElementById("search");
+        let url;
+        if (elem.value != "")
+            url = "https://localhost:5011/search-" + elem.value;
+        else
+            url = "https://localhost:5011/"
+        window.location.href = url;
     }
 
     toggleNavbar() {
@@ -26,11 +36,12 @@ export class SearchTab extends Component {
             <header>
                 <Navbar id="second-nav" className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Container>
-                        <NavbarBrand><input type="text" value="" placeholder="Search" id="search" autofocus/></NavbarBrand>
+                        <NavbarBrand><input type="text" placeholder="Search" id="search" autofocus /><p onClick=
+                            {this.onClick} id="btn"><b>Go!</b></p></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
-                         { /*   <NavItem>
+                                { /*   <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="#">User</NavLink>
                                 </NavItem>
                                 <NavItem>

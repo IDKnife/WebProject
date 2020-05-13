@@ -29,6 +29,19 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        public async Task<IList<Product>> GetProducts(string name, string category)
+        {
+            try
+            {
+                return await _repository.GetEntities(name, category);
+            }
+            catch (Exception e)
+            {
+                //ToDo: логирование
+                throw;
+            }
+        }
+
         public async Task AddProduct(Product entity)
         {
             try

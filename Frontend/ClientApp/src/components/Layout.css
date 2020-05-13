@@ -11,9 +11,14 @@
 #top header {
     display: block;
     width: 100%;
+    z-index: 0;
 }
 
 #container {
     position: relative;
     top: 80px;
+}
+
+#first {
+    z-index: 1 !important;
 }

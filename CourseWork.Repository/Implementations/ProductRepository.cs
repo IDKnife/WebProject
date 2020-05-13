@@ -21,6 +21,16 @@ namespace CourseWork.Repositories.Implementations
             return await Entities.Find(FilterDefinition<Product>.Empty).ToListAsync();
         }
 
+        public async Task<IList<Product>> GetEntities(string name, string category)
+        {
+            var filter1 = Builders<Product>.Filter.Regex("Name", new BsonRegularExpression(name));
+            var filter2 = Builders<Product>.Filter.Eq("Category", category);
+            if (category == null)
+                return await Entities.Find(filter1).ToListAsync();
+            else
+                return await Entities.Find(filter2).ToListAsync();
+        }
+
         public async Task AddEntity(Product entity)
         {
             await Entities.InsertOneAsync(entity);

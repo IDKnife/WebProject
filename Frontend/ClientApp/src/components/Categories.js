@@ -10,6 +10,7 @@ export class Categories extends Component {
         super(props);
 
         this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.onClick = this.onClick.bind(this);
         this.state = {
             collapsed: true
         };
@@ -19,6 +20,11 @@ export class Categories extends Component {
         this.setState({
             collapsed: !this.state.collapsed
         });
+    }
+
+    onClick(e) {
+        let url = "https://localhost:5011/category-" + e.target.innerHTML;
+        window.location.href = url;
     }
 
     render() {
@@ -33,19 +39,13 @@ export class Categories extends Component {
                                     <NavLink tag={Link} className="text-dark" to="/">All</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="#">Category 2</NavLink>
+                                    <NavLink tag={Link} className="text-dark" onClick={this.onClick}>Smartphone</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="#">Category 3</NavLink>
+                                    <NavLink tag={Link} className="text-dark" onClick={this.onClick}>Laptop</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="#">Category 4</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="#">Category 5</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="#">Category 6</NavLink>
+                                    <NavLink tag={Link} className="text-dark" onClick={this.onClick}>Tablet</NavLink>
                                 </NavItem>
                             </ul>
                         </Collapse>

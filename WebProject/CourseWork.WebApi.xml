@@ -30,7 +30,7 @@
             <param name="order">заказ.</param>
             <returns>Ответ сервера.</returns>
         </member>
-        <member name="M:CourseWork.WebApi.Controllers.ProductController.Products">
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.Products(System.String,System.String)">
             <summary>
             Получить список товаров.
             </summary>
@@ -53,6 +53,14 @@
             <summary>
             Удалить товар.
             </summary>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.UpdateProduct(CourseWork.WebApi.ViewModels.ProductViewModel)">
+            <summary>
+            Обновить товар.
+            </summary>
+            <param name="product">Товар.</param>
+            <returns>Ответ сервера.</returns>
         </member>
         <member name="P:CourseWork.WebApi.ViewModels.ClientViewModel.Id">
             <summary>

@@ -20,3 +20,9 @@ td {
     justify-content: space-between;
     border: solid lightgray 1px;
 }
+
+th {
+    border: solid lightgray 1px;
+    margin: 0 5px 0 5px;
+    height: 30px;
+}
