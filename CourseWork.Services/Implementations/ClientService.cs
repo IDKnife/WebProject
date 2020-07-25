@@ -42,11 +42,11 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task DeleteClient(Client entity)
+        public async Task DeleteClient(int id)
         {
             try
             {
-                await _repository.DeleteEntity(entity);
+                await _repository.DeleteEntity(id);
             }
             catch (Exception e)
             {

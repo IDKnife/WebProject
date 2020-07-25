@@ -10,7 +10,7 @@ namespace CourseWork.Services.Interfaces
     {
         Task<IList<Client>> GetClients();
         Task AddClient(Client entity);
-        Task DeleteClient(Client entity);
+        Task DeleteClient(int id);
         Task UpdateClient(Client entity);
         Task<Client> GetClient(int id);
     }

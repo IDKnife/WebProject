@@ -10,7 +10,7 @@ tr {
     display: flex;
 }
 
-td {
+.mainPageProducts {
     margin-right: 70px;
     height: 150px;
     width: 150px;
@@ -22,7 +22,10 @@ td {
 }
 
 th {
-    border: solid lightgray 1px;
     margin: 0 5px 0 5px;
     height: 30px;
+}
+img.sort {
+    width: 20px;
+    height: 20px;
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using Microsoft.AspNetCore.Http;
@@ -57,7 +56,7 @@ namespace CourseWork.WebApi.Controllers
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddProduct([FromBody]ProductViewModel product)
+        public async Task<IActionResult> AddProduct([FromBody] ProductViewModel product)
         {
             try
             {
@@ -101,11 +100,11 @@ namespace CourseWork.WebApi.Controllers
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete([FromBody]ProductViewModel product)
+        public async Task<IActionResult> Delete([FromBody]int id)
         {
             try
             {
-                await _productService.DeleteProduct(product.ToEntity() as Product);
+                await _productService.DeleteProduct(id);
                 return Ok();
             }
             catch (Exception e)
@@ -124,7 +123,7 @@ namespace CourseWork.WebApi.Controllers
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateProduct([FromBody]ProductViewModel product)
+        public async Task<IActionResult> UpdateProduct([FromBody] ProductViewModel product)
         {
             try
             {

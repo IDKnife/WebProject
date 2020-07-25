@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Repositories.Interfaces;
@@ -36,9 +34,9 @@ namespace CourseWork.Repositories.Implementations
             await Entities.InsertOneAsync(entity);
         }
 
-        public async Task DeleteEntity(Product entity)
+        public async Task DeleteEntity(int id)
         {
-            var filter = Builders<Product>.Filter.Eq("_id", entity.Id);
+            var filter = Builders<Product>.Filter.Eq("_id", id);
             await Entities.DeleteOneAsync(filter);
         }
 

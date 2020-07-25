@@ -3,7 +3,6 @@ import { Container } from 'reactstrap';
 import { NavMenu } from './NavMenu';
 import { SearchTab } from './SearchTab';
 import { Categories } from './Categories';
-import { MainPage } from './MainPage';
 import './Layout.css';
 
 export class Layout extends Component {

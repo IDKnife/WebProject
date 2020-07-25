@@ -1,10 +1,7 @@
-﻿body {
-}
-
-div, h1 {
+﻿div, h1 {
     color: black;
 }
-a {
+#deleteLink, #changeLink, #basketLink {
     display: inline-block !important;
     padding: 0 !important;
 }

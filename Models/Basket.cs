@@ -7,10 +7,10 @@ namespace CourseWork.Models
 {
     public class Basket
     {
-        public Dictionary<Product, int> Products { get; set; }
+        public List<ProductAndCount> Products { get; set; }
         public Basket()
         {
-            Products = new Dictionary<Product, int>();
+            Products = new List<ProductAndCount>();
         }
     }
 }

@@ -98,14 +98,26 @@ export class MainPage extends Component {
             return (
                 <table>
                     <tr>
-                        <p><b>Name:</b></p><th onClick={this.onClickAscendingName}>Ascending</th><th onClick={this.onClickDescendingName}>Descending</th>
-                        <p><b>Price:</b></p><th onClick={this.onClickAscendingPrice}>Ascending</th><th onClick={this.onClickDescendingPrice}>Descending</th>
+                        <p><b>Name:</b></p>
+                        <th onClick={this.onClickAscendingName}>
+                            <img class="sort" src="./images/up.png" />
+                        </th>
+                        <th onClick={this.onClickDescendingName}>
+                            <img class="sort" src="./images/down.png" />
+                        </th>
+                        <p><b>Price:</b></p>
+                        <th onClick={this.onClickAscendingPrice}>
+                            <img class="sort" src="./images/up.png" />
+                        </th>
+                        <th onClick={this.onClickDescendingPrice}>
+                            <img class="sort" src="./images/down.png" />
+                        </th>
                     </tr>
                     {parts.map((products) => (
                         <tr>
                             {products.map((product) => (
                                 <NavLink tag={Link} to={`/product${product.id}`} >
-                                    <td>
+                                    <td class="mainPageProducts">
                                         <div>{product.name}</div>
                                         <div>{product.description}</div>
                                         <div>{product.price}</div>

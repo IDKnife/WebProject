@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CourseWork.Repositories.Implementations;
+﻿using CourseWork.Repositories.Implementations;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Implementations;
 using CourseWork.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using Microsoft.OpenApi.Models;
 
@@ -36,6 +28,10 @@ namespace CourseWork.WebApi
             services.AddControllers();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IClientService, ClientService>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IOrderService, OrderService>();
             services.AddSingleton<IMongoDatabase>(client.GetDatabase(connection.DatabaseName)); 
             services.AddSwaggerGen(c =>
             {

@@ -10,8 +10,11 @@ namespace CourseWork.Services.Interfaces
     {
         Task<IList<Order>> GetOrders();
         Task AddOrder(Order entity);
-        Task DeleteOrder(Order entity);
+        Task DeleteOrder(int id);
         Task UpdateOrder(Order entity);
         Task<Order> GetOrder(int id);
+        Task AddProductToBasket(Product product, int orderId);
+        Task DeleteProductFromBasket(int productId, int orderId);
+        Task UpdateProductCountInBasket(int productId, int newCount, int orderId);
     }
 }

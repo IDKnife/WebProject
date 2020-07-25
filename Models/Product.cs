@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CourseWork.Models
+﻿namespace CourseWork.Models
 {
     public class Product : Entity
     {
         public string Name { get; set; }
         public double Price { get; set; }
+        //ToDo: Сделать категорию сущностью
         public string Category { get; set; }
         public string Description { get; set; }
 

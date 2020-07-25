@@ -42,11 +42,11 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task DeleteOrder(Order entity)
+        public async Task DeleteOrder(int id)
         {
             try
             {
-                await _repository.DeleteEntity(entity);
+                await _repository.DeleteEntity(id);
             }
             catch (Exception e)
             {
@@ -75,6 +75,53 @@ namespace CourseWork.Services.Implementations
                 return await _repository.GetEntity(id);
             }
             catch (Exception)
+            {
+                //ToDo: логирование
+                throw;
+            }
+        }
+
+        public async Task AddProductToBasket(Product product, int orderId)
+        {
+            try
+            {
+                var order = await _repository.GetEntity(orderId);
+                order.Basket.Products.Add(new ProductAndCount(product, 1));
+                await _repository.UpdateEntity(order);
+            }
+            catch (Exception e)
+            {
+                //ToDo: логирование
+                throw;
+            }
+        }
+
+        public async Task DeleteProductFromBasket(int productId, int orderId)
+        {
+            try
+            {
+                var order = await _repository.GetEntity(orderId);
+                var item = order.Basket.Products.Find(a => a.Product.Id == productId);
+                order.Basket.Products.Remove(item);
+                await _repository.UpdateEntity(order);
+            }
+            catch (Exception e)
+            {
+                //ToDo: логирование
+                throw;
+            }
+        }
+
+        public async Task UpdateProductCountInBasket(int productId, int newCount, int orderId)
+        {
+            try
+            {
+                var order = await _repository.GetEntity(orderId);
+                var item = order.Basket.Products.Find(a => a.Product.Id == productId);
+                item.Count = newCount;
+                await _repository.UpdateEntity(order);
+            }
+            catch (Exception e)
             {
                 //ToDo: логирование
                 throw;

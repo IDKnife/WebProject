@@ -44,6 +44,27 @@ namespace CourseWork.WebApi.Controllers
         }
 
         /// <summary>
+        /// Получить клиента.
+        /// </summary>
+        /// <returns>Клиент.</returns>
+        [HttpGet]
+        [Route("GetClient/{id?}")]
+        [ProducesResponseType(typeof(Client), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetClient(int id)
+        {
+            try
+            {
+                var client = await _clientService.GetClient(id);
+                return Ok(client);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
+
+        /// <summary>
         /// Добавить клиента.
         /// </summary>
         /// <param name="сlient">Клиент.</param>

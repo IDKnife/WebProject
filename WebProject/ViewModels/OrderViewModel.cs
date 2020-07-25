@@ -14,9 +14,9 @@ namespace CourseWork.WebApi.ViewModels
         /// </summary>
         public int Id { get; set; }
         /// <summary>
-        /// Клиент, которому заказ принадлежит.
+        /// Уникальный идентификатор клиента, которому заказ принадлежит.
         /// </summary>
-        public Client Client { get; set; }
+        public int ClientId { get; set; }
         /// <summary>
         /// Корзина товаров заказа.
         /// </summary>
@@ -35,7 +35,10 @@ namespace CourseWork.WebApi.ViewModels
         /// <returns>Сущность.</returns>
         public Entity ToEntity()
         {
-            return new Order(Client, Basket, Id, State, Date);
+            if (Basket.Products.Count != 0)
+                return new Order(ClientId, Basket, Id, State, Date);
+            else
+                return new Order(ClientId, Id);
         }
     }
 }

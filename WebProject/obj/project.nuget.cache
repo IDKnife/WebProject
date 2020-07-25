@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sS2GZ+94sBYgcFLJoP9j3fhF8rzUOPLQfb34CUBn3lt8Di4oXLltGk8AlobA4Audnko5xQqXe1trmRnd4QTyOg==",
+  "dgSpecHash": "rRcZlcCMFdtvysahKVpmgUgQT4wVLS10tOMQK+Msc6q6wEhHTbVAWIVPWoXgeG681evKRpa1OvQJTDPlPd8v0w==",
   "success": true,
   "projectFilePath": "D:\\fu\\c#\\WebProject\\WebProject\\CourseWork.WebApi.csproj",
   "expectedPackageFiles": [
@@ -143,7 +143,8 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.threadpool\\4.3.0\\system.threading.threadpool.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

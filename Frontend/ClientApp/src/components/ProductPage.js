@@ -9,15 +9,21 @@ export class ProductPage extends Component {
 
     constructor(props) {
         super(props);
-
+        this.onClickAddToBasket = this.onClickAddToBasket.bind(this);
         this.state = {
             product: {},
             IsLoaded: false,
         };
     }
 
-
-
+    onClickAddToBasket() {
+        axios.post("https://localhost:5001/api/Order/AddProductToBasket/0", this.state.product);
+        let elem = document.getElementById("basketCost");
+        let cost = +elem.innerText + this.state.product.price;
+        elem.innerText = cost.toFixed(2);
+        alert("Added.");
+    }
+    
     async componentDidMount() {
         let url = `https://localhost:5001/api/Product/GetProduct/` + `${this.props.match.params.id}`
         await axios.get(url)
@@ -44,7 +50,11 @@ export class ProductPage extends Component {
                     <div><strong>Price</strong>:{product.price}</div>
                     <div><strong>Category</strong>:{product.category}</div>
                     <div><strong>Description</strong>:{product.description}</div>
-                    <NavLink tag={Link} to={`/deleted${product.id}`}>Delete</NavLink><p>|</p><NavLink tag={Link} to={`/update_product${product.id}` }>Change</NavLink>
+                    <NavLink tag={Link} id="deleteLink" to={`/deleted${product.id}`}>Delete</NavLink>
+                    <p>|</p>
+                    <NavLink id="changeLink" tag={Link} to={`/update_product${product.id}`}>Change</NavLink>
+                    <p>|</p>
+                    <NavLink id="basketLink" onClick={this.onClickAddToBasket} tag={Link}>Add to basket</NavLink>
                 </div>
             );
         }

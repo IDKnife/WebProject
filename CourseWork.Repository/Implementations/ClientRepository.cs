@@ -27,19 +27,22 @@ namespace CourseWork.Repositories.Implementations
             await Entities.InsertOneAsync(entity);
         }
 
-        public async Task DeleteEntity(Client entity)
+        public async Task DeleteEntity(int id)
         {
-            await Entities.DeleteOneAsync(new BsonDocument("_id", new ObjectId(entity.Id.ToString())));
+            var filter = Builders<Client>.Filter.Eq("_id", id);
+            await Entities.DeleteOneAsync(filter);
         }
 
         public async Task UpdateEntity(Client entity)
         {
-            await Entities.ReplaceOneAsync(new BsonDocument("_id", entity.Id.ToString()), entity);
+            var filter = Builders<Client>.Filter.Eq("_id", entity.Id);
+            await Entities.ReplaceOneAsync(filter, entity);
         }
 
         public async Task<Client> GetEntity(int id)
         {
-            return await Entities.Find(new BsonDocument("_id", new ObjectId(id.ToString()))).FirstOrDefaultAsync();
+            var filter = Builders<Client>.Filter.Eq("_id", id);
+            return await Entities.Find(filter).FirstOrDefaultAsync();
         }
     }
 }

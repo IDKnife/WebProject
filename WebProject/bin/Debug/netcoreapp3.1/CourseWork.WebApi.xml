@@ -10,6 +10,12 @@
             </summary>
             <returns>Список клиентов.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.ClientController.GetClient(System.Int32)">
+            <summary>
+            Получить клиента.
+            </summary>
+            <returns>Клиент.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.ClientController.AddClient(CourseWork.WebApi.ViewModels.ClientViewModel)">
             <summary>
             Добавить клиента.
@@ -23,11 +29,47 @@
             </summary>
             <returns>Список заказов.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.Order(System.Int32)">
+            <summary>
+            Получить заказ.
+            </summary>
+            <returns>Заказ.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.AddOrder(CourseWork.WebApi.ViewModels.OrderViewModel)">
             <summary>
             Добавить заказ.
             </summary>
             <param name="order">заказ.</param>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.AddProductToBusket(CourseWork.WebApi.ViewModels.ProductViewModel,System.Int32)">
+            <summary>
+            Добавить продукт в корзину.
+            </summary>
+            <param name="product">Продукт</param>
+            <param name="orderId">Уникальный идентификатор заказа</param>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.DeleteProductFromBasket(System.Int32,System.Int32)">
+            <summary>
+            Удалить продукт из корзины.
+            </summary>
+            <param name="productId">Уникальный идентификатор продукта</param>
+            <param name="orderId">Уникальный идентификатор заказа</param>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.UpdateProductCountInBasket(System.Int32[],System.Int32)">
+            <summary>
+            Обновить количество единиц продукта в корзине.
+            </summary>
+            <param name="productIdAndNewCount">Массив, содержащий уникальный идентификатор продукта и его новое количество единиц</param>
+            <param name="orderId">Уникальный идентификатор заказа</param>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.Delete(System.Int32)">
+            <summary>
+            Удалить заказ.
+            </summary>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.Products(System.String,System.String)">
@@ -49,7 +91,7 @@
             </summary>
             <returns>Товар.</returns>
         </member>
-        <member name="M:CourseWork.WebApi.Controllers.ProductController.Delete(CourseWork.WebApi.ViewModels.ProductViewModel)">
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.Delete(System.Int32)">
             <summary>
             Удалить товар.
             </summary>
@@ -118,9 +160,9 @@
             Уникальный идентификатор.
             </summary>
         </member>
-        <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.Client">
+        <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.ClientId">
             <summary>
-            Клиент, которому заказ принадлежит.
+            Уникальный идентификатор клиента, которому заказ принадлежит.
             </summary>
         </member>
         <member name="P:CourseWork.WebApi.ViewModels.OrderViewModel.Basket">

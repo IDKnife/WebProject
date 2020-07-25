@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "y+SPXu07XtNXH5qAWCAzCsLBTorr0pJkjU1bYK7RBBCaDDHuV6bXAORvgIHbTF0/BasOPozVd0xY/NCS6aeA5g==",
+  "dgSpecHash": "e4+EFgLlBT4amBsiUaLtL7zJ2MPzcrZ9qWRVBwbA6zPFrxBGAQz1nhkoAFsNlfbwVJykJO5SN45JQt4Qbud2cQ==",
   "success": true,
   "projectFilePath": "D:\\fu\\c#\\WebProject\\Models\\CourseWork.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }

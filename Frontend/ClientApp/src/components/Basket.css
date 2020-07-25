@@ -1,0 +1,11 @@
+﻿.basketElement {
+    width: 100%;
+}
+
+.basketElement td {
+    width: 25%;
+}
+
+.productCount {
+    width: 60px;
+}

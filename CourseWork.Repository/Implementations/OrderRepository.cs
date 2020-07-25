@@ -13,7 +13,7 @@ namespace CourseWork.Repositories.Implementations
     {
         public OrderRepository(IMongoDatabase database) : base(database)
         {
-            Entities = database.GetCollection<Order>("Clients");
+            Entities = database.GetCollection<Order>("Orders");
         }
 
         public async Task<IList<Order>> GetEntities()
@@ -26,19 +26,22 @@ namespace CourseWork.Repositories.Implementations
             await Entities.InsertOneAsync(entity);
         }
 
-        public async Task DeleteEntity(Order entity)
+        public async Task DeleteEntity(int id)
         {
-            await Entities.DeleteOneAsync(new BsonDocument("_id", new ObjectId(entity.Id.ToString())));
+            var filter = Builders<Order>.Filter.Eq("_id", id);
+            await Entities.DeleteOneAsync(filter);
         }
 
         public async Task UpdateEntity(Order entity)
         {
-            await Entities.ReplaceOneAsync(new BsonDocument("_id", entity.Id.ToString()), entity);
+            var filter = Builders<Order>.Filter.Eq("_id", entity.Id);
+            await Entities.ReplaceOneAsync(filter, entity);
         }
 
         public async Task<Order> GetEntity(int id)
         {
-            return await Entities.Find(new BsonDocument("_id", new ObjectId(id.ToString()))).FirstOrDefaultAsync();
+            var filter = Builders<Order>.Filter.Eq("_id", id);
+            return await Entities.Find(filter).FirstOrDefaultAsync();
         }
     }
 }

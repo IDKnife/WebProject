@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Repositories.Interfaces;
@@ -55,11 +54,11 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task DeleteProduct(Product entity)
+        public async Task DeleteProduct(int id)
         {
             try
             {
-                await _repository.DeleteEntity(entity);
+                await _repository.DeleteEntity(id);
             }
             catch (Exception e)
             {
