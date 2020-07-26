@@ -11,10 +11,16 @@ export class Basket extends Component {
         super(props);
         this.onChange = this.onChange.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
+        this.toProduct = this.toProduct.bind(this);
         this.state = {
             order: {},
             IsLoaded: false,
         };
+    }
+
+    toProduct(e) {
+        let url = "https://localhost:5011/product" + e.target.nextSibling.nextSibling.nextSibling.id;
+        window.location.href = url;
     }
 
     onChange(e) {
@@ -80,7 +86,7 @@ export class Basket extends Component {
                         </tr>
                         {order.basket.products.map((element) => (
                             <tr class="basketElement">
-                                <td>
+                                <td onClick={this.toProduct}>
                                     {element.product.name}
                                 </td>
                                 <td>
