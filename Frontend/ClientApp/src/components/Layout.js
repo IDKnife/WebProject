@@ -8,13 +8,21 @@ import './Layout.css';
 export class Layout extends Component {
     static displayName = Layout.name;
 
+    constructor(props) {
+        super(props);
+        //this.handleOrderChange = this.handleOrderChange.bind(this);
+        this.state = {
+            order: { name:"some" },
+        }
+    }
+
     render() {
         return (
             <div>
                 <Categories />
                 <div id="top" >
                     <NavMenu />
-                    <SearchTab />
+                    <SearchTab order={this.state.order} />
                     <div id="container">
                         <Container>
                             {this.props.children}

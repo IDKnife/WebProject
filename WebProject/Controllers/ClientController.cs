@@ -85,5 +85,28 @@ namespace CourseWork.WebApi.Controllers
                 return BadRequest(e.ToString());
             }
         }
+
+        /// <summary>
+        /// Добавить заказ в список заказов клиента.
+        /// </summary>
+        /// <param name="order">Заказ.</param>
+        /// <param name="clientId">Уникальный идентификатор клиента.</param>
+        /// <returns>Ответ сервера.</returns>
+        [HttpPost]
+        [Route("AddOrderToList/{clientId?}")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> AddOrderToClientList([FromBody] OrderViewModel order, int clientId)
+        {
+            try
+            {
+                await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
     }
 }

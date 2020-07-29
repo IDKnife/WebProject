@@ -2,6 +2,7 @@
 import axios from "C:/Users/ArhiS/node_modules/axios";
 import { Link } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
+import { Basket } from './Basket';
 import './ProductPage.css';
 
 export class ProductPage extends Component {

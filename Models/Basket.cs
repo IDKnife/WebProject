@@ -12,5 +12,10 @@ namespace CourseWork.Models
         {
             Products = new List<ProductAndCount>();
         }
+
+        public Basket(List<ProductAndCount> products)
+        {
+            Products = products;
+        }
     }
 }

@@ -31,6 +31,11 @@ export class SearchTab extends Component {
         });
     }
 
+    componentDidMount() {
+
+        console.log(this.props.order);
+    }
+
     render() {
         return (
             <header>

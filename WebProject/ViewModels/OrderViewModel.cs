@@ -20,7 +20,7 @@ namespace CourseWork.WebApi.ViewModels
         /// <summary>
         /// Корзина товаров заказа.
         /// </summary>
-        public Basket Basket { get; set; }
+        public BasketViewModel Basket { get; set; }
         /// <summary>
         /// Дата заказа.
         /// </summary>
@@ -36,7 +36,7 @@ namespace CourseWork.WebApi.ViewModels
         public Entity ToEntity()
         {
             if (Basket.Products.Count != 0)
-                return new Order(ClientId, Basket, Id, State, Date);
+                return new Order(ClientId, Basket.ToEntity(), Id, State, Date);
             else
                 return new Order(ClientId, Id);
         }

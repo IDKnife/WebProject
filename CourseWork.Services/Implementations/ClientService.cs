@@ -80,5 +80,20 @@ namespace CourseWork.Services.Implementations
                 throw;
             }
         }
+
+        public async Task AddOrderToClientList(Order order, int clientId)
+        {
+            try
+            {
+                var client = await _repository.GetEntity(clientId);
+                client.Orders.Add(order);
+                await _repository.UpdateEntity(client);
+            }
+            catch (Exception)
+            {
+                //ToDo: логирование
+                throw;
+            }
+        }
     }
 }

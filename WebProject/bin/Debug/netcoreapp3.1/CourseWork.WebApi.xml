@@ -23,6 +23,14 @@
             <param name="сlient">Клиент.</param>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.ClientController.AddOrderToClientList(CourseWork.WebApi.ViewModels.OrderViewModel,System.Int32)">
+            <summary>
+            Добавить заказ в список заказов клиента.
+            </summary>
+            <param name="order">Заказ.</param>
+            <param name="clientId">Уникальный идентификатор клиента.</param>
+            <returns>Ответ сервера.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.Orders">
             <summary>
             Получить список заказов.

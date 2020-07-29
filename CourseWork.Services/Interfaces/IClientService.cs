@@ -13,5 +13,6 @@ namespace CourseWork.Services.Interfaces
         Task DeleteClient(int id);
         Task UpdateClient(Client entity);
         Task<Client> GetClient(int id);
+        Task AddOrderToClientList(Order order, int clientId);
     }
 }
