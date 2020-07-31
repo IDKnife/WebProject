@@ -12,10 +12,6 @@ export class Basket extends Component {
         this.onChange = this.onChange.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
         this.toProduct = this.toProduct.bind(this);
-        this.state = {
-            order: {},
-            IsLoaded: false,
-        };
     }
 
     toProduct(e) {
@@ -25,35 +21,24 @@ export class Basket extends Component {
 
     onChange(e) {
         axios.post(`https://localhost:5001/api/Order/UpdateProductCountInBasket/0`, [+e.target.id.slice(12), +e.target.value], { headers: { 'Content-Type': 'application/json' } });
+        this.props.onOrderChange();
     }
 
     onClickDelete(e) {
         axios.post(`https://localhost:5001/api/Order/DeleteProductFromBasket/0`, e.target.id, { headers: { 'Content-Type': 'application/json' } });
-        let index = this.state.order.basket.products.findIndex((item) => (item.product.id == e.target.id));
-        let item = this.state.order.basket.products.find((item) => (item.product.id == e.target.id));
-        this.state.order.basket.products.splice(index, 1);
-        this.setState({ IsLoaded: true, order: this.state.order });
-        let elem = document.getElementById("basketCost");
-        let cost = +elem.innerText - item.product.price;
-        elem.innerText = cost.toFixed(2);
+        this.props.onOrderChange();
     }
 
     async componentDidMount() {
-        let url = `https://localhost:5001/api/Order/GetOrder/0`;
-        await axios.get(url)
-            .then(res => res.data)
-            .then((data) => {
-                this.setState({ IsLoaded: true, order: data })
-            })
-            .catch(console.log);
-        this.state.order.basket.products.forEach((item) => {
+        this.props.order.basket.products.forEach((item) => {
             let elem = document.getElementById("productCount" + item.product.id);
             elem.value = String(item.count);
         });
     }
 
     render() {
-        var { IsLoaded, order } = this.state;
+        let IsLoaded = this.props.IsLoaded;
+        let order = this.props.order;
         if (!IsLoaded) {
             return (
                 <p>

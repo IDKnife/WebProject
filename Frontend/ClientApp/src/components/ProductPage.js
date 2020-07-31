@@ -19,9 +19,7 @@ export class ProductPage extends Component {
 
     onClickAddToBasket() {
         axios.post("https://localhost:5001/api/Order/AddProductToBasket/0", this.state.product);
-        let elem = document.getElementById("basketCost");
-        let cost = +elem.innerText + this.state.product.price;
-        elem.innerText = cost.toFixed(2);
+        this.props.onOrderChange();
         alert("Added.");
     }
     
