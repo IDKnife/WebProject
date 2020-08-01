@@ -2,10 +2,22 @@
     width: 100%;
 }
 
-.basketElement td {
-    width: 25%;
-}
+    .basketElement td {
+        width: 25%;
+    }
 
 .productCount {
     width: 60px;
+}
+
+.btn {
+    border: solid black 1px;
+    height: 30px;
+    width: 150px;
+    padding: 0;
+    background-color: azure;
+}
+
+.btn:hover {
+    font-weight: bold;
 }

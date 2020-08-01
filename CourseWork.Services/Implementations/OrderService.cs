@@ -127,5 +127,22 @@ namespace CourseWork.Services.Implementations
                 throw;
             }
         }
+
+        public async Task<double> GetPriceOfBasket(int id)
+        {
+            try
+            {
+                var order = await _repository.GetEntity(id);
+                double price = 0;
+                foreach (var item in order.Basket.Products)
+                    price += (item.Product.Price * item.Count);
+                return price;
+            }
+            catch (Exception e)
+            {
+                //ToDo: логирование
+                throw;
+            }
+        }
     }
 }

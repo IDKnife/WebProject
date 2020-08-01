@@ -41,6 +41,7 @@
             <summary>
             Получить заказ.
             </summary>
+            <param name="id">Уникальный идентификатор заказа.</param>
             <returns>Заказ.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.AddOrder(CourseWork.WebApi.ViewModels.OrderViewModel)">
@@ -73,6 +74,13 @@
             <param name="productIdAndNewCount">Массив, содержащий уникальный идентификатор продукта и его новое количество единиц</param>
             <param name="orderId">Уникальный идентификатор заказа</param>
             <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.GetPriceOfBasket(System.Int32)">
+            <summary>
+            Получить цену корзины.
+            </summary>
+            <param name="id">Уникальный идентификатор заказа.</param>
+            <returns>Цена корзины.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.Delete(System.Int32)">
             <summary>

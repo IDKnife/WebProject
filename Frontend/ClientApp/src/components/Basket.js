@@ -12,6 +12,15 @@ export class Basket extends Component {
         this.onChange = this.onChange.bind(this);
         this.onClickDelete = this.onClickDelete.bind(this);
         this.toProduct = this.toProduct.bind(this);
+        this.Checkout = this.Checkout.bind(this);
+        this.state = {
+            order: {},
+            IsLoaded: false,
+        };
+    }
+
+    Checkout() {
+        axios.post(`https://localhost:5001/api/Client/AddOrderToList/0`, this.state.order);
     }
 
     toProduct(e) {
@@ -19,26 +28,39 @@ export class Basket extends Component {
         window.location.href = url;
     }
 
-    onChange(e) {
-        axios.post(`https://localhost:5001/api/Order/UpdateProductCountInBasket/0`, [+e.target.id.slice(12), +e.target.value], { headers: { 'Content-Type': 'application/json' } });
-        this.props.onOrderChange();
+    async onChange(e) {
+        await axios.post(`https://localhost:5001/api/Order/UpdateProductCountInBasket/0`, [+e.target.id.slice(12), +e.target.value], { headers: { 'Content-Type': 'application/json' } });
+        await this.props.onOrderChange();
     }
 
-    onClickDelete(e) {
-        axios.post(`https://localhost:5001/api/Order/DeleteProductFromBasket/0`, e.target.id, { headers: { 'Content-Type': 'application/json' } });
-        this.props.onOrderChange();
+    async onClickDelete(e) {
+        await axios.post(`https://localhost:5001/api/Order/DeleteProductFromBasket/0`, e.target.id, { headers: { 'Content-Type': 'application/json' } });
+        await axios.get(`https://localhost:5001/api/Order/GetOrder/0`)
+            .then(res => res.data)
+            .then((data) => {
+                this.setState({ IsLoaded: true, order: data })
+            })
+            .catch(console.log);
+        await this.props.onOrderChange();
     }
 
     async componentDidMount() {
-        this.props.order.basket.products.forEach((item) => {
+        let url = `https://localhost:5001/api/Order/GetOrder/0`;
+        await axios.get(url)
+            .then(res => res.data)
+            .then((data) => {
+                this.setState({ IsLoaded: true, order: data })
+            })
+            .catch(console.log);
+        await this.props.onOrderChange();
+        this.state.order.basket.products.forEach((item) => {
             let elem = document.getElementById("productCount" + item.product.id);
             elem.value = String(item.count);
         });
     }
 
     render() {
-        let IsLoaded = this.props.IsLoaded;
-        let order = this.props.order;
+        var { IsLoaded, order } = this.state;
         if (!IsLoaded) {
             return (
                 <p>
@@ -86,6 +108,7 @@ export class Basket extends Component {
                             </tr>
                         ))}
                     </table>
+                    <div class="btn" onClick={this.Checkout}>Checkout</div>
                 </div>
             );
         }

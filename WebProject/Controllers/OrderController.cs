@@ -47,6 +47,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Получить заказ.
         /// </summary>
+        /// <param name="id">Уникальный идентификатор заказа.</param>
         /// <returns>Заказ.</returns>
         [HttpGet]
         [Route("GetOrder/{id?}")]
@@ -150,6 +151,28 @@ namespace CourseWork.WebApi.Controllers
             {
                 await _orderService.UpdateProductCountInBasket(productIdAndNewCount[0], productIdAndNewCount[1], orderId);
                 return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Получить цену корзины.
+        /// </summary>
+        /// <param name="id">Уникальный идентификатор заказа.</param>
+        /// <returns>Цена корзины.</returns>
+        [HttpGet]
+        [Route("GetPriceOfBasket/{id?}")]
+        [ProducesResponseType(typeof(double), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetPriceOfBasket(int id)
+        {
+            try
+            {
+                var price = await _orderService.GetPriceOfBasket(id);
+                return Ok(price);
             }
             catch (Exception e)
             {

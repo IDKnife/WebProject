@@ -17,10 +17,9 @@ export class ProductPage extends Component {
         };
     }
 
-    onClickAddToBasket() {
-        axios.post("https://localhost:5001/api/Order/AddProductToBasket/0", this.state.product);
-        this.props.onOrderChange();
-        alert("Added.");
+    async onClickAddToBasket() {
+        await axios.post("https://localhost:5001/api/Order/AddProductToBasket/0", this.state.product);
+        await this.props.onOrderChange();
     }
     
     async componentDidMount() {

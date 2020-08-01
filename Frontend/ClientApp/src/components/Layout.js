@@ -15,7 +15,7 @@ export class Layout extends Component {
                 <Categories />
                 <div id="top" >
                     <NavMenu />
-                    <SearchTab order={this.props.order} onOrderChange={this.props.onOrderChange}/>
+                    <SearchTab/>
                     <div id="container">
                         <Container>
                             {this.props.children}

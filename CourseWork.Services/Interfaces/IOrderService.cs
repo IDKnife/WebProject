@@ -16,5 +16,6 @@ namespace CourseWork.Services.Interfaces
         Task AddProductToBasket(Product product, int orderId);
         Task DeleteProductFromBasket(int productId, int orderId);
         Task UpdateProductCountInBasket(int productId, int newCount, int orderId);
+        Task<double> GetPriceOfBasket(int id);
     }
 }
