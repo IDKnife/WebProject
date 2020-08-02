@@ -12,6 +12,19 @@ namespace CourseWork.Models
         public DateTime Date { get; set; }
         public OrderState State { get; set; }
 
+
+        public double GetPriceOfOrder() => Basket.Products.Sum(item => item.Product.Price * item.Count);
+
+        public void UpdateProductCountInOrder(int productId, int newCount) =>
+            Basket.Products.Find(a => a.Product.Id == productId)
+                .Count = newCount;
+
+        public void DeleteProductFromOrder(int productId)
+        {
+            var item = Basket.Products.Find(a => a.Product.Id == productId);
+            Basket.Products.Remove(item);
+        }
+        public void AddProductToOrder(Product product) => Basket.Products.Add(new ProductAndCount(product, 1));
         public Order(int clientId, int id) : base(id)
         {
             ClientId = clientId;

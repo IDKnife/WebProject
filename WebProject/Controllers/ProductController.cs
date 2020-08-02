@@ -58,15 +58,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddProduct([FromBody] ProductViewModel product)
         {
-            try
-            {
-                await _productService.AddProduct(product.ToEntity() as Product);
+            var result = await _productService.AddProduct(product.ToEntity() as Product);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -74,7 +69,7 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Товар.</returns>
         [HttpGet]
-        [Route("GetProduct/{id?}")]
+        [Route("GetProduct/{id}")]
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -96,21 +91,16 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
-        [Route("DeleteProduct")]
+        [Route("DeleteProduct/{id}")]
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete([FromBody]int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                await _productService.DeleteProduct(id);
+            var result = await _productService.DeleteProduct(id);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -125,15 +115,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductViewModel product)
         {
-            try
-            {
-                await _productService.UpdateProduct(product.ToEntity() as Product);
+            var result = await _productService.UpdateProduct(product.ToEntity() as Product);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
     }
 }

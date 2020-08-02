@@ -51,7 +51,7 @@
             <param name="order">заказ.</param>
             <returns>Ответ сервера.</returns>
         </member>
-        <member name="M:CourseWork.WebApi.Controllers.OrderController.AddProductToBusket(CourseWork.WebApi.ViewModels.ProductViewModel,System.Int32)">
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.AddProductToOrder(CourseWork.WebApi.ViewModels.ProductViewModel,System.Int32)">
             <summary>
             Добавить продукт в корзину.
             </summary>
@@ -59,23 +59,24 @@
             <param name="orderId">Уникальный идентификатор заказа</param>
             <returns>Ответ сервера.</returns>
         </member>
-        <member name="M:CourseWork.WebApi.Controllers.OrderController.DeleteProductFromBasket(System.Int32,System.Int32)">
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.DeleteProductFromOrder(System.Int32,System.Int32)">
             <summary>
             Удалить продукт из корзины.
             </summary>
+            <param name="orderId">Уникальный идентификатор заказа</param>
+            <param name="productId">Уникальный идентификатор продукта</param>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.UpdateProductCountInOrder(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Обновить количество единиц продукта в корзине.
+            </summary>
+            <param name="newCount">Новое количество единиц продукта</param>
             <param name="productId">Уникальный идентификатор продукта</param>
             <param name="orderId">Уникальный идентификатор заказа</param>
             <returns>Ответ сервера.</returns>
         </member>
-        <member name="M:CourseWork.WebApi.Controllers.OrderController.UpdateProductCountInBasket(System.Int32[],System.Int32)">
-            <summary>
-            Обновить количество единиц продукта в корзине.
-            </summary>
-            <param name="productIdAndNewCount">Массив, содержащий уникальный идентификатор продукта и его новое количество единиц</param>
-            <param name="orderId">Уникальный идентификатор заказа</param>
-            <returns>Ответ сервера.</returns>
-        </member>
-        <member name="M:CourseWork.WebApi.Controllers.OrderController.GetPriceOfBasket(System.Int32)">
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder(System.Int32)">
             <summary>
             Получить цену корзины.
             </summary>

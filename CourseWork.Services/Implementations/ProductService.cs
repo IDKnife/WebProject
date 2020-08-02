@@ -41,42 +41,45 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task AddProduct(Product entity)
+        public async Task<ServiceOperationResult> AddProduct(Product entity)
         {
             try
             {
                 await _repository.AddEntity(entity);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task DeleteProduct(int id)
+        public async Task<ServiceOperationResult> DeleteProduct(int id)
         {
             try
             {
                 await _repository.DeleteEntity(id);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task UpdateProduct(Product entity)
+        public async Task<ServiceOperationResult> UpdateProduct(Product entity)
         {
             try
             {
                 await _repository.UpdateEntity(entity);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 

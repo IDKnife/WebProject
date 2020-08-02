@@ -29,42 +29,45 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task AddClient(Client entity)
+        public async Task<ServiceOperationResult> AddClient(Client entity)
         {
             try
             {
                 await _repository.AddEntity(entity);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task DeleteClient(int id)
+        public async Task<ServiceOperationResult> DeleteClient(int id)
         {
             try
             {
                 await _repository.DeleteEntity(id);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}"); 
             }
         }
 
-        public async Task UpdateClient(Client entity)
+        public async Task<ServiceOperationResult> UpdateClient(Client entity)
         {
             try
             {
                 await _repository.UpdateEntity(entity);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
@@ -74,25 +77,26 @@ namespace CourseWork.Services.Implementations
             {
                 return await _repository.GetEntity(id);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //ToDo: логирование
                 throw;
             }
         }
 
-        public async Task AddOrderToClientList(Order order, int clientId)
+        public async Task<ServiceOperationResult> AddOrderToClientList(Order order, int clientId)
         {
             try
             {
                 var client = await _repository.GetEntity(clientId);
                 client.Orders.Add(order);
                 await _repository.UpdateEntity(client);
+                return new ServiceOperationResult(true, "Success");
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
     }

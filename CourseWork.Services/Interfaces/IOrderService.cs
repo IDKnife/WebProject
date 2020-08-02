@@ -9,13 +9,13 @@ namespace CourseWork.Services.Interfaces
     public interface IOrderService
     {
         Task<IList<Order>> GetOrders();
-        Task AddOrder(Order entity);
-        Task DeleteOrder(int id);
-        Task UpdateOrder(Order entity);
+        Task<ServiceOperationResult> AddOrder(Order entity);
+        Task<ServiceOperationResult> DeleteOrder(int id);
+        Task<ServiceOperationResult> UpdateOrder(Order entity);
         Task<Order> GetOrder(int id);
-        Task AddProductToBasket(Product product, int orderId);
-        Task DeleteProductFromBasket(int productId, int orderId);
-        Task UpdateProductCountInBasket(int productId, int newCount, int orderId);
-        Task<double> GetPriceOfBasket(int id);
+        Task<ServiceOperationResult> AddProductToOrder(Product product, int orderId);
+        Task<ServiceOperationResult> DeleteProductFromOrder(int productId, int orderId);
+        Task<ServiceOperationResult> UpdateProductCountInOrder(int productId, int newCount, int orderId);
+        Task<double> GetPriceOfOrder(int id);
     }
 }

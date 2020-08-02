@@ -48,7 +48,7 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Клиент.</returns>
         [HttpGet]
-        [Route("GetClient/{id?}")]
+        [Route("GetClient/{id}")]
         [ProducesResponseType(typeof(Client), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetClient(int id)
@@ -75,15 +75,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddClient([FromBody]ClientViewModel сlient)
         {
-            try
-            {
-                await _clientService.AddClient(сlient.ToEntity() as Client);
+            var result = await _clientService.AddClient(сlient.ToEntity() as Client);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -93,20 +88,15 @@ namespace CourseWork.WebApi.Controllers
         /// <param name="clientId">Уникальный идентификатор клиента.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
-        [Route("AddOrderToList/{clientId?}")]
+        [Route("AddOrderToList/{clientId}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddOrderToClientList([FromBody] OrderViewModel order, int clientId)
         {
-            try
-            {
-                await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
+            var result = await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
     }
 }

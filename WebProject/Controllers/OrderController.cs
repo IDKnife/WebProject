@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Services.Interfaces;
@@ -8,7 +7,6 @@ using CourseWork.WebApi.ViewModels;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 
 namespace CourseWork.WebApi.Controllers
 {
@@ -50,7 +48,7 @@ namespace CourseWork.WebApi.Controllers
         /// <param name="id">Уникальный идентификатор заказа.</param>
         /// <returns>Заказ.</returns>
         [HttpGet]
-        [Route("GetOrder/{id?}")]
+        [Route("GetOrder/{id}")]
         [ProducesResponseType(typeof(Order), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Order(int id)
@@ -77,15 +75,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddOrder([FromBody] OrderViewModel order)
         {
-            try
-            {
-                await _orderService.AddOrder(order.ToEntity() as Order);
+            var result = await _orderService.AddOrder(order.ToEntity() as Order);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -95,67 +88,52 @@ namespace CourseWork.WebApi.Controllers
         /// <param name="orderId">Уникальный идентификатор заказа</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
-        [Route("AddProductToBasket/{orderId?}")]
+        [Route("AddProductToOrder/{orderId}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddProductToBusket([FromBody] ProductViewModel product, int orderId)
+        public async Task<IActionResult> AddProductToOrder([FromBody] ProductViewModel product, int orderId)
         {
-            try
-            {
-                
-                await _orderService.AddProductToBasket(product.ToEntity() as Product, orderId);
+            var result = await _orderService.AddProductToOrder(product.ToEntity() as Product, orderId);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
 
         /// <summary>
         /// Удалить продукт из корзины.
         /// </summary>
-        /// <param name="productId">Уникальный идентификатор продукта</param>
         /// <param name="orderId">Уникальный идентификатор заказа</param>
+        /// <param name="productId">Уникальный идентификатор продукта</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
-        [Route("DeleteProductFromBasket/{orderId?}")]
+        [Route("{orderId}/DeleteProduct/{productId}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> DeleteProductFromBasket([FromBody] int productId, int orderId)
+        public async Task<IActionResult> DeleteProductFromOrder(int orderId, int productId)
         {
-            try
-            {
-                await _orderService.DeleteProductFromBasket(productId, orderId);
+            var result = await _orderService.DeleteProductFromOrder(productId, orderId);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
 
         /// <summary>
         /// Обновить количество единиц продукта в корзине.
         /// </summary>
-        /// <param name="productIdAndNewCount">Массив, содержащий уникальный идентификатор продукта и его новое количество единиц</param>
+        /// <param name="newCount">Новое количество единиц продукта</param>
+        /// <param name="productId">Уникальный идентификатор продукта</param>
         /// <param name="orderId">Уникальный идентификатор заказа</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
-        [Route("UpdateProductCountInBasket/{orderId?}")]
+        [Route("{orderId}/UpdateProductCount/{productId}/{newCount}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateProductCountInBasket([FromBody] int[] productIdAndNewCount, int orderId)
+        public async Task<IActionResult> UpdateProductCountInOrder(int orderId, int productId, int newCount)
         {
-            try
-            {
-                await _orderService.UpdateProductCountInBasket(productIdAndNewCount[0], productIdAndNewCount[1], orderId);
+            var result = await _orderService.UpdateProductCountInOrder(productId, newCount, orderId);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -164,14 +142,14 @@ namespace CourseWork.WebApi.Controllers
         /// <param name="id">Уникальный идентификатор заказа.</param>
         /// <returns>Цена корзины.</returns>
         [HttpGet]
-        [Route("GetPriceOfBasket/{id?}")]
+        [Route("GetPriceOfOrder/{id}")]
         [ProducesResponseType(typeof(double), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetPriceOfBasket(int id)
+        public async Task<IActionResult> GetPriceOfOrder(int id)
         {
             try
             {
-                var price = await _orderService.GetPriceOfBasket(id);
+                var price = await _orderService.GetPriceOfOrder(id);
                 return Ok(price);
             }
             catch (Exception e)
@@ -185,21 +163,16 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
-        [Route("DeleteOrder")]
+        [Route("DeleteOrder/{id}")]
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete([FromBody] int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            try
-            {
-                await _orderService.DeleteOrder(id);
+            var result = await _orderService.DeleteOrder(id);
+            if (result.Result)
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
+            return BadRequest(result.MessageResult);
         }
     }
 }

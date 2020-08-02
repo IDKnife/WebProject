@@ -9,10 +9,10 @@ namespace CourseWork.Services.Interfaces
     public interface IClientService
     {
         Task<IList<Client>> GetClients();
-        Task AddClient(Client entity);
-        Task DeleteClient(int id);
-        Task UpdateClient(Client entity);
+        Task<ServiceOperationResult> AddClient(Client entity);
+        Task<ServiceOperationResult> DeleteClient(int id);
+        Task<ServiceOperationResult> UpdateClient(Client entity);
         Task<Client> GetClient(int id);
-        Task AddOrderToClientList(Order order, int clientId);
+        Task<ServiceOperationResult> AddOrderToClientList(Order order, int clientId);
     }
 }

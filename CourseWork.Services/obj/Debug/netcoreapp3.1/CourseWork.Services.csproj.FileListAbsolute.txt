@@ -1,3 +1,7 @@
+D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.csprojAssemblyReference.cache
+D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.AssemblyInfoInputs.cache
+D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.AssemblyInfo.cs
+D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.csproj.CoreCompileInputs.cache
 D:\fu\c#\WebProject\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Services.deps.json
 D:\fu\c#\WebProject\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Services.dll
 D:\fu\c#\WebProject\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Services.pdb
@@ -5,10 +9,6 @@ D:\fu\c#\WebProject\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Model
 D:\fu\c#\WebProject\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Repositories.dll
 D:\fu\c#\WebProject\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Repositories.pdb
 D:\fu\c#\WebProject\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Models.pdb
-D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.csprojAssemblyReference.cache
-D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.csproj.CoreCompileInputs.cache
-D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.AssemblyInfoInputs.cache
-D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.AssemblyInfo.cs
 D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.csproj.CopyComplete
 D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.dll
 D:\fu\c#\WebProject\CourseWork.Services\obj\Debug\netcoreapp3.1\CourseWork.Services.pdb

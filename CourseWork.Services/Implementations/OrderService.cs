@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CourseWork.Models;
@@ -29,42 +30,45 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task AddOrder(Order entity)
+        public async Task<ServiceOperationResult> AddOrder(Order entity)
         {
             try
             {
                 await _repository.AddEntity(entity);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task DeleteOrder(int id)
+        public async Task<ServiceOperationResult> DeleteOrder(int id)
         {
             try
             {
                 await _repository.DeleteEntity(id);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task UpdateOrder(Order entity)
+        public async Task<ServiceOperationResult> UpdateOrder(Order entity)
         {
             try
             {
                 await _repository.UpdateEntity(entity);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
@@ -81,62 +85,60 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task AddProductToBasket(Product product, int orderId)
+        public async Task<ServiceOperationResult> AddProductToOrder(Product product, int orderId)
         {
             try
             {
                 var order = await _repository.GetEntity(orderId);
-                order.Basket.Products.Add(new ProductAndCount(product, 1));
+                order.AddProductToOrder(product);
                 await _repository.UpdateEntity(order);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task DeleteProductFromBasket(int productId, int orderId)
+        public async Task<ServiceOperationResult> DeleteProductFromOrder(int productId, int orderId)
         {
             try
             {
                 var order = await _repository.GetEntity(orderId);
-                var item = order.Basket.Products.Find(a => a.Product.Id == productId);
-                order.Basket.Products.Remove(item);
+                order.DeleteProductFromOrder(productId);
                 await _repository.UpdateEntity(order);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task UpdateProductCountInBasket(int productId, int newCount, int orderId)
+        public async Task<ServiceOperationResult> UpdateProductCountInOrder(int productId, int newCount, int orderId)
         {
             try
             {
                 var order = await _repository.GetEntity(orderId);
-                var item = order.Basket.Products.Find(a => a.Product.Id == productId);
-                item.Count = newCount;
+                order.UpdateProductCountInOrder(productId, newCount);
                 await _repository.UpdateEntity(order);
+                return new ServiceOperationResult(true, "Success");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                throw;
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
             }
         }
 
-        public async Task<double> GetPriceOfBasket(int id)
+        public async Task<double> GetPriceOfOrder(int id)
         {
             try
             {
                 var order = await _repository.GetEntity(id);
-                double price = 0;
-                foreach (var item in order.Basket.Products)
-                    price += (item.Product.Price * item.Count);
-                return price;
+                return order.GetPriceOfOrder();
             }
             catch (Exception e)
             {
