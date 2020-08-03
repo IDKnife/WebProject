@@ -18,7 +18,7 @@ export class ProductPage extends Component {
     }
 
     async onClickAddToBasket() {
-        await axios.post("https://localhost:5001/api/Order/AddProductToBasket/0", this.state.product);
+        await axios.post("https://localhost:5001/api/Order/AddProductToOrder/0", this.state.product);
         await this.props.onOrderChange();
     }
     

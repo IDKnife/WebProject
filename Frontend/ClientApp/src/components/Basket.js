@@ -13,6 +13,7 @@ export class Basket extends Component {
         this.onClickDelete = this.onClickDelete.bind(this);
         this.toProduct = this.toProduct.bind(this);
         this.Checkout = this.Checkout.bind(this);
+        this.updateState = this.updateState.bind(this);
         this.state = {
             order: {},
             IsLoaded: false,
@@ -29,22 +30,11 @@ export class Basket extends Component {
     }
 
     async onChange(e) {
-        await axios.post(`https://localhost:5001/api/Order/UpdateProductCountInBasket/0`, [+e.target.id.slice(12), +e.target.value], { headers: { 'Content-Type': 'application/json' } });
+        await axios.post(`https://localhost:5001/api/Order/0/UpdateProductCount/${+e.target.id.slice(12)}/${+e.target.value}`);
         await this.props.onOrderChange();
     }
 
-    async onClickDelete(e) {
-        await axios.post(`https://localhost:5001/api/Order/DeleteProductFromBasket/0`, e.target.id, { headers: { 'Content-Type': 'application/json' } });
-        await axios.get(`https://localhost:5001/api/Order/GetOrder/0`)
-            .then(res => res.data)
-            .then((data) => {
-                this.setState({ IsLoaded: true, order: data })
-            })
-            .catch(console.log);
-        await this.props.onOrderChange();
-    }
-
-    async componentDidMount() {
+    async updateState() {
         let url = `https://localhost:5001/api/Order/GetOrder/0`;
         await axios.get(url)
             .then(res => res.data)
@@ -57,6 +47,15 @@ export class Basket extends Component {
             let elem = document.getElementById("productCount" + item.product.id);
             elem.value = String(item.count);
         });
+    }
+
+    async onClickDelete(e) {
+        await axios.post(`https://localhost:5001/api/Order/0/DeleteProduct/${e.target.id}`);
+        this.updateState();
+    }
+
+    async componentDidMount() {
+        this.updateState();
     }
 
     render() {

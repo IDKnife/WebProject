@@ -22,7 +22,7 @@ export default class App extends Component {
     }
 
     async handleOrderChange() {
-        await axios.get(`https://localhost:5001/api/Order/GetPriceOfBasket/0`)
+        await axios.get(`https://localhost:5001/api/Order/GetPriceOfOrder/0`)
             .then(res => res.data)
             .then((data) => {
                 this.setState({ price: data })
@@ -38,9 +38,9 @@ export default class App extends Component {
     render() {
         return (
             <Layout>
-                <Route exact path='/' component={MainPage} />
-                <Route path='/search-:name' component={MainPage} />
-                <Route path='/category/:category' component={MainPage} />
+                <Route exact path='/' render={(props) => <MainPage {...props} onOrderChange={this.handleOrderChange} />} />
+                <Route path='/search-:name' render={(props) => <MainPage {...props} onOrderChange={this.handleOrderChange} />} />
+                <Route path='/category/:category' render={(props) => <MainPage {...props} onOrderChange={this.handleOrderChange} />} />
                 <Route path='/add_product' component={AddProduct} />
                 <Route path='/info' component={Info} />
                 <Route path='/product:id' render={(props) => <ProductPage {...props} onOrderChange={this.handleOrderChange}/>} />

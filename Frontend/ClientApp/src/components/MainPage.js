@@ -13,11 +13,18 @@ export class MainPage extends Component {
         this.onClickDescendingName = this.onClickDescendingName.bind(this);
         this.onClickAscendingPrice = this.onClickAscendingPrice.bind(this);
         this.onClickDescendingPrice = this.onClickDescendingPrice.bind(this);
+        this.AddToBasket = this.AddToBasket.bind(this);
         this.state = {
             products: [],
             IsLoaded: false,
         };
 
+    }
+
+    async AddToBasket(e) {
+        let product = this.state.products.find(item => item.id == +e.target.previousSibling.href.slice(30));
+        await axios.post("https://localhost:5001/api/Order/AddProductToOrder/0", product);
+        await this.props.onOrderChange();
     }
 
     async componentDidMount() {
@@ -116,13 +123,16 @@ export class MainPage extends Component {
                     {parts.map((products) => (
                         <tr>
                             {products.map((product) => (
-                                <NavLink tag={Link} to={`/product${product.id}`} >
-                                    <td class="mainPageProducts">
-                                        <div>{product.name}</div>
-                                        <div>{product.description}</div>
-                                        <div>{product.price}</div>
-                                    </td>
-                                </NavLink>
+                                <td class="mainPageProducts">
+                                    <NavLink tag={Link} to={`/product${product.id}`} >
+                                        <div class="mainPageProduct">
+                                            <div>{product.name}</div>
+                                            <div>{product.description}</div>
+                                            <div>{product.price}</div>
+                                        </div>
+                                    </NavLink>
+                                    <img class="img-btn" src="./images/basket.png" onClick={this.AddToBasket} />
+                                </td>
                             ))}
                         </tr>
                     ))}
