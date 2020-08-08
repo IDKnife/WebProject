@@ -29,6 +29,9 @@ namespace CourseWork.Models
             SecondName = secondName;
             Access = AccessLevel.User;
             Orders = new List<Order>();
+            PhoneNumber = phoneNumber;
+            Email = email;
+            Password = password;
         }
         public Client(int id, string firstName, string lastName, string secondName, string phoneNumber, string email, string password, List<Order> orders, AccessLevel access) : base(id)
         {
@@ -37,6 +40,9 @@ namespace CourseWork.Models
             SecondName = secondName;
             Access = access;
             Orders = orders;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            Password = password;
         }
     }
 }

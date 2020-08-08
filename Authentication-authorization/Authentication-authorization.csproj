@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Authentication_authorization</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CourseWork.Models">
+      <HintPath>..\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="CourseWork.Repositories">
+      <HintPath>..\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Repositories.dll</HintPath>
+    </Reference>
+    <Reference Include="CourseWork.Services">
+      <HintPath>..\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="CourseWork.WebApi">
+      <HintPath>..\WebProject\bin\Debug\netcoreapp3.1\CourseWork.WebApi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>
