@@ -22,12 +22,12 @@ namespace CourseWork.Models
                 Password = newPassword;
         }
 
-        public Client(int id, string firstName, string lastName, string secondName, string phoneNumber, string email, string password) : base(id)
+        public Client(int id, string firstName, string lastName, string secondName, string phoneNumber, string email, string password, AccessLevel access) : base(id)
         {
             FirstName = firstName;
             LastName = lastName;
             SecondName = secondName;
-            Access = AccessLevel.User;
+            Access = access;
             Orders = new List<Order>();
             PhoneNumber = phoneNumber;
             Email = email;

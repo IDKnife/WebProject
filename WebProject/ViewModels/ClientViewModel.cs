@@ -40,18 +40,25 @@ namespace CourseWork.WebApi.ViewModels
         /// <summary>
         /// Список заказов клиента.
         /// </summary>
-        public List<Order> Orders { get; set; }
+        public List<OrderViewModel> Orders { get; set; }
         /// <summary>
         /// Пароль клиента.
         /// </summary>
-        public string Password { get; private set; }
+        public string Password { get; set; }
         /// <summary>
         /// Преобразовать модель в сущность.
         /// </summary>
         /// <returns>Сущность.</returns>
         public Entity ToEntity()
         {
-            return new Client(Id, FirstName, LastName, SecondName, PhoneNumber, Email, Password);
+            if (Orders.Count != 0)
+            {
+                List<Order> orders = new List<Order>();
+                foreach (var item in Orders)
+                    orders.Add(item.ToEntity() as Order);
+                return new Client(Id, FirstName, LastName, SecondName, PhoneNumber, Email, Password, orders, Access);
+            }
+            return new Client(Id, FirstName, LastName, SecondName, PhoneNumber, Email, Password, Access);
         }
     }
 }

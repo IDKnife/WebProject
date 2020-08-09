@@ -1,11 +1,14 @@
-﻿using CourseWork.Repositories.Implementations;
+﻿using System.Text;
+using CourseWork.Repositories.Implementations;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Implementations;
 using CourseWork.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using Microsoft.OpenApi.Models;
 
@@ -13,6 +16,7 @@ namespace CourseWork.WebApi
 {
     public class Startup
     {
+        private readonly string _secureKey = "some_secure_for_safety";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -45,6 +49,16 @@ namespace CourseWork.WebApi
                     .AllowAnyHeader()
                     .WithOrigins("https://localhost:5011", "http://localhost:5010");
             }));
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_secureKey)),
+                        ValidateIssuerSigningKey = true,
+                    };
+                });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -65,6 +79,8 @@ namespace CourseWork.WebApi
             });
             app.UseRouting();
             app.UseCors();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endPoints => endPoints.MapControllers());
         }
     }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Services.Interfaces;
 using CourseWork.WebApi.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,7 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Список клиентов.</returns>
         [HttpGet]
+        [Authorize]
         [Route("Clients")]
         [ProducesResponseType(typeof(List<Client>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -76,6 +78,22 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> AddClient([FromBody]ClientViewModel сlient)
         {
             var result = await _clientService.AddClient(сlient.ToEntity() as Client);
+            if (result.Result)
+                return Ok();
+            return BadRequest(result.MessageResult);
+        }
+
+        /// <summary>
+        /// Удалить клиента.
+        /// </summary>
+        /// <returns>Ответ сервера.</returns>
+        [HttpPost]
+        [Route("DeleteClient/{id}")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteClient(int id)
+        {
+            var result = await _clientService.DeleteClient(id);
             if (result.Result)
                 return Ok();
             return BadRequest(result.MessageResult);

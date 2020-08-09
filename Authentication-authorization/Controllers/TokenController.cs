@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Services.Interfaces;
 using CourseWork.WebApi.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -15,26 +16,26 @@ using Microsoft.IdentityModel.Tokens;
 namespace Authentication_authorization.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("DefaultPolicy")]
     [ApiController]
     public class TokenController : ControllerBase
     {
-        private readonly string _secureKey;
         private readonly IClientService _clientService;
+        private readonly string _secureKey = "some_secure_for_safety";
         public TokenController(IClientService clientService)
         {
             _clientService = clientService;
-            _secureKey = "some_secure";
         }
 
         [HttpPost]
-        [Route("GetToken")]
+        [Route("GetToken/{email}")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Identification(string email, string password)
+        public async Task<IActionResult> Identification(string email, [FromBody] string password)
         {
             var identity = await CheckIdentity(email, password);
             if (identity == null)
-                return BadRequest(new {errorText = "Invalid username or password."});
+                return BadRequest(new { errorText = "Invalid username or password." });
             var jwt = new JwtSecurityToken(
                 claims: identity.Claims,
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_secureKey)), SecurityAlgorithms.HmacSha256));
@@ -68,7 +69,7 @@ namespace Authentication_authorization.Controllers
         {
             var item = await _clientService.GetClient(client.Id);
             if (item != null)
-                return BadRequest(new {errorText = "This user already exists."});
+                return BadRequest(new { errorText = "This user already exists." });
             await _clientService.AddClient(client.ToEntity() as Client);
             return Ok();
         }

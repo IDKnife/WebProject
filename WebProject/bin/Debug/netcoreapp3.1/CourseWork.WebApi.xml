@@ -23,6 +23,12 @@
             <param name="сlient">Клиент.</param>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.ClientController.DeleteClient(System.Int32)">
+            <summary>
+            Удалить клиента.
+            </summary>
+            <returns>Ответ сервера.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.ClientController.AddOrderToClientList(CourseWork.WebApi.ViewModels.OrderViewModel,System.Int32)">
             <summary>
             Добавить заказ в список заказов клиента.

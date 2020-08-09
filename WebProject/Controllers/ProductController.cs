@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Cors;
 namespace CourseWork.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("DefaultPolicy")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -26,7 +27,6 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Список товаров.</returns>
         [HttpGet]
         [Route("Products/{name?}/{category?}")]
-        [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Products(string name = null, string category = null)
@@ -53,7 +53,6 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("AddProduct")]
-        [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddProduct([FromBody] ProductViewModel product)
@@ -70,7 +69,6 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Товар.</returns>
         [HttpGet]
         [Route("GetProduct/{id}")]
-        [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Product(int id)
@@ -92,7 +90,6 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("DeleteProduct/{id}")]
-        [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(int id)
@@ -110,7 +107,6 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("UpdateProduct")]
-        [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductViewModel product)

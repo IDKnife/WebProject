@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Authentication_authorization.Controllers;
 using CourseWork.Repositories.Implementations;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Implementations;
 using CourseWork.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,6 +19,7 @@ using Microsoft.Extensions.Hosting;
 using MongoDB.Driver;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Authentication_authorization
 {
@@ -28,7 +32,6 @@ namespace Authentication_authorization
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("Mongo");
@@ -40,7 +43,7 @@ namespace Authentication_authorization
             services.AddSingleton<IMongoDatabase>(client.GetDatabase(connection.DatabaseName));
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "My API", Version = "v2" });
             });
             services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
             {
@@ -52,7 +55,6 @@ namespace Authentication_authorization
             }));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -63,13 +65,14 @@ namespace Authentication_authorization
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2");
             });
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
