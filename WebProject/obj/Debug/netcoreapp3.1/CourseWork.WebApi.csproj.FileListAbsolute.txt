@@ -115,3 +115,6 @@ D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\System.IdentityModel.Toke
 D:\fu\c#\WebProject\WebProject\obj\Debug\netcoreapp3.1\CourseWork.WebApi.csproj.CoreCompileInputs.cache
 D:\fu\c#\WebProject\WebProject\obj\Debug\netcoreapp3.1\CourseWork.WebApi.MvcApplicationPartsAssemblyInfo.cs
 D:\fu\c#\WebProject\WebProject\obj\Debug\netcoreapp3.1\CourseWork.WebApi.MvcApplicationPartsAssemblyInfo.cache
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll

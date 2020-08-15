@@ -9,7 +9,7 @@ export class Deleted extends Component {
     }
 
     async componentDidMount() {
-        let id = Number(this.props.match.params.id);
+        let id = this.props.match.params.id;
         axios.post(`https://localhost:5001/api/Product/DeleteProduct/${id}`);
     }
 

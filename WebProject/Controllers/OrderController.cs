@@ -7,6 +7,7 @@ using CourseWork.WebApi.ViewModels;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace CourseWork.WebApi.Controllers
 {
@@ -51,7 +52,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("GetOrder/{id}")]
         [ProducesResponseType(typeof(Order), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Order(int id)
+        public async Task<IActionResult> Order(string id)
         {
             try
             {
@@ -75,7 +76,7 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddOrder([FromBody] OrderViewModel order)
         {
-            var result = await _orderService.AddOrder(order.ToEntity() as Order);
+            var result = await _orderService.AddOrder(order.ToNewEntity() as Order);
             if (result.Result)
                 return Ok();
             return BadRequest(result.MessageResult);
@@ -91,7 +92,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("AddProductToOrder/{orderId}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddProductToOrder([FromBody] ProductViewModel product, int orderId)
+        public async Task<IActionResult> AddProductToOrder([FromBody] ProductViewModel product, string orderId)
         {
             var result = await _orderService.AddProductToOrder(product.ToEntity() as Product, orderId);
             if (result.Result)
@@ -109,7 +110,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("{orderId}/DeleteProduct/{productId}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> DeleteProductFromOrder(int orderId, int productId)
+        public async Task<IActionResult> DeleteProductFromOrder(string orderId, string productId)
         {
             var result = await _orderService.DeleteProductFromOrder(productId, orderId);
             if (result.Result)
@@ -128,7 +129,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("{orderId}/UpdateProductCount/{productId}/{newCount}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateProductCountInOrder(int orderId, int productId, int newCount)
+        public async Task<IActionResult> UpdateProductCountInOrder(string orderId, string productId, int newCount)
         {
             var result = await _orderService.UpdateProductCountInOrder(productId, newCount, orderId);
             if (result.Result)
@@ -145,7 +146,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("GetPriceOfOrder/{id}")]
         [ProducesResponseType(typeof(double), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetPriceOfOrder(int id)
+        public async Task<IActionResult> GetPriceOfOrder(string id)
         {
             try
             {
@@ -167,7 +168,7 @@ namespace CourseWork.WebApi.Controllers
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var result = await _orderService.DeleteOrder(id);
             if (result.Result)

@@ -55,6 +55,9 @@ namespace CourseWork.WebApi
                     options.RequireHttpsMetadata = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = false,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_secureKey)),
                         ValidateIssuerSigningKey = true,
                     };

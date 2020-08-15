@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace CourseWork.WebApi.Controllers
 {
@@ -28,7 +29,6 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Список клиентов.</returns>
         [HttpGet]
-        [Authorize]
         [Route("Clients")]
         [ProducesResponseType(typeof(List<Client>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -53,7 +53,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("GetClient/{id}")]
         [ProducesResponseType(typeof(Client), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetClient(int id)
+        public async Task<IActionResult> GetClient(string id)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddClient([FromBody]ClientViewModel сlient)
         {
-            var result = await _clientService.AddClient(сlient.ToEntity() as Client);
+            var result = await _clientService.AddClient(сlient.ToNewEntity() as Client);
             if (result.Result)
                 return Ok();
             return BadRequest(result.MessageResult);
@@ -91,7 +91,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("DeleteClient/{id}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> DeleteClient(int id)
+        public async Task<IActionResult> DeleteClient(string id)
         {
             var result = await _clientService.DeleteClient(id);
             if (result.Result)
@@ -109,7 +109,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("AddOrderToList/{clientId}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddOrderToClientList([FromBody] OrderViewModel order, int clientId)
+        public async Task<IActionResult> AddOrderToClientList([FromBody] OrderViewModel order, string clientId)
         {
             var result = await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
             if (result.Result)

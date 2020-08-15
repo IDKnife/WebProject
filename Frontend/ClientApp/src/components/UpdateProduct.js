@@ -21,7 +21,7 @@ export class UpdateProduct extends Component {
             price: Number(document.getElementById("price").value),
             category: document.getElementById("category").value,
             description: document.getElementById("description").value,
-            id: Number(document.getElementById("id").value),
+            id: document.getElementById("id").value,
         };
         axios.post('https://localhost:5001/api/Product/UpdateProduct', product);
     }

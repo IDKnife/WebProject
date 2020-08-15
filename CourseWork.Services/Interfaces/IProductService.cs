@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CourseWork.Models;
+using MongoDB.Bson;
 
 namespace CourseWork.Services.Interfaces
 {
@@ -9,8 +10,8 @@ namespace CourseWork.Services.Interfaces
         Task<IList<Product>> GetProducts();
         Task<IList<Product>> GetProducts(string name, string category);
         Task<ServiceOperationResult> AddProduct(Product entity);
-        Task<ServiceOperationResult> DeleteProduct(int id);
+        Task<ServiceOperationResult> DeleteProduct(string id);
         Task<ServiceOperationResult> UpdateProduct(Product entity);
-        Task<Product> GetProduct(int id);
+        Task<Product> GetProduct(string id);
     }
 }

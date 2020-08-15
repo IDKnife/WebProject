@@ -6,7 +6,7 @@ D:\fu\c#\WebProject\CourseWork.Repository\bin\Debug\netcoreapp3.1\CourseWork.Mod
 D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.csprojAssemblyReference.cache
 D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.AssemblyInfoInputs.cache
 D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.AssemblyInfo.cs
-D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.csproj.CoreCompileInputs.cache
 D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.csproj.CopyComplete
 D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.dll
 D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.pdb
+D:\fu\c#\WebProject\CourseWork.Repository\obj\Debug\netcoreapp3.1\CourseWork.Repositories.csproj.CoreCompileInputs.cache

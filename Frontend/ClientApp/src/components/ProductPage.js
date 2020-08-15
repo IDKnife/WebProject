@@ -2,7 +2,6 @@
 import axios from "C:/Users/ArhiS/node_modules/axios";
 import { Link } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
-import { Basket } from './Basket';
 import './ProductPage.css';
 
 export class ProductPage extends Component {
@@ -23,11 +22,11 @@ export class ProductPage extends Component {
     }
     
     async componentDidMount() {
-        let url = `https://localhost:5001/api/Product/GetProduct/` + `${this.props.match.params.id}`
+        let url = `https://localhost:5001/api/Product/GetProduct/` + `${this.props.match.params.id}`;
         await axios.get(url)
             .then(res => res.data)
             .then((data) => {
-                this.setState({ IsLoaded: true, product: data })
+                this.setState({ IsLoaded: true, product: data });
             })
             .catch(console.log);
     }

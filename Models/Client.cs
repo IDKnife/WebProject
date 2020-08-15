@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace CourseWork.Models
 {
@@ -22,7 +23,7 @@ namespace CourseWork.Models
                 Password = newPassword;
         }
 
-        public Client(int id, string firstName, string lastName, string secondName, string phoneNumber, string email, string password, AccessLevel access) : base(id)
+        public Client(string firstName, string lastName, string secondName, string phoneNumber, string email, string password, AccessLevel access)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -33,7 +34,7 @@ namespace CourseWork.Models
             Email = email;
             Password = password;
         }
-        public Client(int id, string firstName, string lastName, string secondName, string phoneNumber, string email, string password, List<Order> orders, AccessLevel access) : base(id)
+        public Client(string id, string firstName, string lastName, string secondName, string phoneNumber, string email, string password, List<Order> orders, AccessLevel access) : base(id) 
         {
             FirstName = firstName;
             LastName = lastName;

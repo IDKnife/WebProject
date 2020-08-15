@@ -1,5 +1,6 @@
 ﻿using CourseWork.Models;
 using CourseWork.WebApi.Interfaces;
+using MongoDB.Bson;
 
 namespace CourseWork.WebApi.ViewModels
 {
@@ -11,7 +12,7 @@ namespace CourseWork.WebApi.ViewModels
         /// <summary>
         /// Уникальный идентификатор.
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// Наименование товара.
         /// </summary>
@@ -32,9 +33,11 @@ namespace CourseWork.WebApi.ViewModels
         /// Преобразовать модель в сущность.
         /// </summary>
         /// <returns>Сущность.</returns>
-        public Entity ToEntity()
-        {
-            return new Product(Id, Name, Price, Category, Description);
-        }
+        public Entity ToEntity() => new Product(Id, Name, Price, Category, Description);
+        /// <summary>
+        /// Преобразовать модель в новую сущность.
+        /// </summary>
+        /// <returns>Новая сущность.</returns>
+        public Entity ToNewEntity() => new Product(Name, Price, Category, Description);
     }
 }

@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CourseWork.Services.Interfaces;
 using CourseWork.WebApi.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
+using MongoDB.Bson;
 
 namespace CourseWork.WebApi.Controllers
 {
@@ -57,7 +59,7 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddProduct([FromBody] ProductViewModel product)
         {
-            var result = await _productService.AddProduct(product.ToEntity() as Product);
+            var result = await _productService.AddProduct(product.ToNewEntity() as Product);
             if (result.Result)
                 return Ok();
             return BadRequest(result.MessageResult);
@@ -71,7 +73,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("GetProduct/{id}")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Product(int id)
+        public async Task<IActionResult> Product(string id)
         {
             try
             {
@@ -92,7 +94,7 @@ namespace CourseWork.WebApi.Controllers
         [Route("DeleteProduct/{id}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var result = await _productService.DeleteProduct(id);
             if (result.Result)

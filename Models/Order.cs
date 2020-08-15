@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace CourseWork.Models
 {
     public class Order : Entity
     {
-        public int ClientId { get; set; }
+        public string ClientId { get; set; }
         public Basket Basket { get; set; }
         public DateTime Date { get; set; }
         public OrderState State { get; set; }
@@ -15,24 +16,24 @@ namespace CourseWork.Models
 
         public double GetPriceOfOrder() => Basket.Products.Sum(item => item.Product.Price * item.Count);
 
-        public void UpdateProductCountInOrder(int productId, int newCount) =>
+        public void UpdateProductCountInOrder(string productId, int newCount) =>
             Basket.Products.Find(a => a.Product.Id == productId)
                 .Count = newCount;
 
-        public void DeleteProductFromOrder(int productId)
+        public void DeleteProductFromOrder(string productId)
         {
             var item = Basket.Products.Find(a => a.Product.Id == productId);
             Basket.Products.Remove(item);
         }
         public void AddProductToOrder(Product product) => Basket.Products.Add(new ProductAndCount(product, 1));
-        public Order(int clientId, int id) : base(id)
+        public Order(string clientId) 
         {
             ClientId = clientId;
             Basket = new Basket();
             State = OrderState.Forming;
             Date = DateTime.Now;
         }
-        public Order(int clientId, Basket basket, int id, OrderState state, DateTime date) : base(id)
+        public Order(string id, string clientId, Basket basket, OrderState state, DateTime date) : base(id)
         {
             ClientId = clientId;
             Basket = basket;

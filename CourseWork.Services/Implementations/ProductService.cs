@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Interfaces;
+using MongoDB.Bson;
 
 namespace CourseWork.Services.Implementations
 {
@@ -55,7 +56,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<ServiceOperationResult> DeleteProduct(int id)
+        public async Task<ServiceOperationResult> DeleteProduct(string id)
         {
             try
             {
@@ -83,7 +84,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<Product> GetProduct(int id)
+        public async Task<Product> GetProduct(string id)
         {
             try
             {

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Interfaces;
+using MongoDB.Bson;
 
 namespace CourseWork.Services.Implementations
 {
@@ -43,7 +44,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<ServiceOperationResult> DeleteClient(int id)
+        public async Task<ServiceOperationResult> DeleteClient(string id)
         {
             try
             {
@@ -71,7 +72,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<Client> GetClient(int id)
+        public async Task<Client> GetClient(string id)
         {
             try
             {
@@ -84,7 +85,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<ServiceOperationResult> AddOrderToClientList(Order order, int clientId)
+        public async Task<ServiceOperationResult> AddOrderToClientList(Order order, string clientId)
         {
             try
             {

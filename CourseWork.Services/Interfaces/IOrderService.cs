@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using CourseWork.Models;
+using MongoDB.Bson;
 
 namespace CourseWork.Services.Interfaces
 {
@@ -10,12 +11,12 @@ namespace CourseWork.Services.Interfaces
     {
         Task<IList<Order>> GetOrders();
         Task<ServiceOperationResult> AddOrder(Order entity);
-        Task<ServiceOperationResult> DeleteOrder(int id);
+        Task<ServiceOperationResult> DeleteOrder(string id);
         Task<ServiceOperationResult> UpdateOrder(Order entity);
-        Task<Order> GetOrder(int id);
-        Task<ServiceOperationResult> AddProductToOrder(Product product, int orderId);
-        Task<ServiceOperationResult> DeleteProductFromOrder(int productId, int orderId);
-        Task<ServiceOperationResult> UpdateProductCountInOrder(int productId, int newCount, int orderId);
-        Task<double> GetPriceOfOrder(int id);
+        Task<Order> GetOrder(string id);
+        Task<ServiceOperationResult> AddProductToOrder(Product product, string orderId);
+        Task<ServiceOperationResult> DeleteProductFromOrder(string productId, string orderId);
+        Task<ServiceOperationResult> UpdateProductCountInOrder(string productId, int newCount, string orderId);
+        Task<double> GetPriceOfOrder(string id);
     }
 }

@@ -34,7 +34,7 @@ namespace CourseWork.Repositories.Implementations
             await Entities.InsertOneAsync(entity);
         }
 
-        public async Task DeleteEntity(int id)
+        public async Task DeleteEntity(string id)
         {
             var filter = Builders<Product>.Filter.Eq("_id", id);
             await Entities.DeleteOneAsync(filter);
@@ -46,7 +46,7 @@ namespace CourseWork.Repositories.Implementations
             await Entities.ReplaceOneAsync(filter, entity);
         }
 
-        public async Task<Product> GetEntity(int id)
+        public async Task<Product> GetEntity(string id)
         {
             var filter = Builders<Product>.Filter.Eq("_id", id);
             return await Entities.Find(filter).FirstOrDefaultAsync();

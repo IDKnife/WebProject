@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Interfaces;
+using MongoDB.Bson;
 
 namespace CourseWork.Services.Implementations
 {
@@ -44,7 +45,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<ServiceOperationResult> DeleteOrder(int id)
+        public async Task<ServiceOperationResult> DeleteOrder(string id)
         {
             try
             {
@@ -72,7 +73,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<Order> GetOrder(int id)
+        public async Task<Order> GetOrder(string id)
         {
             try
             {
@@ -85,7 +86,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<ServiceOperationResult> AddProductToOrder(Product product, int orderId)
+        public async Task<ServiceOperationResult> AddProductToOrder(Product product, string orderId)
         {
             try
             {
@@ -101,7 +102,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<ServiceOperationResult> DeleteProductFromOrder(int productId, int orderId)
+        public async Task<ServiceOperationResult> DeleteProductFromOrder(string productId, string orderId)
         {
             try
             {
@@ -117,7 +118,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<ServiceOperationResult> UpdateProductCountInOrder(int productId, int newCount, int orderId)
+        public async Task<ServiceOperationResult> UpdateProductCountInOrder(string productId, int newCount, string orderId)
         {
             try
             {
@@ -133,12 +134,15 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        public async Task<double> GetPriceOfOrder(int id)
+        public async Task<double> GetPriceOfOrder(string id)
         {
             try
             {
                 var order = await _repository.GetEntity(id);
-                return order.GetPriceOfOrder();
+                if (order != null)
+                    return order.GetPriceOfOrder();
+                else
+                    return 0;
             }
             catch (Exception e)
             {

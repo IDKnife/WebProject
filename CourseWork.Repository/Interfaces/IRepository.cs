@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using CourseWork.Models;
+using MongoDB.Bson;
 
 namespace CourseWork.Repositories.Interfaces
 {
@@ -11,8 +12,8 @@ namespace CourseWork.Repositories.Interfaces
     {
         Task<IList<T>> GetEntities();
         Task AddEntity(T entity);
-        Task DeleteEntity(int id);
+        Task DeleteEntity(string id);
         Task UpdateEntity(T entity);
-        Task<T> GetEntity(int id);
+        Task<T> GetEntity(string id);
     }
 }

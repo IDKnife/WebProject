@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.WebApi.Interfaces;
+using MongoDB.Bson;
 
 namespace CourseWork.WebApi.ViewModels
 {
@@ -12,11 +13,11 @@ namespace CourseWork.WebApi.ViewModels
         /// <summary>
         /// Уникальный идентификатор.
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// Уникальный идентификатор клиента, которому заказ принадлежит.
         /// </summary>
-        public int ClientId { get; set; }
+        public string ClientId { get; set; }
         /// <summary>
         /// Корзина товаров заказа.
         /// </summary>
@@ -36,9 +37,10 @@ namespace CourseWork.WebApi.ViewModels
         public Entity ToEntity()
         {
             if (Basket.Products.Count != 0)
-                return new Order(ClientId, Basket.ToEntity(), Id, State, Date);
-            else
-                return new Order(ClientId, Id);
+                return new Order(Id, ClientId, Basket.ToEntity(), State, Date);
+            return new Order(Id, ClientId, new Basket(), State, Date);
         }
+
+        public Entity ToNewEntity() => new Order(ClientId);
     }
 }

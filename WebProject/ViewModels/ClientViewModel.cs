@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.WebApi.Interfaces;
+using MongoDB.Bson;
 
 namespace CourseWork.WebApi.ViewModels
 {
@@ -12,7 +13,7 @@ namespace CourseWork.WebApi.ViewModels
         /// <summary>
         /// Уникальный идентификатор.
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// Имя клиента.
         /// </summary>
@@ -51,14 +52,19 @@ namespace CourseWork.WebApi.ViewModels
         /// <returns>Сущность.</returns>
         public Entity ToEntity()
         {
+            List<Order> orders = new List<Order>();
             if (Orders.Count != 0)
             {
-                List<Order> orders = new List<Order>();
                 foreach (var item in Orders)
                     orders.Add(item.ToEntity() as Order);
-                return new Client(Id, FirstName, LastName, SecondName, PhoneNumber, Email, Password, orders, Access);
             }
-            return new Client(Id, FirstName, LastName, SecondName, PhoneNumber, Email, Password, Access);
+            return new Client(Id, FirstName, LastName, SecondName, PhoneNumber, Email, Password, orders, Access);
         }
+        /// <summary>
+        /// Преобразовать модель в новую сущность.
+        /// </summary>
+        /// <returns>Новая сущность.</returns>
+        public Entity ToNewEntity() => new Client(FirstName, LastName, SecondName, PhoneNumber, Email, Password, AccessLevel.User);
+        
     }
 }

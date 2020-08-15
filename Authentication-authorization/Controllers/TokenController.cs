@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Bson;
 
 namespace Authentication_authorization.Controllers
 {
@@ -40,7 +41,12 @@ namespace Authentication_authorization.Controllers
                 claims: identity.Claims,
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_secureKey)), SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-            return Ok(encodedJwt);
+            var responce = new
+            {
+                token = encodedJwt,
+                id = identity.Claims.First(a => a.Type == "Id").Value
+            };
+            return Ok(responce.ToJson());
         }
 
         private async Task<ClaimsIdentity> CheckIdentity(string email, string password)
@@ -52,7 +58,7 @@ namespace Authentication_authorization.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim("Access", client.Access.ToString()),
-                    new Claim("Id", client.Id.ToString()),
+                    new Claim("Id", client.Id),
                     new Claim("Email", client.Email)
                 };
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token");
@@ -70,7 +76,7 @@ namespace Authentication_authorization.Controllers
             var item = await _clientService.GetClient(client.Id);
             if (item != null)
                 return BadRequest(new { errorText = "This user already exists." });
-            await _clientService.AddClient(client.ToEntity() as Client);
+            await _clientService.AddClient(client.ToNewEntity() as Client);
             return Ok();
         }
     }

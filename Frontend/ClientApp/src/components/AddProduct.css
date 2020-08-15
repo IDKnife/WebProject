@@ -1,4 +1,13 @@
-﻿body {
+﻿form#add {
+    height: 30vh;
+}
+
+form#logIn {
+    height: 15vh;
+}
+
+form#signIn {
+    height: 30vh;
 }
 
 form {
@@ -6,11 +15,23 @@ form {
     flex-direction: column;
     justify-content: space-around;
     width: 200px;
-    height: 30vh;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 10%;
+}
+
+.formContainer p:hover{
+    color: blue;
 }
 
 #container {
-   padding-top: 20px;
+    padding-top: 20px;
 }
 
 #description {
