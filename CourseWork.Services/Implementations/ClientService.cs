@@ -12,9 +12,11 @@ namespace CourseWork.Services.Implementations
     public class ClientService : IClientService
     {
         private readonly IClientRepository _repository;
+        private readonly IOrderRepository _order_repository;
 
-        public ClientService(IClientRepository repository)
+        public ClientService(IClientRepository repository, IOrderRepository order_repository)
         {
+            _order_repository = order_repository;
             _repository = repository;
         }
         public async Task<IList<Client>> GetClients()
@@ -90,6 +92,8 @@ namespace CourseWork.Services.Implementations
             try
             {
                 var client = await _repository.GetEntity(clientId);
+                order.ClientId = clientId;
+                await _order_repository.UpdateEntity(order);
                 client.Orders.Add(order);
                 await _repository.UpdateEntity(client);
                 return new ServiceOperationResult(true, "Success");

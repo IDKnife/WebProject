@@ -22,7 +22,7 @@ export class SearchTab extends Component {
             url = "https://localhost:5011/search-" + elem.value;
         else
             url = "https://localhost:5011/";
-        window.location.href = url;
+        window.location.replace(url);
     }
 
     toggleNavbar() {
@@ -45,7 +45,10 @@ export class SearchTab extends Component {
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/log_in">Log In</NavLink>
+                                    <NavLink id="User" tag={Link} className="text-dark" to="#">Cabinet</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink id="Auth" tag={Link} className="text-dark" to="/log_in">Log In</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/basket">Basket (<span id="basketCost">0.00</span>)</NavLink>

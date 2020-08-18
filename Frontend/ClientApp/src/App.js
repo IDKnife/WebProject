@@ -19,8 +19,6 @@ export default class App extends Component {
         super(props);
         this.state = {
             price: 0,
-            client_id: "",
-            access_token: ""
         };
         this.handleOrderChange = this.handleOrderChange.bind(this);
         this.handleClientLogin = this.handleClientLogin.bind(this);
@@ -30,14 +28,21 @@ export default class App extends Component {
         await axios.post(`https://localhost:5021/api/Token/GetToken/${email}`, "\"" + password + "\"", { headers: { 'Content-Type': 'application/json' } })
             .then(res => res.data)
             .then((data) => {
-                this.setState({ client_id: data._id, access_token: data.token });
+                sessionStorage.setItem("client_id", data._id);
+                sessionStorage.setItem("access_token", data.token);
+                sessionStorage.setItem("access_level", data.access);
+                sessionStorage.setItem("IsAuthorized", true);
             })
-            .catch(console.log);
-        console.log(this.state);
+            .catch(er => alert(er.response.data.errorText));
+        if (sessionStorage.getItem("IsAuthorized") === "true") {
+            document.getElementById("User").style.display = "block";
+            document.getElementById("Auth").style.display = "none";
+            window.location.replace('https://localhost:5011/');
+        }
     }
 
     async handleOrderChange() {
-        await axios.get(`https://localhost:5001/api/Order/GetPriceOfOrder/0`)
+        await axios.get(`https://localhost:5001/api/Order/GetPriceOfOrder/${sessionStorage.getItem("order_id")}`)
             .then(res => res.data)
             .then((data) => {
                 this.setState({ price: data })
@@ -48,6 +53,23 @@ export default class App extends Component {
 
     async componentDidMount() {
         await this.handleOrderChange();
+        if (!sessionStorage.getItem("IsAuthorized"))
+            document.getElementById("User").style.display = "none";
+        else
+            document.getElementById("Auth").style.display = "none";
+        let order = {
+            clientId: "anonym",
+            basket: { products: [] },
+            date: new Date(),
+            state: 0
+        }
+        if (!sessionStorage.getItem("order_id"))
+            await axios.post(`https://localhost:5001/api/Order/AddOrder`, order)
+                .then(res => res.data)
+                .then((data) => {
+                    sessionStorage.setItem("order_id", data);
+                })
+                .catch(console.log);
     }
 
     render() {

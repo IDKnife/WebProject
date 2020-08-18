@@ -24,7 +24,7 @@ export class Categories extends Component {
 
     onClick(e) {
         let url = "https://localhost:5011/category/" + e.target.innerHTML;
-        window.location.href = url;
+        window.location.replace(url);
     }
 
     render() {

@@ -23,7 +23,7 @@ export class SignIn extends Component {
             password: document.getElementById("password").value
         };
         axios.post('https://localhost:5021/api/Token/Register', client);
-        window.location.href = 'https://localhost:5011/log_in';
+        window.location.replace('https://localhost:5011/log_in');
     }
 
     render() {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +34,9 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Products(string name = null, string category = null)
         {
+
+            //if (User.Claims.First(a => a.Type == "Access").Value == "User")
+            //    return BadRequest("No access");
             try
             {
                 IList<Product> products;

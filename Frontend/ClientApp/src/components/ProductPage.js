@@ -17,7 +17,7 @@ export class ProductPage extends Component {
     }
 
     async onClickAddToBasket() {
-        await axios.post("https://localhost:5001/api/Order/AddProductToOrder/0", this.state.product);
+        await axios.post(`https://localhost:5001/api/Order/AddProductToOrder/${sessionStorage.getItem("order_id")}`, this.state.product);
         await this.props.onOrderChange();
     }
     
@@ -29,6 +29,11 @@ export class ProductPage extends Component {
                 this.setState({ IsLoaded: true, product: data });
             })
             .catch(console.log);
+        if ((sessionStorage.getItem("access_level") != "Admin") || (sessionStorage.getItem("access_level") != "Moderator")) {
+            document.getElementById("deleteLink").style.display = "none";
+            document.getElementById("changeLink").style.display = "none";
+            document.getElementById("basketLink").style.border = "none";
+        }
     }
 
     render() {
@@ -48,9 +53,7 @@ export class ProductPage extends Component {
                     <div><strong>Category</strong>:{product.category}</div>
                     <div><strong>Description</strong>:{product.description}</div>
                     <NavLink tag={Link} id="deleteLink" to={`/deleted${product.id}`}>Delete</NavLink>
-                    <p>|</p>
                     <NavLink id="changeLink" tag={Link} to={`/update_product${product.id}`}>Change</NavLink>
-                    <p>|</p>
                     <NavLink id="basketLink" onClick={this.onClickAddToBasket} tag={Link}>Add to basket</NavLink>
                 </div>
             );

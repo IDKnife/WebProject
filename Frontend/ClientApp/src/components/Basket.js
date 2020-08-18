@@ -21,25 +21,32 @@ export class Basket extends Component {
     }
 
     Checkout() {
-        axios.post(`https://localhost:5001/api/Client/AddOrderToList/0`, this.state.order);
+        if (sessionStorage.getItem("IsAuthorized") === "true") {
+            axios.post(`https://localhost:5001/api/Client/AddOrderToList/${sessionStorage.getItem("client_id")}`, this.state.order);
+            alert(`Order confirmed, now you can check it in your cabinet. Your order id is - ${
+                sessionStorage.getItem("order_id")}`);
+        } else {
+            alert(`Order confirmed. Your order id is - ${
+                sessionStorage.getItem("order_id")}`);
+        }
     }
 
     toProduct(e) {
         let url = "https://localhost:5011/product" + e.target.nextSibling.nextSibling.nextSibling.id;
-        window.location.href = url;
+        window.location.replace(url);
     }
 
     async onChange(e) {
-        await axios.post(`https://localhost:5001/api/Order/0/UpdateProductCount/${+e.target.id.slice(12)}/${+e.target.value}`);
+        await axios.post(`https://localhost:5001/api/Order/${sessionStorage.getItem("order_id")}/UpdateProductCount/${e.target.id.slice(12)}/${+e.target.value}`);
         await this.props.onOrderChange();
     }
 
     async updateState() {
-        let url = `https://localhost:5001/api/Order/GetOrder/0`;
+        let url = `https://localhost:5001/api/Order/GetOrder/${sessionStorage.getItem("order_id")}`;
         await axios.get(url)
             .then(res => res.data)
             .then((data) => {
-                this.setState({ IsLoaded: true, order: data })
+                this.setState({ IsLoaded: true, order: data });
             })
             .catch(console.log);
         await this.props.onOrderChange();
@@ -50,7 +57,7 @@ export class Basket extends Component {
     }
 
     async onClickDelete(e) {
-        await axios.post(`https://localhost:5001/api/Order/0/DeleteProduct/${e.target.id}`);
+        await axios.post(`https://localhost:5001/api/Order/${sessionStorage.getItem("order_id")}/DeleteProduct/${e.target.id}`);
         this.updateState();
     }
 

@@ -72,13 +72,14 @@ namespace CourseWork.WebApi.Controllers
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("AddOrder")]
-        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddOrder([FromBody] OrderViewModel order)
         {
-            var result = await _orderService.AddOrder(order.ToNewEntity() as Order);
+            var newOrder = order.ToNewEntity() as Order;
+            var result = await _orderService.AddOrder(newOrder);
             if (result.Result)
-                return Ok();
+                return Ok(newOrder.Id);
             return BadRequest(result.MessageResult);
         }
 

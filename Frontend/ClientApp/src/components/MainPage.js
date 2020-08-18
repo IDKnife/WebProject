@@ -23,7 +23,7 @@ export class MainPage extends Component {
 
     async AddToBasket(e) {
         let product = this.state.products.find(item => item.id == e.target.previousSibling.href.slice(30));
-        await axios.post("https://localhost:5001/api/Order/AddProductToOrder/0", product);
+        await axios.post(`https://localhost:5001/api/Order/AddProductToOrder/${sessionStorage.getItem("order_id")}`, product);
         await this.props.onOrderChange();
     }
 
@@ -35,7 +35,7 @@ export class MainPage extends Component {
             url = `https://localhost:5001/api/Product/Products/-/` + `${this.props.match.params.category}`;
         else
             url = `https://localhost:5001/api/Product/Products`;
-        await axios.get(url/*, { headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2Nlc3MiOiJBZG1pbiIsIklkIjoiMSIsIkVtYWlsIjoic3RyaW5nIn0.38RYAw0CSPkSwE4ijLqdB9PWpsa76jL0379kDmtPxx4' } }*/)
+        await axios.get(url/*, { headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2Nlc3MiOiJVc2VyIiwiSWQiOiI1ZjM3YTQyMGMyN2YwNzVlZmU5YzY4YTEiLCJFbWFpbCI6InNvbWVfZW1haWxAbWFpbC5ydSJ9.XFcRccgIKyS7Wt3DSNIfTxzDKyUXJ_HVkQhvLQ8vNVo' } }*/)
             .then(res => res.data)
             .then((data) => {
                 this.setState({ IsLoaded: true, products: data })

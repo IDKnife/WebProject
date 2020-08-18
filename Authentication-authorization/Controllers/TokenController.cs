@@ -44,7 +44,8 @@ namespace Authentication_authorization.Controllers
             var responce = new
             {
                 token = encodedJwt,
-                id = identity.Claims.First(a => a.Type == "Id").Value
+                id = identity.Claims.First(a => a.Type == "Id").Value,
+                access = identity.Claims.First(a => a.Type == "Access").Value
             };
             return Ok(responce.ToJson());
         }
@@ -52,7 +53,7 @@ namespace Authentication_authorization.Controllers
         private async Task<ClaimsIdentity> CheckIdentity(string email, string password)
         {
             var clients = await _clientService.GetClients();
-            var client = clients.First(item => item.Email == email && item.Password == password);
+            var client = clients.FirstOrDefault(item => item.Email == email && item.Password == password);
             if (client != null)
             {
                 var claims = new List<Claim>

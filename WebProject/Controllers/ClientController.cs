@@ -29,6 +29,7 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Список клиентов.</returns>
         [HttpGet]
+        [Authorize]
         [Route("Clients")]
         [ProducesResponseType(typeof(List<Client>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]

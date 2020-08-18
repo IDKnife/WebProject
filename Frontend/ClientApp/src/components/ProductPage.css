@@ -2,11 +2,16 @@
     color: black;
 }
 #deleteLink, #changeLink, #basketLink {
-    display: inline-block !important;
-    padding: 0 !important;
+    display: inline-block;
+    padding: 0 2px !important;
 }
-
-p {
-    display: inline-block !important;
-    padding: 0 5px 0 5px;
+#deleteLink {
+    border-right: solid black 1px;
+}
+#changeLink {
+    border-right: solid black 1px;
+    border-left: solid black 1px;
+}
+#basketLink {
+    border-left: solid black 1px;
 }
