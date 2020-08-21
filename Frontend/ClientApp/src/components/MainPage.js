@@ -35,7 +35,7 @@ export class MainPage extends Component {
             url = `https://localhost:5001/api/Product/Products/-/` + `${this.props.match.params.category}`;
         else
             url = `https://localhost:5001/api/Product/Products`;
-        await axios.get(url/*, { headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBY2Nlc3MiOiJVc2VyIiwiSWQiOiI1ZjM3YTQyMGMyN2YwNzVlZmU5YzY4YTEiLCJFbWFpbCI6InNvbWVfZW1haWxAbWFpbC5ydSJ9.XFcRccgIKyS7Wt3DSNIfTxzDKyUXJ_HVkQhvLQ8vNVo' } }*/)
+        await axios.get(url)
             .then(res => res.data)
             .then((data) => {
                 this.setState({ IsLoaded: true, products: data })

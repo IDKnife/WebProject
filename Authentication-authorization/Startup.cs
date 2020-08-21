@@ -40,6 +40,8 @@ namespace Authentication_authorization
             services.AddControllers();
             services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<IClientService, ClientService>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IOrderService, OrderService>();
             services.AddSingleton<IMongoDatabase>(client.GetDatabase(connection.DatabaseName));
             services.AddSwaggerGen(c =>
             {

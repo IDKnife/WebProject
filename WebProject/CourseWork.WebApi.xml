@@ -37,6 +37,13 @@
             <param name="clientId">Уникальный идентификатор клиента.</param>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.ClientController.UpdateClient(CourseWork.WebApi.ViewModels.ClientViewModel)">
+            <summary>
+            Обновить клиента.
+            </summary>
+            <param name="сlient">Клиент.</param>
+            <returns>Ответ сервера.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.Orders">
             <summary>
             Получить список заказов.

@@ -34,9 +34,6 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Products(string name = null, string category = null)
         {
-
-            //if (User.Claims.First(a => a.Type == "Access").Value == "User")
-            //    return BadRequest("No access");
             try
             {
                 IList<Product> products;
@@ -58,11 +55,14 @@ namespace CourseWork.WebApi.Controllers
         /// <param name="product">Товар.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
+        [Authorize]
         [Route("AddProduct")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddProduct([FromBody] ProductViewModel product)
         {
+            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+                return BadRequest("No access");
             var result = await _productService.AddProduct(product.ToNewEntity() as Product);
             if (result.Result)
                 return Ok();
@@ -95,11 +95,14 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
+        [Authorize]
         [Route("DeleteProduct/{id}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(string id)
         {
+            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+                return BadRequest("No access");
             var result = await _productService.DeleteProduct(id);
             if (result.Result)
                 return Ok();
@@ -112,11 +115,14 @@ namespace CourseWork.WebApi.Controllers
         /// <param name="product">Товар.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
+        [Authorize]
         [Route("UpdateProduct")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductViewModel product)
         {
+            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+                return BadRequest("No access");
             var result = await _productService.UpdateProduct(product.ToEntity() as Product);
             if (result.Result)
                 return Ok();

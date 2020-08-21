@@ -1,0 +1,18 @@
+﻿#cabinet_container {
+    display: flex;
+}
+
+#cabinet_container .btn, input {
+    width: 200px;
+}
+
+#cabinet_container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+#firstNameChange, #secondNameChange, #lastNameChange, #phoneNumberChange, #emailChange {
+    margin-bottom: 0.63rem;
+}

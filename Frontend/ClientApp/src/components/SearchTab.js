@@ -45,7 +45,7 @@ export class SearchTab extends Component {
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink id="User" tag={Link} className="text-dark" to="#">Cabinet</NavLink>
+                                    <NavLink id="User" tag={Link} className="text-dark" to="/cabinet">Cabinet</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink id="Auth" tag={Link} className="text-dark" to="/log_in">Log In</NavLink>

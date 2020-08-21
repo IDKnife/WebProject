@@ -22,7 +22,8 @@ export class Basket extends Component {
 
     Checkout() {
         if (sessionStorage.getItem("IsAuthorized") === "true") {
-            axios.post(`https://localhost:5001/api/Client/AddOrderToList/${sessionStorage.getItem("client_id")}`, this.state.order);
+            axios.post(`https://localhost:5001/api/Client/AddOrderToList/${sessionStorage.getItem("client_id")}`,
+                this.state.order, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
             alert(`Order confirmed, now you can check it in your cabinet. Your order id is - ${
                 sessionStorage.getItem("order_id")}`);
         } else {
@@ -106,7 +107,7 @@ export class Basket extends Component {
                                     {element.product.price}
                                 </td>
                                 <td>
-                                    <input onChange={this.onChange} class="productCount" id={`productCount${element.product.id}`} type="number"/>
+                                    <input onChange={this.onChange} class="productCount" id={`productCount${element.product.id}`} type="number" />
                                 </td>
                                 <td id={element.product.id} onClick={this.onClickDelete}>
                                     Delete

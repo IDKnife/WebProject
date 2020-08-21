@@ -51,6 +51,7 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Клиент.</returns>
         [HttpGet]
+        [Authorize]
         [Route("GetClient/{id}")]
         [ProducesResponseType(typeof(Client), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -107,12 +108,31 @@ namespace CourseWork.WebApi.Controllers
         /// <param name="clientId">Уникальный идентификатор клиента.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
+        [Authorize]
         [Route("AddOrderToList/{clientId}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddOrderToClientList([FromBody] OrderViewModel order, string clientId)
         {
             var result = await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
+            if (result.Result)
+                return Ok();
+            return BadRequest(result.MessageResult);
+        }
+
+        /// <summary>
+        /// Обновить клиента.
+        /// </summary>
+        /// <param name="сlient">Клиент.</param>
+        /// <returns>Ответ сервера.</returns>
+        [HttpPost]
+        [Authorize]
+        [Route("UpdateClient")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateClient([FromBody] ClientViewModel сlient)
+        {
+            var result = await _clientService.UpdateClient(сlient.ToEntity() as Client);
             if (result.Result)
                 return Ok();
             return BadRequest(result.MessageResult);

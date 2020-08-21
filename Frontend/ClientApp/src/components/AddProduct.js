@@ -17,7 +17,7 @@ export class AddProduct extends Component {
             category: document.getElementById("category").value,
             description: document.getElementById("description").value
         };
-        axios.post('https://localhost:5001/api/Product/AddProduct', product);
+        axios.post('https://localhost:5001/api/Product/AddProduct', product, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
     }
 
     componentDidMount() {
