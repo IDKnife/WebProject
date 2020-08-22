@@ -11,6 +11,7 @@ import { UpdateProduct } from './components/UpdateProduct';
 import { Info } from './components/Info';
 import { Basket } from './components/Basket';
 import { Cabinet } from './components/Cabinet';
+import { ClientOrders } from './components/ClientOrders';
 import axios from "C:/Users/ArhiS/node_modules/axios";
 import './custom.css';
 
@@ -88,6 +89,7 @@ export default class App extends Component {
                 <Route path='/update_product:id' component={UpdateProduct} />
                 <Route path='/basket' render={(props) => <Basket {...props} onOrderChange={this.handleOrderChange} />} />
                 <Route path='/cabinet' component={Cabinet} />
+                <Route path='/client_orders' component={ClientOrders} />
             </Layout>
         );
     }

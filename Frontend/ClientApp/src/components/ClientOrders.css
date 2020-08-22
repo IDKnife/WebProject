@@ -1,0 +1,7 @@
+﻿#clientOrdersContainer tr{
+    display: flex;
+}
+#clientOrdersContainer td,th {
+    width: 210px;
+    margin: 0;
+}

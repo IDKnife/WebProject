@@ -20,7 +20,7 @@ export class Basket extends Component {
         };
     }
 
-    Checkout() {
+    async Checkout() {
         if (sessionStorage.getItem("IsAuthorized") === "true") {
             axios.post(`https://localhost:5001/api/Client/AddOrderToList/${sessionStorage.getItem("client_id")}`,
                 this.state.order, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
@@ -30,6 +30,18 @@ export class Basket extends Component {
             alert(`Order confirmed. Your order id is - ${
                 sessionStorage.getItem("order_id")}`);
         }
+        let order = {
+            clientId: "anonym",
+            basket: { products: [] },
+            date: new Date(),
+            state: 0
+        }
+        await axios.post(`https://localhost:5001/api/Order/AddOrder`, order)
+            .then(res => res.data)
+            .then((data) => {
+                sessionStorage.setItem("order_id", data);
+            })
+            .catch(console.log);
     }
 
     toProduct(e) {

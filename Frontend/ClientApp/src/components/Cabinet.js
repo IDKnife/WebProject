@@ -135,7 +135,7 @@ export class Cabinet extends Component {
                         <div class="btn" onClick={this.ChangePassword}>Change password</div>
                     </div>
                     <div>
-                        <NavLink id="Orders" tag={Link} className="text-dark" to="#">Orders</NavLink>
+                        <NavLink id="Orders" tag={Link} className="text-dark" to="/client_orders">Orders</NavLink>
                     </div>
                 </div>
             );

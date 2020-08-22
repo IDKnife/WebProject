@@ -93,6 +93,7 @@ namespace CourseWork.Services.Implementations
             {
                 var client = await _repository.GetEntity(clientId);
                 order.ClientId = clientId;
+                order.State = OrderState.Payed;
                 await _order_repository.UpdateEntity(order);
                 client.Orders.Add(order);
                 await _repository.UpdateEntity(client);
