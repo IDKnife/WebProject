@@ -7,10 +7,28 @@ export class ClientOrders extends Component {
 
     constructor(props) {
         super(props);
+        this.getContent = this.getContent.bind(this);
         this.state = {
             client: {},
             IsLoaded: false
         }
+    }
+
+    getContent(e) {
+        Array.from(e.target.parentNode.parentNode.childNodes).map(a => {
+            a.style.border = "none";
+            a.style.padding = "5px";
+        });
+        e.target.parentNode.style.border = "3px solid black";
+        e.target.parentNode.style.padding = "2px";
+        let elem = document.getElementById("orderContent");
+        elem.innerHTML = "<div><p>Product</p><p>Price</p><p>Count</p></div>";
+        let order = this.state.client.orders.find(a => a.id === e.target.parentNode.id);
+        order.basket.products.map(a => {
+            elem.innerHTML += ("<div><p>" + a.product.name + "</p>"
+                + "<p>" + a.product.price + "</p>"
+                + "<p>" + a.count + "</p></div>");
+        });
     }
 
     async componentDidMount() {
@@ -58,13 +76,15 @@ export class ClientOrders extends Component {
                                     break;
                             }
                             return (
-                                <tr id={order.id}>
+                                <tr id={order.id} onClick={this.getContent}>
                                     <td>{order.id}</td>
                                     <td>{state}</td>
                                     <td>{order.date}</td>
                                 </tr>);
                         })}
                     </table>
+                    <div id="orderContent">
+                    </div>
                 </div>
             );
         }

@@ -21,16 +21,23 @@ export class Basket extends Component {
     }
 
     async Checkout() {
+        let order;
         if (sessionStorage.getItem("IsAuthorized") === "true") {
-            axios.post(`https://localhost:5001/api/Client/AddOrderToList/${sessionStorage.getItem("client_id")}`,
-                this.state.order, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
+            await axios.get(`https://localhost:5001/api/Order/GetOrder/${sessionStorage.getItem("order_id")}`)
+                .then(res => res.data)
+                .then((data) => {
+                    order = data;
+                })
+                .catch(console.log);
+            await axios.post(`https://localhost:5001/api/Client/AddOrderToList/${sessionStorage.getItem("client_id")}`,
+                order, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
             alert(`Order confirmed, now you can check it in your cabinet. Your order id is - ${
                 sessionStorage.getItem("order_id")}`);
         } else {
             alert(`Order confirmed. Your order id is - ${
                 sessionStorage.getItem("order_id")}`);
         }
-        let order = {
+        order = {
             clientId: "anonym",
             basket: { products: [] },
             date: new Date(),
@@ -42,6 +49,7 @@ export class Basket extends Component {
                 sessionStorage.setItem("order_id", data);
             })
             .catch(console.log);
+        await this.props.onOrderChange();
     }
 
     toProduct(e) {

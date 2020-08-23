@@ -1,7 +1,29 @@
-﻿#clientOrdersContainer tr{
+﻿#clientOrdersContainer tr {
     display: flex;
+    width: 630px;
+    padding: 5px;
 }
-#clientOrdersContainer td,th {
+
+#clientOrdersContainer td, #clientOrdersContainer th {
     width: 210px;
     margin: 0;
+}
+
+#orderContent {
+    position: absolute;
+    width: 550px;
+    right: 150px;
+    top: 90px;
+}
+
+#orderContent div {
+        display: flex;
+}
+
+#orderContent p {
+    width: 150px;
+}
+
+#clientOrdersContainer h3 {
+    display: block;
 }
