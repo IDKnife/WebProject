@@ -1,6 +1,6 @@
 ﻿#clientOrdersContainer tr {
     display: flex;
-    width: 630px;
+    width: 730px;
     padding: 5px;
 }
 
@@ -9,11 +9,16 @@
     margin: 0;
 }
 
+#clientOrdersContainer .price {
+    width: 100px;
+    margin: 0;
+}
+
 #orderContent {
     position: absolute;
     width: 550px;
     right: 150px;
-    top: 90px;
+    top: 80px;
 }
 
 #orderContent div {
