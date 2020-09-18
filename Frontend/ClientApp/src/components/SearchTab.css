@@ -30,3 +30,13 @@ header {
     display: inline-block;
     margin: 0;
 }
+
+.logoutImg {
+    width: 25px;
+    height: 25px;
+}
+
+#User {
+    display: flex;
+    align-items: center;
+}

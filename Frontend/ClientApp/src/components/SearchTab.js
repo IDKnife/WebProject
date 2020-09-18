@@ -9,6 +9,7 @@ export class SearchTab extends Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
+        this.onLogout = this.onLogout.bind(this);
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
             collapsed: true
@@ -31,6 +32,15 @@ export class SearchTab extends Component {
         });
     }
 
+    onLogout() {
+        sessionStorage.setItem("client_id", "");
+        sessionStorage.setItem("access_token", "");
+        sessionStorage.setItem("access_level", "");
+        sessionStorage.setItem("IsAuthorized", "");
+        document.getElementById("User").style.display = "none";
+        document.getElementById("Auth").style.display = "block";
+    }
+
     componentDidMount() {
     }
 
@@ -45,7 +55,14 @@ export class SearchTab extends Component {
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink id="User" tag={Link} className="text-dark" to="/cabinet">Cabinet</NavLink>
+                                    <NavLink id="AddProduct" tag={Link} className="text-dark" to="/add_product">Add Product</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink id="Admin" tag={Link} className="text-dark" to="">Admin tools</NavLink>
+                                </NavItem>
+                                <NavItem id="User">
+                                    <NavLink tag={Link} className="text-dark" to="/cabinet">Cabinet</NavLink>
+                                    <img class="logoutImg" onClick={this.onLogout} src="./images/logout.png" />
                                 </NavItem>
                                 <NavItem>
                                     <NavLink id="Auth" tag={Link} className="text-dark" to="/log_in">Log In</NavLink>
@@ -53,11 +70,6 @@ export class SearchTab extends Component {
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/basket">Basket (<span id="basketCost">0.00</span>)</NavLink>
                                 </NavItem>
-                                {/*
-                                    <NavItem>
-                                        <NavLink tag={Link} className="text-dark" to="/add_product">Add Product</NavLink>
-                                    </NavItem>
-                                */}
                             </ul>
                         </Collapse>
                     </Container>

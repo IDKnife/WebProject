@@ -27,7 +27,7 @@ export default class App extends Component {
     }
 
     async handleClientLogin(email, password) {
-        await axios.post(`https://localhost:5021/api/Token/GetToken/${email}`, "\"" + password + "\"", { headers: { 'Content-Type': 'application/json' } })
+        await axios.post(`https://localhost:5021/api/Token/GetToken`, { "password": password, "email": email }, { headers: { 'Content-Type': 'application/json' } })
             .then(res => res.data)
             .then((data) => {
                 sessionStorage.setItem("client_id", data._id);
@@ -39,6 +39,11 @@ export default class App extends Component {
         if (sessionStorage.getItem("IsAuthorized") === "true") {
             document.getElementById("User").style.display = "block";
             document.getElementById("Auth").style.display = "none";
+            if (sessionStorage.getItem("access_level") !== "User") {
+                if (sessionStorage.getItem("access_level") === "Admin")
+                    document.getElementById("Admin").style.display = "block";
+                document.getElementById("AddProduct").style.display = "block";
+            }
             window.location.replace('https://localhost:5011/');
         }
     }
@@ -55,10 +60,19 @@ export default class App extends Component {
 
     async componentDidMount() {
         await this.handleOrderChange();
-        if (!sessionStorage.getItem("IsAuthorized"))
+        document.getElementById("Admin").style.display = "none";
+        document.getElementById("AddProduct").style.display = "none";
+        if (!sessionStorage.getItem("IsAuthorized")) {
             document.getElementById("User").style.display = "none";
-        else
+        } else {
             document.getElementById("Auth").style.display = "none";
+            console.log(sessionStorage.getItem("access_level"));
+            if (sessionStorage.getItem("access_level") !== "User") {
+                if (sessionStorage.getItem("access_level") === "Admin")
+                    document.getElementById("Admin").style.display = "block";
+                document.getElementById("AddProduct").style.display = "block";
+            }
+        }
         let order = {
             clientId: "anonym",
             basket: { products: [] },

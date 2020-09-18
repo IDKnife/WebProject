@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Authentication_authorization.Classes;
 using CourseWork.Models;
 using CourseWork.Services.Interfaces;
 using CourseWork.WebApi.ViewModels;
@@ -29,12 +30,12 @@ namespace Authentication_authorization.Controllers
         }
 
         [HttpPost]
-        [Route("GetToken/{email}")]
+        [Route("GetToken")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Identification(string email, [FromBody] string password)
+        public async Task<IActionResult> Identification([FromBody] Identity inputData)
         {
-            var identity = await CheckIdentity(email, password);
+            var identity = await CheckIdentity(inputData.Email, inputData.Password);
             if (identity == null)
                 return BadRequest(new { errorText = "Invalid username or password." });
             var jwt = new JwtSecurityToken(

@@ -50,8 +50,9 @@ namespace Authentication_authorization
             services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
             {
                 builder
-                    .WithMethods("Access-Control-Allow-Methods,GET,POST,PUT,DELETE,PATCH,OPTIONS")
-                    .WithHeaders("Access-Control-Allow-Origin,Access-Control-Allow-Methods")
+                    //.WithMethods("Access-Control-Allow-Methods,GET,POST,PUT,DELETE,PATCH,OPTIONS")
+                    //.WithHeaders("Access-Control-Allow-Origin,Access-Control-Allow-Methods")
+                    .AllowAnyMethod()
                     .AllowAnyHeader()
                     .WithOrigins("https://localhost:5011", "http://localhost:5010");
             }));

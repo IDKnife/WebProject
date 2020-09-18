@@ -64,7 +64,7 @@ namespace CourseWork.WebApi.ViewModels
         /// Преобразовать модель в новую сущность.
         /// </summary>
         /// <returns>Новая сущность.</returns>
-        public Entity ToNewEntity() => new Client(FirstName, LastName, SecondName, PhoneNumber, Email, Password, AccessLevel.User);
+        public Entity ToNewEntity() => new Client(FirstName, LastName, SecondName, PhoneNumber, Email, Password, Access);
         
     }
 }

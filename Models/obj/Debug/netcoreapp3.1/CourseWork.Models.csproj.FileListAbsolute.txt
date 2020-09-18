@@ -5,5 +5,5 @@ D:\fu\c#\WebProject\Models\obj\Debug\netcoreapp3.1\CourseWork.Models.AssemblyInf
 D:\fu\c#\WebProject\Models\obj\Debug\netcoreapp3.1\CourseWork.Models.AssemblyInfo.cs
 D:\fu\c#\WebProject\Models\obj\Debug\netcoreapp3.1\CourseWork.Models.dll
 D:\fu\c#\WebProject\Models\obj\Debug\netcoreapp3.1\CourseWork.Models.pdb
-D:\fu\c#\WebProject\Models\obj\Debug\netcoreapp3.1\CourseWork.Models.csprojAssemblyReference.cache
 D:\fu\c#\WebProject\Models\obj\Debug\netcoreapp3.1\CourseWork.Models.csproj.CoreCompileInputs.cache
+D:\fu\c#\WebProject\Models\obj\Debug\netcoreapp3.1\CourseWork.Models.csprojAssemblyReference.cache
