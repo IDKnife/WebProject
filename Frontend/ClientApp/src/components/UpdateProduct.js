@@ -24,6 +24,7 @@ export class UpdateProduct extends Component {
             id: document.getElementById("id").value,
         };
         axios.post('https://localhost:5001/api/Product/UpdateProduct', product, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
+        window.location.replace('https://localhost:5011');
     }
 
     async componentDidMount() {

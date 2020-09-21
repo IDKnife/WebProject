@@ -10,7 +10,7 @@ export class Deleted extends Component {
 
     async componentDidMount() {
         let id = this.props.match.params.id;
-        axios.post(`https://localhost:5001/api/Product/DeleteProduct/${id}`, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
+        axios.post(`https://localhost:5001/api/Product/DeleteProduct/${id}`, {}, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
     }
 
     render() {

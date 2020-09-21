@@ -29,7 +29,7 @@ export class ProductPage extends Component {
                 this.setState({ IsLoaded: true, product: data });
             })
             .catch(console.log);
-        if ((sessionStorage.getItem("access_level") != "Admin") || (sessionStorage.getItem("access_level") != "Moderator")) {
+        if ((sessionStorage.getItem("access_level") !== "Admin") && (sessionStorage.getItem("access_level") !== "Moderator")) {
             document.getElementById("deleteLink").style.display = "none";
             document.getElementById("changeLink").style.display = "none";
             document.getElementById("basketLink").style.border = "none";

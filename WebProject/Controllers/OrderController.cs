@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Services.Interfaces;
 using CourseWork.WebApi.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,11 +29,14 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Список заказов.</returns>
         [HttpGet]
+        [Authorize]
         [Route("Orders")]
         [ProducesResponseType(typeof(List<Order>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Orders()
         {
+            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+                return BadRequest("No access");
             try
             {
                 var orders = await _orderService.GetOrders();

@@ -18,6 +18,7 @@ export class AddProduct extends Component {
             description: document.getElementById("description").value
         };
         axios.post('https://localhost:5001/api/Product/AddProduct', product, { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
+        window.location.replace('https://localhost:5011');
     }
 
     componentDidMount() {

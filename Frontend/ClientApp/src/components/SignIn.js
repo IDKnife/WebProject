@@ -20,7 +20,8 @@ export class SignIn extends Component {
             lastName: document.getElementById("lastName").value,
             phoneNumber: document.getElementById("phoneNumber").value,
             email: document.getElementById("email").value,
-            password: document.getElementById("password").value
+            password: document.getElementById("password").value,
+            access: 2
         };
         axios.post('https://localhost:5021/api/Token/Register', client);
         window.location.replace('https://localhost:5011/log_in');

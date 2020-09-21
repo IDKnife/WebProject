@@ -12,6 +12,8 @@ import { Info } from './components/Info';
 import { Basket } from './components/Basket';
 import { Cabinet } from './components/Cabinet';
 import { ClientOrders } from './components/ClientOrders';
+import { AdminTools } from './components/AdminTools';
+import { Clients } from './components/Clients';
 import axios from "C:/Users/ArhiS/node_modules/axios";
 import './custom.css';
 
@@ -20,7 +22,7 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            price: 0,
+            price: 0
         };
         this.handleOrderChange = this.handleOrderChange.bind(this);
         this.handleClientLogin = this.handleClientLogin.bind(this);
@@ -66,7 +68,6 @@ export default class App extends Component {
             document.getElementById("User").style.display = "none";
         } else {
             document.getElementById("Auth").style.display = "none";
-            console.log(sessionStorage.getItem("access_level"));
             if (sessionStorage.getItem("access_level") !== "User") {
                 if (sessionStorage.getItem("access_level") === "Admin")
                     document.getElementById("Admin").style.display = "block";
@@ -104,6 +105,8 @@ export default class App extends Component {
                 <Route path='/basket' render={(props) => <Basket {...props} onOrderChange={this.handleOrderChange} />} />
                 <Route path='/cabinet' component={Cabinet} />
                 <Route path='/client_orders' component={ClientOrders} />
+                <Route path='/admin_tools' component={AdminTools} />
+                <Route path='/clients' component={Clients} />
             </Layout>
         );
     }

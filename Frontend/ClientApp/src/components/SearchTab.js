@@ -39,6 +39,8 @@ export class SearchTab extends Component {
         sessionStorage.setItem("IsAuthorized", "");
         document.getElementById("User").style.display = "none";
         document.getElementById("Auth").style.display = "block";
+        document.getElementById("Admin").style.display = "none";
+        document.getElementById("AddProduct").style.display = "none";
     }
 
     componentDidMount() {
@@ -58,7 +60,7 @@ export class SearchTab extends Component {
                                     <NavLink id="AddProduct" tag={Link} className="text-dark" to="/add_product">Add Product</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink id="Admin" tag={Link} className="text-dark" to="">Admin tools</NavLink>
+                                    <NavLink id="Admin" tag={Link} className="text-dark" to="/admin_tools">Admin tools</NavLink>
                                 </NavItem>
                                 <NavItem id="User">
                                     <NavLink tag={Link} className="text-dark" to="/cabinet">Cabinet</NavLink>
