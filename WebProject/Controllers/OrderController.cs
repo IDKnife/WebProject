@@ -35,7 +35,7 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Orders()
         {
-            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
                 return BadRequest("No access");
             try
             {

@@ -14,6 +14,7 @@ import { Cabinet } from './components/Cabinet';
 import { ClientOrders } from './components/ClientOrders';
 import { AdminTools } from './components/AdminTools';
 import { Clients } from './components/Clients';
+import { ClientPage } from './components/ClientPage';
 import axios from "C:/Users/ArhiS/node_modules/axios";
 import './custom.css';
 
@@ -107,6 +108,7 @@ export default class App extends Component {
                 <Route path='/client_orders' component={ClientOrders} />
                 <Route path='/admin_tools' component={AdminTools} />
                 <Route path='/clients' component={Clients} />
+                <Route path='/client_page:id' component={ClientPage} />
             </Layout>
         );
     }

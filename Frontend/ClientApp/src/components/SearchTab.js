@@ -41,6 +41,7 @@ export class SearchTab extends Component {
         document.getElementById("Auth").style.display = "block";
         document.getElementById("Admin").style.display = "none";
         document.getElementById("AddProduct").style.display = "none";
+        window.location.replace('https://localhost:5011');
     }
 
     componentDidMount() {
