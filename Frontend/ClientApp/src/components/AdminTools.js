@@ -12,7 +12,7 @@ export class AdminTools extends Component {
         return (
             <div id="adminTools">
                 <div class="btn" onClick={function () { window.location.replace('https://localhost:5011/clients'); }}>Clients</div>
-                <div class="btn">Orders</div>
+                <div class="btn" onClick={function () { window.location.replace('https://localhost:5011/orders'); }}>Orders</div>
             </div>
         );
     }

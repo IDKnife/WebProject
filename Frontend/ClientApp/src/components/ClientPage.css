@@ -1,8 +1,8 @@
-﻿.li-flex {
+﻿#clientPage div{
     display: flex;
     width: 300px;
     justify-content: space-between;
 }
-.orders {
-    width: 700px;
+#clientPage select{
+    height: 30px;
 }

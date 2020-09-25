@@ -170,12 +170,15 @@ namespace CourseWork.WebApi.Controllers
         /// </summary>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
+        [Authorize]
         [Route("DeleteOrder/{id}")]
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(string id)
         {
+            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+                return BadRequest("No access");
             var result = await _orderService.DeleteOrder(id);
             if (result.Result)
                 return Ok();

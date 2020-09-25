@@ -70,33 +70,36 @@ namespace CourseWork.WebApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Добавить клиента.
-        /// </summary>
-        /// <param name="сlient">Клиент.</param>
-        /// <returns>Ответ сервера.</returns>
-        [HttpPost]
-        [Route("AddClient")]
-        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddClient([FromBody]ClientViewModel сlient)
-        {
-            var result = await _clientService.AddClient(сlient.ToNewEntity() as Client);
-            if (result.Result)
-                return Ok();
-            return BadRequest(result.MessageResult);
-        }
+        ///// <summary>
+        ///// Добавить клиента.
+        ///// </summary>
+        ///// <param name="сlient">Клиент.</param>
+        ///// <returns>Ответ сервера.</returns>
+        //[HttpPost]
+        //[Route("AddClient")]
+        //[ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        //[ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        //public async Task<IActionResult> AddClient([FromBody]ClientViewModel сlient)
+        //{
+        //    var result = await _clientService.AddClient(сlient.ToNewEntity() as Client);
+        //    if (result.Result)
+        //        return Ok();
+        //    return BadRequest(result.MessageResult);
+        //}
 
         /// <summary>
         /// Удалить клиента.
         /// </summary>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
+        [Authorize]
         [Route("DeleteClient/{id}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteClient(string id)
         {
+            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+                return BadRequest("No access");
             var result = await _clientService.DeleteClient(id);
             if (result.Result)
                 return Ok();
@@ -134,6 +137,8 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateClient([FromBody] ClientViewModel сlient)
         {
+            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+                return BadRequest("No access");
             var result = await _clientService.UpdateClient(сlient.ToEntity() as Client);
             if (result.Result)
                 return Ok();

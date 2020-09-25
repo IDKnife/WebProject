@@ -16,13 +16,6 @@
             </summary>
             <returns>Клиент.</returns>
         </member>
-        <member name="M:CourseWork.WebApi.Controllers.ClientController.AddClient(CourseWork.WebApi.ViewModels.ClientViewModel)">
-            <summary>
-            Добавить клиента.
-            </summary>
-            <param name="сlient">Клиент.</param>
-            <returns>Ответ сервера.</returns>
-        </member>
         <member name="M:CourseWork.WebApi.Controllers.ClientController.DeleteClient(System.String)">
             <summary>
             Удалить клиента.
