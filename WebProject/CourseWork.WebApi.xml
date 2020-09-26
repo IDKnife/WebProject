@@ -95,6 +95,12 @@
             </summary>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.Delete(CourseWork.WebApi.ViewModels.OrderViewModel)">
+            <summary>
+            Обновить заказ.
+            </summary>
+            <returns>Ответ сервера.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.Products(System.String,System.String)">
             <summary>
             Получить список товаров.

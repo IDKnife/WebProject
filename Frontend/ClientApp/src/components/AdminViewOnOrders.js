@@ -19,8 +19,8 @@ export class AdminViewOnOrders extends Component {
             IsLoaded: false
         };
     }
-    StateConverter(client) {
-        switch (client.access) {
+    StateConverter(order) {
+        switch (order.state) {
             case 0:
                 return ("Forming");
             case 1:
@@ -34,18 +34,18 @@ export class AdminViewOnOrders extends Component {
     sortAscendingClientId() {
         this.setState({
             orders: this.state.orders.sort(function (a, b) {
-                if (a.client_id > b.client_id) return 1;
-                if (a.client_id == b.client_id) return 0;
-                if (a.client_id < b.client_id) return -1;
+                if (a.clientId > b.clientId) return 1;
+                if (a.clientId == b.clientId) return 0;
+                if (a.clientId < b.clientId) return -1;
             })
         })
     }
     sortDescendingClientId() {
         this.setState({
             orders: this.state.orders.sort(function (a, b) {
-                if (a.client_id > b.client_id) return -1;
-                if (a.client_id == b.client_id) return 0;
-                if (a.client_id < b.client_id) return 1;
+                if (a.clientId > b.clientId) return -1;
+                if (a.clientId == b.clientId) return 0;
+                if (a.clientId < b.clientId) return 1;
             })
         })
     }
@@ -93,7 +93,6 @@ export class AdminViewOnOrders extends Component {
                 this.setState({ IsLoaded: true, orders: data })
             })
             .catch(console.log);
-        console.log(this.state.orders);
     }
 
     render() {
@@ -112,8 +111,8 @@ export class AdminViewOnOrders extends Component {
                         <li class="li-flex orders">
                             <p>
                                 <b>Client Id  </b>
-                                <img onClick={this.sortAscendingEmails} class="sort" src="./images/up.png" />
-                                <img onClick={this.sortDescendingEmails} class="sort" src="./images/down.png" />
+                                <img onClick={this.sortAscendingClientId} class="sort" src="./images/up.png" />
+                                <img onClick={this.sortDescendingClientId} class="sort" src="./images/down.png" />
                             </p>
                             <p>
                                 <b>State  </b>
@@ -122,12 +121,12 @@ export class AdminViewOnOrders extends Component {
                             </p>
                             <p>
                                 <b>Date  </b>
-                                <img onClick={this.sortAscendingAccess} class="sort" src="./images/up.png" />
-                                <img onClick={this.sortDescendingAccess} class="sort" src="./images/down.png" />
+                                <img onClick={this.sortAscendingDate} class="sort" src="./images/up.png" />
+                                <img onClick={this.sortDescendingDate} class="sort" src="./images/down.png" />
                             </p>
                         </li>
                         {orders.map((order) => (
-                            <li onClick={function () {/* window.location.replace(`https://localhost:5011/client_page${client.id}`) */}} class="li-flex">
+                            <li onClick={function () { window.location.replace(`https://localhost:5011/order_page${order.id}`)  }} class="li-flex orders">
                                 <p>{order.clientId}</p>
                                 <p>{this.StateConverter(order)}</p>
                                 <p>{order.date}</p>

@@ -1,8 +1,21 @@
-﻿#clientPage div{
+﻿.innerPage div{
     display: flex;
     width: 300px;
     justify-content: space-between;
 }
-#clientPage select{
+.innerPage select {
     height: 30px;
+}
+.innerPage {
+    width: 800px;
+}
+.page {
+    display: flex;
+    justify-content: space-between;
+}
+.basket p {
+    width: 200px!important;
+}
+.basket {
+    width: 600px!important;
 }

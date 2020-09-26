@@ -184,5 +184,25 @@ namespace CourseWork.WebApi.Controllers
                 return Ok();
             return BadRequest(result.MessageResult);
         }
+
+        /// <summary>
+        /// Обновить заказ.
+        /// </summary>
+        /// <returns>Ответ сервера.</returns>
+        [HttpPost]
+        [Authorize]
+        [Route("UpdateOrder")]
+        [EnableCors("DefaultPolicy")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Delete([FromBody] OrderViewModel order)
+        {
+            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+                return BadRequest("No access");
+            var result = await _orderService.UpdateOrder(order.ToEntity() as Order);
+            if (result.Result)
+                return Ok();
+            return BadRequest(result.MessageResult);
+        }
     }
 }

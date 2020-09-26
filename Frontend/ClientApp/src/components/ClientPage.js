@@ -55,7 +55,7 @@ export class ClientPage extends Component {
         }
         else {
             return (
-                <div id="clientPage">
+                <div class="innerPage">
                     <div><p>Email: </p><p>{client.email}</p></div>
                     <div><p>Firstname: </p><p>{client.firstName}</p></div>
                     <div><p>Secondname: </p><p>{client.secondName}</p></div>

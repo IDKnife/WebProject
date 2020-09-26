@@ -6,3 +6,6 @@
 .orders {
     width: 700px;
 }
+.orders p {
+    width: 200px;
+}
