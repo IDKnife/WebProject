@@ -34,7 +34,20 @@ export class OrderPage extends Component {
             .then(res => res.data)
             .then((data) => {
                 this.setState({ IsLoaded: true, order: data });
-                document.getElementById("stateChange").options.selectedIndex = this.state.order.state;
+                let elem = document.getElementById("stateChange");
+                elem.options.selectedIndex = this.state.order.state;
+                if (sessionStorage.getItem("access_level") !== "Admin") {
+                    let i = 3;
+                    while (i > this.state.order.state) {
+                        elem.remove(i);
+                        i--;
+                    }
+                    i--;
+                    while (i > -1) {
+                        elem.remove(i);
+                        i--;
+                    }
+                }
             })
             .catch(console.log);
     }

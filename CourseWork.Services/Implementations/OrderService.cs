@@ -150,5 +150,31 @@ namespace CourseWork.Services.Implementations
                 throw;
             }
         }
+
+        /// <summary>
+        /// Удалить пустые анонимные заказы кроме текущего, которые были созданы за день или более относительно текущей даты.
+        /// </summary>
+        /// <param name="id">Уникальный идентификатор текущего заказа.</param>
+        /// <returns>Результат операции.</returns>
+        public async Task<ServiceOperationResult> DeleteEmptyAnonymOrders(string id)
+        {
+            try
+            {
+                var orders = await _repository.GetEntities();
+                if (orders != null)
+                {
+                    foreach (var order in orders)
+                        if (order.ClientId == "anonym" && order.Basket.Products.Count == 0 && order.Id != id && order.Date < DateTime.Today)
+                            await _repository.DeleteEntity(order.Id);
+                    return new ServiceOperationResult(true, "Success");
+                }
+                return new ServiceOperationResult(false, $"Fail: List of orders is empty");
+            }
+            catch (Exception e)
+            {
+                //ToDo: логирование
+                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+            }
+        }
     }
 }

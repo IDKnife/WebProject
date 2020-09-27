@@ -18,5 +18,6 @@ namespace CourseWork.Services.Interfaces
         Task<ServiceOperationResult> DeleteProductFromOrder(string productId, string orderId);
         Task<ServiceOperationResult> UpdateProductCountInOrder(string productId, int newCount, string orderId);
         Task<double> GetPriceOfOrder(string id);
+        Task<ServiceOperationResult> DeleteEmptyAnonymOrders(string id);
     }
 }

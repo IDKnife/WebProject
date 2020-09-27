@@ -9,3 +9,9 @@
 .orders p {
     width: 200px;
 }
+#btnOnAdminViewOnOrdersPage {
+    position: absolute;
+    top: 50px;
+    right: 400px;
+    height: 55px;
+}

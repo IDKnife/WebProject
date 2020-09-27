@@ -7,6 +7,7 @@ export class AdminViewOnOrders extends Component {
 
     constructor(props) {
         super(props);
+        this.deleteEmptyAnonymOrders = this.deleteEmptyAnonymOrders.bind(this);
         this.StateConverter = this.StateConverter.bind(this);
         this.sortAscendingClientId = this.sortAscendingClientId.bind(this);
         this.sortDescendingClientId = this.sortDescendingClientId.bind(this);
@@ -85,6 +86,18 @@ export class AdminViewOnOrders extends Component {
             })
         })
     }
+    async deleteEmptyAnonymOrders() {
+        await axios.post(`https://localhost:5001/api/Order/DeleteEmptyAnonymOrders/${sessionStorage.getItem("order_id")}`,
+            {},
+            { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } });
+        await axios.get("https://localhost:5001/api/Order/Orders",
+            { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } })
+            .then(res => res.data)
+            .then((data) => {
+                this.setState({ IsLoaded: true, orders: data })
+            })
+            .catch(console.log);
+    }
     async componentDidMount() {
         await axios.get("https://localhost:5001/api/Order/Orders",
             { headers: { 'Authorization': `Bearer ${sessionStorage.getItem("access_token")}` } })
@@ -126,13 +139,14 @@ export class AdminViewOnOrders extends Component {
                             </p>
                         </li>
                         {orders.map((order) => (
-                            <li onClick={function () { window.location.replace(`https://localhost:5011/order_page${order.id}`)  }} class="li-flex orders">
+                            <li onClick={function () { window.location.replace(`https://localhost:5011/order_page${order.id}`) }} class="li-flex orders">
                                 <p>{order.clientId}</p>
                                 <p>{this.StateConverter(order)}</p>
                                 <p>{order.date}</p>
                             </li>
                         ))}
                     </ul>
+                    <div id="btnOnAdminViewOnOrdersPage" class="btn" onClick={this.deleteEmptyAnonymOrders} >Delete empty anonym orders</div>
                 </div >
             );
         }

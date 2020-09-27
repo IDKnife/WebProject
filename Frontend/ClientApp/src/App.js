@@ -17,6 +17,9 @@ import { Clients } from './components/Clients';
 import { ClientPage } from './components/ClientPage';
 import { AdminViewOnOrders } from './components/AdminViewOnOrders';
 import { OrderPage } from './components/OrderPage';
+import { Delivery } from './components/Delivery';
+import { Feedback } from './components/Feedback';
+import { StoreAddresses } from './components/StoreAddresses';
 import axios from "C:/Users/ArhiS/node_modules/axios";
 import './custom.css';
 
@@ -113,6 +116,9 @@ export default class App extends Component {
                 <Route path='/client_page:id' component={ClientPage} />
                 <Route path='/orders' component={AdminViewOnOrders} />
                 <Route path='/order_page:id' component={OrderPage} />
+                <Route path='/delivery' component={Delivery} />
+                <Route path='/store_addresses' component={StoreAddresses} />
+                <Route path='/feedback' component={Feedback} />
             </Layout>
         );
     }

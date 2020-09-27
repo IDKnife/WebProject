@@ -204,5 +204,26 @@ namespace CourseWork.WebApi.Controllers
                 return Ok();
             return BadRequest(result.MessageResult);
         }
+
+        /// <summary>
+        /// Удалить пустые анонимные заказы кроме текущего, которые были созданы за день или более относительно текущей даты.
+        /// </summary>
+        /// <param name="id">Уникальный идентификатор текущего заказа.</param>
+        /// <returns>Ответ сервера.</returns>
+        [HttpPost]
+        [Authorize]
+        [Route("DeleteEmptyAnonymOrders/{id}")]
+        [EnableCors("DefaultPolicy")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteEmptyAnonymOrders(string id)
+        {
+            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+                return BadRequest("No access");
+            var result = await _orderService.DeleteEmptyAnonymOrders(id);
+            if (result.Result)
+                return Ok();
+            return BadRequest(result.MessageResult);
+        }
     }
 }

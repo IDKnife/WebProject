@@ -8,12 +8,19 @@ export class SearchTab extends Component {
 
     constructor(props) {
         super(props);
+        this.findYourOrder = this.findYourOrder.bind(this);
         this.onClick = this.onClick.bind(this);
         this.onLogout = this.onLogout.bind(this);
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
             collapsed: true
         };
+    }
+
+    findYourOrder() {
+        let id = prompt("Find your order", "Enter id of your order");
+        if (id != null)
+            window.location.replace(`https://localhost:5011/order_page${id}`);
     }
 
     onClick() {
@@ -57,6 +64,9 @@ export class SearchTab extends Component {
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" onClick={this.findYourOrder} >Find your order</NavLink>
+                                </NavItem>
                                 <NavItem>
                                     <NavLink id="AddProduct" tag={Link} className="text-dark" to="/add_product">Add Product</NavLink>
                                 </NavItem>

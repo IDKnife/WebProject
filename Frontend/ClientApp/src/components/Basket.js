@@ -50,6 +50,7 @@ export class Basket extends Component {
             })
             .catch(console.log);
         await this.props.onOrderChange();
+        window.location.replace(`https://localhost:5011`);
     }
 
     toProduct(e) {

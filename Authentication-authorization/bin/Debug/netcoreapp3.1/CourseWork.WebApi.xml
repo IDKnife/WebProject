@@ -95,6 +95,19 @@
             </summary>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.Delete(CourseWork.WebApi.ViewModels.OrderViewModel)">
+            <summary>
+            Обновить заказ.
+            </summary>
+            <returns>Ответ сервера.</returns>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.DeleteEmptyAnonymOrders(System.String)">
+            <summary>
+            Удалить пустые анонимные заказы кроме текущего.
+            </summary>
+            <param name="id">Уникальный идентификатор текущего заказа.</param>
+            <returns>Ответ сервера.</returns>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.Products(System.String,System.String)">
             <summary>
             Получить список товаров.
