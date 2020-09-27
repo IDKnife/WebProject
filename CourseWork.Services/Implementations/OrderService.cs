@@ -151,11 +151,6 @@ namespace CourseWork.Services.Implementations
             }
         }
 
-        /// <summary>
-        /// Удалить пустые анонимные заказы кроме текущего, которые были созданы за день или более относительно текущей даты.
-        /// </summary>
-        /// <param name="id">Уникальный идентификатор текущего заказа.</param>
-        /// <returns>Результат операции.</returns>
         public async Task<ServiceOperationResult> DeleteEmptyAnonymOrders(string id)
         {
             try
