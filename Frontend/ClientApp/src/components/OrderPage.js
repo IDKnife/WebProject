@@ -47,6 +47,7 @@ export class OrderPage extends Component {
                         elem.remove(i);
                         i--;
                     }
+                    elem.nextSibling.style.display = "none";
                 }
             })
             .catch(console.log);

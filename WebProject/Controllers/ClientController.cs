@@ -137,8 +137,6 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateClient([FromBody] ClientViewModel сlient)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
-                return BadRequest("No access");
             var result = await _clientService.UpdateClient(сlient.ToEntity() as Client);
             if (result.Result)
                 return Ok();

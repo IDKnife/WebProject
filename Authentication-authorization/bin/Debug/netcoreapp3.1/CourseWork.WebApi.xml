@@ -103,7 +103,7 @@
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.DeleteEmptyAnonymOrders(System.String)">
             <summary>
-            Удалить пустые анонимные заказы кроме текущего.
+            Удалить пустые анонимные заказы кроме текущего, которые были созданы за день или более относительно текущей даты.
             </summary>
             <param name="id">Уникальный идентификатор текущего заказа.</param>
             <returns>Ответ сервера.</returns>
