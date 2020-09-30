@@ -10,7 +10,6 @@ export class SearchTab extends Component {
         super(props);
         this.findYourOrder = this.findYourOrder.bind(this);
         this.onClick = this.onClick.bind(this);
-        this.onLogout = this.onLogout.bind(this);
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
             collapsed: true
@@ -39,18 +38,6 @@ export class SearchTab extends Component {
         });
     }
 
-    onLogout() {
-        sessionStorage.setItem("client_id", "");
-        sessionStorage.setItem("access_token", "");
-        sessionStorage.setItem("access_level", "");
-        sessionStorage.setItem("IsAuthorized", "");
-        document.getElementById("User").style.display = "none";
-        document.getElementById("Auth").style.display = "block";
-        document.getElementById("Admin").style.display = "none";
-        document.getElementById("AddProduct").style.display = "none";
-        window.location.replace('https://localhost:5011');
-    }
-
     componentDidMount() {
     }
 
@@ -72,13 +59,6 @@ export class SearchTab extends Component {
                                 </NavItem>
                                 <NavItem>
                                     <NavLink id="Admin" tag={Link} className="text-dark" to="/admin_tools">Admin tools</NavLink>
-                                </NavItem>
-                                <NavItem id="User">
-                                    <NavLink tag={Link} className="text-dark" to="/cabinet">Cabinet</NavLink>
-                                    <img class="logoutImg" onClick={this.onLogout} src="./images/logout.png" />
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink id="Auth" tag={Link} className="text-dark" to="/log_in">Log In</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/basket">Basket (<span id="basketCost">0.00</span>)</NavLink>

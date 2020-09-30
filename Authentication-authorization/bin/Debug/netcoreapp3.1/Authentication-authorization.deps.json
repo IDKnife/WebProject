@@ -29,10 +29,10 @@
           "Swashbuckle.AspNetCore.Swagger": "5.5.1",
           "Swashbuckle.AspNetCore.SwaggerGen": "5.5.1",
           "Swashbuckle.AspNetCore.SwaggerUI": "5.5.1",
+          "CourseWork.AdditionalClasses": "1.0.0.0",
           "CourseWork.Models": "1.0.0.0",
           "CourseWork.Repositories": "1.0.0.0",
           "CourseWork.Services": "1.0.0.0",
-          "CourseWork.WebApi": "1.0.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -1386,6 +1386,17 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "CourseWork.AdditionalClasses/1.0.0.0": {
+        "runtime": {
+          "CourseWork.AdditionalClasses.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "CourseWork.AdditionalClasses.dll": {}
+        }
+      },
       "CourseWork.Models/1.0.0.0": {
         "runtime": {
           "CourseWork.Models.dll": {
@@ -1417,17 +1428,6 @@
         },
         "compile": {
           "CourseWork.Services.dll": {}
-        }
-      },
-      "CourseWork.WebApi/1.0.0.0": {
-        "runtime": {
-          "CourseWork.WebApi.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "CourseWork.WebApi.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3851,6 +3851,11 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
+    "CourseWork.AdditionalClasses/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "CourseWork.Models/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -3862,11 +3867,6 @@
       "sha512": ""
     },
     "CourseWork.Services/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "CourseWork.WebApi/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

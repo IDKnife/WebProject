@@ -1,6 +1,6 @@
 ﻿using CourseWork.Models;
 
-namespace CourseWork.WebApi.Interfaces
+namespace CourseWork.AdditionalClasses.Interfaces
 {
     public interface ICanBeSerialised
     {

@@ -41,12 +41,11 @@ D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Authent
 D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Authentication-authorization.dll
 D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Authentication-authorization.pdb
 D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\CourseWork.WebApi.dll
-D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\CourseWork.WebApi.pdb
-D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\CourseWork.WebApi.xml
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.csproj.CoreCompileInputs.cache
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.MvcApplicationPartsAssemblyInfo.cs
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.MvcApplicationPartsAssemblyInfo.cache
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.dll
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.pdb
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.genruntimeconfig.cache
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.pdb

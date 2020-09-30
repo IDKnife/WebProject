@@ -2028,6 +2028,19 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "CourseWork.AdditionalClasses/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "CourseWork.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CourseWork.AdditionalClasses.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CourseWork.AdditionalClasses.dll": {}
+        }
+      },
       "CourseWork.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -6680,6 +6693,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "CourseWork.AdditionalClasses/1.0.0": {
+      "type": "project",
+      "path": "../CourseWork.AdditionalClasses/CourseWork.AdditionalClasses.csproj",
+      "msbuildProject": "../CourseWork.AdditionalClasses/CourseWork.AdditionalClasses.csproj"
+    },
     "CourseWork.Models/1.0.0": {
       "type": "project",
       "path": "../Models/CourseWork.Models.csproj",
@@ -6698,6 +6716,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "CourseWork.AdditionalClasses >= 1.0.0",
       "CourseWork.Models >= 1.0.0",
       "CourseWork.Repositories >= 1.0.0",
       "CourseWork.Services >= 1.0.0",
@@ -6742,6 +6761,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "D:\\fu\\c#\\WebProject\\CourseWork.AdditionalClasses\\CourseWork.AdditionalClasses.csproj": {
+              "projectPath": "D:\\fu\\c#\\WebProject\\CourseWork.AdditionalClasses\\CourseWork.AdditionalClasses.csproj"
+            },
             "D:\\fu\\c#\\WebProject\\CourseWork.Repository\\CourseWork.Repositories.csproj": {
               "projectPath": "D:\\fu\\c#\\WebProject\\CourseWork.Repository\\CourseWork.Repositories.csproj"
             },

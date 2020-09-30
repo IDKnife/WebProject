@@ -118,3 +118,5 @@ D:\fu\c#\WebProject\WebProject\obj\Debug\netcoreapp3.1\CourseWork.WebApi.MvcAppl
 D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
 D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
 D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.pdb

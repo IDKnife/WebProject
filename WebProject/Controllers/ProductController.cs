@@ -6,10 +6,10 @@ using CourseWork.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CourseWork.Services.Interfaces;
-using CourseWork.WebApi.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using MongoDB.Bson;
+using CourseWork.AdditionalClasses.ViewModels;
 
 namespace CourseWork.WebApi.Controllers
 {

@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.WebApi", "CourseWork.WebApi.csproj", "{046A093C-C678-4250-BED6-94DC25CF695B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.Models", "..\Models\CourseWork.Models.csproj", "{A10BB179-77D5-49B1-A678-B08A1CBD9154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Models", "..\Models\CourseWork.Models.csproj", "{A10BB179-77D5-49B1-A678-B08A1CBD9154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.Repositories", "..\CourseWork.Repository\CourseWork.Repositories.csproj", "{20857330-58AE-44D0-99CD-DD987B6C81BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Repositories", "..\CourseWork.Repository\CourseWork.Repositories.csproj", "{20857330-58AE-44D0-99CD-DD987B6C81BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.Services", "..\CourseWork.Services\CourseWork.Services.csproj", "{229885A6-58AC-413F-B6CE-E67C30D63614}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseWork.Services", "..\CourseWork.Services\CourseWork.Services.csproj", "{229885A6-58AC-413F-B6CE-E67C30D63614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseWork.AdditionalClasses", "..\CourseWork.AdditionalClasses\CourseWork.AdditionalClasses.csproj", "{D74501F3-6829-49BB-98FA-546209DF1946}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{229885A6-58AC-413F-B6CE-E67C30D63614}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{229885A6-58AC-413F-B6CE-E67C30D63614}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{229885A6-58AC-413F-B6CE-E67C30D63614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D74501F3-6829-49BB-98FA-546209DF1946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74501F3-6829-49BB-98FA-546209DF1946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74501F3-6829-49BB-98FA-546209DF1946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74501F3-6829-49BB-98FA-546209DF1946}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

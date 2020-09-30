@@ -1,0 +1,12 @@
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.deps.json
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.dll
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.pdb
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\bin\Debug\netcoreapp3.1\CourseWork.Models.dll
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\bin\Debug\netcoreapp3.1\CourseWork.Models.pdb
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\obj\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.csprojAssemblyReference.cache
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\obj\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.AssemblyInfoInputs.cache
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\obj\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.AssemblyInfo.cs
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\obj\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.csproj.CoreCompileInputs.cache
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\obj\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.csproj.CopyComplete
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\obj\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.dll
+D:\fu\c#\WebProject\CourseWork.AdditionalClasses\obj\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.pdb

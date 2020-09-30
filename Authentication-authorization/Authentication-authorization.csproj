@@ -14,6 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="CourseWork.AdditionalClasses">
+      <HintPath>..\CourseWork.AdditionalClasses\bin\Debug\netcoreapp3.1\CourseWork.AdditionalClasses.dll</HintPath>
+    </Reference>
     <Reference Include="CourseWork.Models">
       <HintPath>..\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Models.dll</HintPath>
     </Reference>
@@ -22,9 +25,6 @@
     </Reference>
     <Reference Include="CourseWork.Services">
       <HintPath>..\CourseWork.Services\bin\Debug\netcoreapp3.1\CourseWork.Services.dll</HintPath>
-    </Reference>
-    <Reference Include="CourseWork.WebApi">
-      <HintPath>..\WebProject\bin\Debug\netcoreapp3.1\CourseWork.WebApi.dll</HintPath>
     </Reference>
   </ItemGroup>
 

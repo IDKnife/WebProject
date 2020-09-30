@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CourseWork.AdditionalClasses\CourseWork.AdditionalClasses.csproj" />
     <ProjectReference Include="..\CourseWork.Repository\CourseWork.Repositories.csproj" />
     <ProjectReference Include="..\CourseWork.Services\CourseWork.Services.csproj" />
     <ProjectReference Include="..\Models\CourseWork.Models.csproj" />

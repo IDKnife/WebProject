@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
-using CourseWork.WebApi.Interfaces;
+using CourseWork.AdditionalClasses.Interfaces;
 using MongoDB.Bson;
 
-namespace CourseWork.WebApi.ViewModels
+namespace CourseWork.AdditionalClasses.ViewModels
 {
     public class OrderViewModel : IViewModel, ICanBeSerialised
     {

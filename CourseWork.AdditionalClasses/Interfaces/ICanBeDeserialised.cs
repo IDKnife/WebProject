@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CourseWork.WebApi.Interfaces
+namespace CourseWork.AdditionalClasses.Interfaces
 {
     interface ICanBeDeserialised
     {

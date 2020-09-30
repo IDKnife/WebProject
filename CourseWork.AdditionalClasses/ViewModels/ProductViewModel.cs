@@ -1,8 +1,8 @@
 ﻿using CourseWork.Models;
-using CourseWork.WebApi.Interfaces;
+using CourseWork.AdditionalClasses.Interfaces;
 using MongoDB.Bson;
 
-namespace CourseWork.WebApi.ViewModels
+namespace CourseWork.AdditionalClasses.ViewModels
 {
     /// <summary>
     /// Модель данных товара.

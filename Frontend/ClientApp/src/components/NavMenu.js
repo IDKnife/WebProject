@@ -10,6 +10,7 @@ export class NavMenu extends Component {
         super(props);
 
         this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.onLogout = this.onLogout.bind(this);
         this.state = {
             collapsed: true
         };
@@ -19,6 +20,18 @@ export class NavMenu extends Component {
         this.setState({
             collapsed: !this.state.collapsed
         });
+    }
+
+    onLogout() {
+        sessionStorage.setItem("client_id", "");
+        sessionStorage.setItem("access_token", "");
+        sessionStorage.setItem("access_level", "");
+        sessionStorage.setItem("IsAuthorized", "");
+        document.getElementById("User").style.display = "none";
+        document.getElementById("Auth").style.display = "block";
+        document.getElementById("Admin").style.display = "none";
+        document.getElementById("AddProduct").style.display = "none";
+        window.location.replace('https://localhost:5011');
     }
 
     render() {
@@ -41,6 +54,13 @@ export class NavMenu extends Component {
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/feedback">Feedback</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink id="Auth" tag={Link} className="text-dark" to="/log_in">Log In</NavLink>
+                                </NavItem>
+                                <NavItem id="User">
+                                    <NavLink tag={Link} className="text-dark" to="/cabinet">Cabinet</NavLink>
+                                    <img class="logoutImg" onClick={this.onLogout} src="./images/logout.png" />
                                 </NavItem>
                             </ul>
                         </Collapse>
