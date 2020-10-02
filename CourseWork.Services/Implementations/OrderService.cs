@@ -1,23 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Interfaces;
-using MongoDB.Bson;
 
 namespace CourseWork.Services.Implementations
 {
+    /// <summary>
+    /// Представляет сервис заказов.
+    /// </summary>
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _repository;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="OrderService"/>.
+        /// </summary>
+        /// <param name="repository">Репозиторий.</param>
         public OrderService(IOrderRepository repository)
         {
             _repository = repository;
         }
+
+        /// <inheritdoc cref="IOrderService.GetOrders"/>
         public async Task<IList<Order>> GetOrders()
         {
             try
@@ -31,6 +37,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.AddOrder"/>
         public async Task<ServiceOperationResult> AddOrder(Order entity)
         {
             try
@@ -45,6 +52,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.DeleteOrder"/>
         public async Task<ServiceOperationResult> DeleteOrder(string id)
         {
             try
@@ -59,6 +67,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.UpdateOrder"/>
         public async Task<ServiceOperationResult> UpdateOrder(Order entity)
         {
             try
@@ -73,6 +82,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.GetOrder"/>
         public async Task<Order> GetOrder(string id)
         {
             try
@@ -86,6 +96,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.AddProductToOrder"/>
         public async Task<ServiceOperationResult> AddProductToOrder(Product product, string orderId)
         {
             try
@@ -102,6 +113,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.DeleteProductFromOrder"/>
         public async Task<ServiceOperationResult> DeleteProductFromOrder(string productId, string orderId)
         {
             try
@@ -118,6 +130,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.UpdateProductCountInOrder"/>
         public async Task<ServiceOperationResult> UpdateProductCountInOrder(string productId, int newCount, string orderId)
         {
             try
@@ -134,6 +147,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.GetPriceOfOrder"/>
         public async Task<double> GetPriceOfOrder(string id)
         {
             try
@@ -151,6 +165,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IOrderService.DeleteEmptyAnonymOrders"/>
         public async Task<ServiceOperationResult> DeleteEmptyAnonymOrders(string id)
         {
             try

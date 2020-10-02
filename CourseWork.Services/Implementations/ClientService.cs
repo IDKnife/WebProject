@@ -1,24 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using CourseWork.Repositories.Interfaces;
 using CourseWork.Services.Interfaces;
-using MongoDB.Bson;
 
 namespace CourseWork.Services.Implementations
 {
+    /// <summary>
+    /// Представляет сервис клиентов.
+    /// </summary>
     public class ClientService : IClientService
     {
         private readonly IClientRepository _repository;
-        private readonly IOrderRepository _order_repository;
+        private readonly IOrderRepository _orderRepository;
 
-        public ClientService(IClientRepository repository, IOrderRepository order_repository)
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ClientService"/>.
+        /// </summary>
+        /// <param name="repository">Репозиторий клиентов.</param>
+        /// <param name="orderRepository">Репозиторий заказов.</param>
+        public ClientService(IClientRepository repository, IOrderRepository orderRepository)
         {
-            _order_repository = order_repository;
+            _orderRepository = orderRepository;
             _repository = repository;
         }
+
+        /// <inheritdoc cref="IClientService.GetClients"/>
         public async Task<IList<Client>> GetClients()
         {
             try
@@ -32,6 +40,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IClientService.AddClient"/>
         public async Task<ServiceOperationResult> AddClient(Client entity)
         {
             try
@@ -46,6 +55,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IClientService.DeleteClient"/>
         public async Task<ServiceOperationResult> DeleteClient(string id)
         {
             try
@@ -60,6 +70,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IClientService.UpdateClient"/>
         public async Task<ServiceOperationResult> UpdateClient(Client entity)
         {
             try
@@ -74,6 +85,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IClientService.GetClient"/>
         public async Task<Client> GetClient(string id)
         {
             try
@@ -87,6 +99,7 @@ namespace CourseWork.Services.Implementations
             }
         }
 
+        /// <inheritdoc cref="IClientService.AddOrderToClientList"/>
         public async Task<ServiceOperationResult> AddOrderToClientList(Order order, string clientId)
         {
             try
@@ -94,7 +107,7 @@ namespace CourseWork.Services.Implementations
                 var client = await _repository.GetEntity(clientId);
                 order.ClientId = clientId;
                 order.State = OrderState.Payed;
-                await _order_repository.UpdateEntity(order);
+                await _orderRepository.UpdateEntity(order);
                 client.Orders.Add(order);
                 await _repository.UpdateEntity(client);
                 return new ServiceOperationResult(true, "Success");

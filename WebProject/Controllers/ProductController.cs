@@ -8,26 +8,35 @@ using Microsoft.AspNetCore.Mvc;
 using CourseWork.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
-using MongoDB.Bson;
 using CourseWork.AdditionalClasses.ViewModels;
 
 namespace CourseWork.WebApi.Controllers
 {
+    /// <summary>
+    /// Представляет контроллер для работы с продуктами.
+    /// </summary>
     [Route("api/[controller]")]
     [EnableCors("DefaultPolicy")]
     [ApiController]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ProductController"/>.
+        /// </summary>
+        /// <param name="productService">Сервис для работы с базой продуктов.</param>
         public ProductController(IProductService productService)
         {
             _productService = productService;
         }
 
         /// <summary>
-        /// Получить список товаров.
+        /// Получить список продуктов.
         /// </summary>
-        /// <returns>Список товаров.</returns>
+        /// <param name="name">Фильтр по наименованию.</param>
+        /// <param name="category">Фильтр по категории.</param>
+        /// <returns>Ответ сервера.</returns>
         [HttpGet]
         [Route("Products/{name?}/{category?}")]
         [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
@@ -50,9 +59,9 @@ namespace CourseWork.WebApi.Controllers
         }
 
         /// <summary>
-        /// Добавить товар.
+        /// Добавить продукт.
         /// </summary>
-        /// <param name="product">Товар.</param>
+        /// <param name="product">Продукт.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Authorize]
@@ -70,9 +79,10 @@ namespace CourseWork.WebApi.Controllers
         }
 
         /// <summary>
-        /// Получить товар по Id.
+        /// Получить продукт.
         /// </summary>
-        /// <returns>Товар.</returns>
+        /// <param name="id">Уникальный идентификатор.</param>
+        /// <returns>Ответ сервера.</returns>
         [HttpGet]
         [Route("GetProduct/{id}")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
@@ -93,6 +103,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Удалить товар.
         /// </summary>
+        /// <param name="id">Уникальный идентификатор.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Authorize]
@@ -110,9 +121,9 @@ namespace CourseWork.WebApi.Controllers
         }
 
         /// <summary>
-        /// Обновить товар.
+        /// Обновить продукт.
         /// </summary>
-        /// <param name="product">Товар.</param>
+        /// <param name="product">Продукт.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Authorize]

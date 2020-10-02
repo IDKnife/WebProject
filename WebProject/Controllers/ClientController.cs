@@ -9,16 +9,23 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 
 namespace CourseWork.WebApi.Controllers
 {
+    /// <summary>
+    /// Представляет контроллер для работы с клиентами.
+    /// </summary>
     [Route("api/[controller]")]
     [EnableCors("DefaultPolicy")]
     [ApiController]
     public class ClientController : ControllerBase
     {
         private readonly IClientService _clientService;
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ClientController"/>.
+        /// </summary>
+        /// <param name="clientService">Сервис для работы с базой клиентов.</param>
         public ClientController(IClientService clientService)
         {
             _clientService = clientService;
@@ -27,7 +34,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Получить список клиентов.
         /// </summary>
-        /// <returns>Список клиентов.</returns>
+        /// <returns>Ответ сервера.</returns>
         [HttpGet]
         [Authorize]
         [Route("Clients")]
@@ -51,7 +58,8 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Получить клиента.
         /// </summary>
-        /// <returns>Клиент.</returns>
+        /// <param name="id">Уникальный идентификатор.</param>
+        /// <returns>Ответ сервера.</returns>
         [HttpGet]
         [Authorize]
         [Route("GetClient/{id}")]
@@ -90,6 +98,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Удалить клиента.
         /// </summary>
+        /// <param name="id">Уникальный идентификатор.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Authorize]

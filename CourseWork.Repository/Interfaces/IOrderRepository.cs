@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CourseWork.Models;
+﻿using CourseWork.Models;
 
 namespace CourseWork.Repositories.Interfaces
 {
+    /// <summary>
+    /// Интерфейс репозитория заказов.
+    /// </summary>
     public interface IOrderRepository : IRepository<Order>
     {
     }

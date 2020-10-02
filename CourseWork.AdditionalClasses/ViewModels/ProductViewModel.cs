@@ -1,11 +1,10 @@
 ﻿using CourseWork.Models;
 using CourseWork.AdditionalClasses.Interfaces;
-using MongoDB.Bson;
 
 namespace CourseWork.AdditionalClasses.ViewModels
 {
     /// <summary>
-    /// Модель данных товара.
+    /// Представляет модель представления продукта.
     /// </summary>
     public class ProductViewModel : IViewModel, ICanBeSerialised
     {
@@ -13,31 +12,31 @@ namespace CourseWork.AdditionalClasses.ViewModels
         /// Уникальный идентификатор.
         /// </summary>
         public string Id { get; set; }
+
         /// <summary>
         /// Наименование товара.
         /// </summary>
         public string Name { get; set; }
+
         /// <summary>
         /// Стоимость товара.
         /// </summary>
         public double Price { get; set; }
+
         /// <summary>
         /// Категория товара.
         /// </summary>
         public string Category { get; set; }
+
         /// <summary>
         /// Описание товара.
         /// </summary>
         public string Description { get; set; }
-        /// <summary>
-        /// Преобразовать модель в сущность.
-        /// </summary>
-        /// <returns>Сущность.</returns>
+
+        /// <inheritdoc cref="ICanBeSerialised.ToEntity"/>
         public Entity ToEntity() => new Product(Id, Name, Price, Category, Description);
-        /// <summary>
-        /// Преобразовать модель в новую сущность.
-        /// </summary>
-        /// <returns>Новая сущность.</returns>
+
+        /// <inheritdoc cref="ICanBeSerialised.ToNewEntity"/>
         public Entity ToNewEntity() => new Product(Name, Price, Category, Description);
     }
 }

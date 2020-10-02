@@ -9,16 +9,23 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
 
 namespace CourseWork.WebApi.Controllers
 {
+    /// <summary>
+    /// Представляет контроллер для работы с заказами.
+    /// </summary>
     [Route("api/[controller]")]
     [EnableCors("DefaultPolicy")]
     [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="OrderController"/>.
+        /// </summary>
+        /// <param name="orderService">Сервис для работы с базой заказов.</param>
         public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
@@ -27,7 +34,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Получить список заказов.
         /// </summary>
-        /// <returns>Список заказов.</returns>
+        /// <returns>Ответ сервера.</returns>
         [HttpGet]
         [Authorize]
         [Route("Orders")]
@@ -51,8 +58,8 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Получить заказ.
         /// </summary>
-        /// <param name="id">Уникальный идентификатор заказа.</param>
-        /// <returns>Заказ.</returns>
+        /// <param name="id">Уникальный идентификатор.</param>
+        /// <returns>Ответ сервера.</returns>
         [HttpGet]
         [Route("GetOrder/{id}")]
         [ProducesResponseType(typeof(Order), StatusCodes.Status200OK)]
@@ -73,7 +80,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Добавить заказ.
         /// </summary>
-        /// <param name="order">заказ.</param>
+        /// <param name="order">Заказ.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("AddOrder")]
@@ -91,8 +98,8 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Добавить продукт в корзину.
         /// </summary>
-        /// <param name="product">Продукт</param>
-        /// <param name="orderId">Уникальный идентификатор заказа</param>
+        /// <param name="product">Продукт.</param>
+        /// <param name="orderId">Уникальный идентификатор заказа.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("AddProductToOrder/{orderId}")]
@@ -109,8 +116,8 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Удалить продукт из корзины.
         /// </summary>
-        /// <param name="orderId">Уникальный идентификатор заказа</param>
-        /// <param name="productId">Уникальный идентификатор продукта</param>
+        /// <param name="orderId">Уникальный идентификатор заказа.</param>
+        /// <param name="productId">Уникальный идентификатор продукта.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("{orderId}/DeleteProduct/{productId}")]
@@ -127,9 +134,9 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Обновить количество единиц продукта в корзине.
         /// </summary>
-        /// <param name="newCount">Новое количество единиц продукта</param>
-        /// <param name="productId">Уникальный идентификатор продукта</param>
-        /// <param name="orderId">Уникальный идентификатор заказа</param>
+        /// <param name="newCount">Новое количество единиц продукта.</param>
+        /// <param name="productId">Уникальный идентификатор продукта.</param>
+        /// <param name="orderId">Уникальный идентификатор заказа.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("{orderId}/UpdateProductCount/{productId}/{newCount}")]
@@ -146,7 +153,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Получить цену корзины.
         /// </summary>
-        /// <param name="id">Уникальный идентификатор заказа.</param>
+        /// <param name="id">Уникальный идентификатор.</param>
         /// <returns>Цена корзины.</returns>
         [HttpGet]
         [Route("GetPriceOfOrder/{id}")]
@@ -168,6 +175,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Удалить заказ.
         /// </summary>
+        /// <param name="id">Уникальный идентификатор.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Authorize]
@@ -188,6 +196,7 @@ namespace CourseWork.WebApi.Controllers
         /// <summary>
         /// Обновить заказ.
         /// </summary>
+        /// <param name="order">Заказ.</param>
         /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Authorize]

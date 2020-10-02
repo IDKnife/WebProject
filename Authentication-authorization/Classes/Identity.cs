@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Authentication_authorization.Classes
+﻿namespace Authentication_authorization.Classes
 {
+    /// <summary>
+    /// Представляет электронную почту и логин клиента.
+    /// </summary>
     public class Identity
     {
+        /// <summary>
+        /// Электронная почта клиента.
+        /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Пароль клиента.
+        /// </summary>
         public string Password { get; set; }
     }
 }

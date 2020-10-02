@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -17,6 +16,9 @@ using MongoDB.Bson;
 
 namespace Authentication_authorization.Controllers
 {
+    /// <summary>
+    /// Представляет контроллер для работы с токенами доступа.
+    /// </summary>
     [Route("api/[controller]")]
     [EnableCors("DefaultPolicy")]
     [ApiController]
@@ -24,11 +26,21 @@ namespace Authentication_authorization.Controllers
     {
         private readonly IClientService _clientService;
         private readonly string _secureKey = "some_secure_for_safety";
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="TokenController"/>.
+        /// </summary>
+        /// <param name="clientService">Сервис для работы с базой клиентов.</param>
         public TokenController(IClientService clientService)
         {
             _clientService = clientService;
         }
 
+        /// <summary>
+        /// Провести идентификацию клиента.
+        /// </summary>
+        /// <param name="inputData">Электронная почта и пароль клиента.</param>
+        /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("GetToken")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
@@ -51,6 +63,12 @@ namespace Authentication_authorization.Controllers
             return Ok(responce.ToJson());
         }
 
+        /// <summary>
+        /// Процесс идентификации клиента.
+        /// </summary>
+        /// <param name="email">Электронная почта клиента.</param>
+        /// <param name="password">Пароль клиента.</param>
+        /// <returns>Результат идентификации.</returns>
         private async Task<ClaimsIdentity> CheckIdentity(string email, string password)
         {
             var clients = await _clientService.GetClients();
@@ -69,6 +87,11 @@ namespace Authentication_authorization.Controllers
             return null;
         }
 
+        /// <summary>
+        /// Зарегистрировать нового клиента.
+        /// </summary>
+        /// <param name="client">Данные нового клиента</param>
+        /// <returns>Ответ сервера.</returns>
         [HttpPost]
         [Route("Register")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
