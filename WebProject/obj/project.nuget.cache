@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "ZzB299ZI3+MlpidsCZ7cl0udwS8bV90i39xpTcPqzwtiWi+X/DvWtm27TU3paYt1mFodDw0q/FYjiXQaSXSm4Q==",
-  "success": true,
+  "dgSpecHash": "62giDeFvuZTa8fQGi5PSS4ILhsSH1pUR+KEAEpkgA7bbP1sK12VMSNWDv0HvyM7CZW2ZM5lFA7HJWZme7YEskQ==",
+  "success": false,
   "projectFilePath": "D:\\fu\\c#\\WebProject\\WebProject\\CourseWork.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ArhiS\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
@@ -130,5 +130,15 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Detected package downgrade: Microsoft.AspNetCore.Authentication.JwtBearer from 3.1.8 to 3.1.6. Reference the package directly from the project to select a different version. \r\n CourseWork.WebApi -> CourseWork.Services -> Microsoft.AspNetCore.Authentication.JwtBearer (>= 3.1.8) \r\n CourseWork.WebApi -> Microsoft.AspNetCore.Authentication.JwtBearer (>= 3.1.6)",
+      "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

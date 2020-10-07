@@ -19,9 +19,7 @@ namespace CourseWork.Services.Implementations
         /// </summary>
         /// <param name="repository">Репозиторий.</param>
         public OrderService(IOrderRepository repository)
-        {
-            _repository = repository;
-        }
+            => _repository = repository;
 
         /// <inheritdoc cref="IOrderService.GetOrders"/>
         public async Task<IList<Order>> GetOrders()
@@ -131,7 +129,10 @@ namespace CourseWork.Services.Implementations
         }
 
         /// <inheritdoc cref="IOrderService.UpdateProductCountInOrder"/>
-        public async Task<ServiceOperationResult> UpdateProductCountInOrder(string productId, int newCount, string orderId)
+        public async Task<ServiceOperationResult> UpdateProductCountInOrder(
+            string productId,
+            int newCount,
+            string orderId)
         {
             try
             {

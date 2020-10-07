@@ -37,12 +37,14 @@ namespace CourseWork.AdditionalClasses.ViewModels
         /// <inheritdoc cref="ICanBeSerialised.ToEntity"/>
         public Entity ToEntity()
         {
-            if (Basket.Products.Count != 0)
-                return new Order(Id, ClientId, Basket.ToEntity(), State, Date);
-            return new Order(Id, ClientId, new Basket(), State, Date);
+            var basket = Basket.Products.Count != 0
+                ? Basket.ToEntity()
+                : new Basket();
+            return new Order(Id, ClientId, basket, State, Date);
         }
 
         /// <inheritdoc cref="ICanBeSerialised.ToNewEntity"/>
-        public Entity ToNewEntity() => new Order(ClientId);
+        public Entity ToNewEntity()
+            => new Order(ClientId);
     }
 }

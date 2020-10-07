@@ -8,6 +8,7 @@ namespace CourseWork.Repositories.Interfaces
     /// <summary>
     /// Интерфейс репозитория.
     /// </summary>
+    /// <typeparam name="T">Тип сущности.</typeparam>
     public interface IRepository<T> : IDisposable
         where T : Entity
     {

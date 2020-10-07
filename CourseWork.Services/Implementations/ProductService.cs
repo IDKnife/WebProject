@@ -19,9 +19,7 @@ namespace CourseWork.Services.Implementations
         /// </summary>
         /// <param name="repository">Репозиторий.</param>
         public ProductService(IProductRepository repository)
-        {
-            _repository = repository;
-        }
+            => _repository = repository;
 
         /// <summary>
         /// Получить список продуктов.

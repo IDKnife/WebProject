@@ -8,7 +8,7 @@
         /// <summary>
         /// Значение результата операции.
         /// </summary>
-        public bool Result { get; }
+        public bool Success { get; }
 
         /// <summary>
         /// Сообщение результата операции.
@@ -18,11 +18,11 @@
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ServiceOperationResult"/> с заданными значениями.
         /// </summary>
-        /// <param name="result">Значение результата операции.</param>
+        /// <param name="success">Значение результата операции.</param>
         /// <param name="messageResult">Сообщение результата операции.</param>
-        public ServiceOperationResult(bool result, string messageResult)
+        public ServiceOperationResult(bool success, string messageResult)
         {
-            Result = result;
+            Success = success;
             MessageResult = messageResult;
         }
     }

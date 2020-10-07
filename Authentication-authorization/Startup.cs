@@ -15,9 +15,7 @@ namespace Authentication_authorization
     public class Startup
     {
         public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+            => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
@@ -27,16 +25,33 @@ namespace Authentication_authorization
             var connection = new MongoUrlBuilder(connectionString);
             var client = new MongoClient(connectionString);
             services.AddControllers();
-            services.AddTransient<IClientRepository, ClientRepository>();
-            services.AddTransient<IClientService, ClientService>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient<IOrderService, OrderService>();
             services.AddSingleton<IMongoDatabase>(client.GetDatabase(connection.DatabaseName));
-            services.AddSwaggerGen(c =>
+            AddServices(services);
+            AddRepositories(services);
+            AddSwagger(services);
+            AddCors(services);
+        }
+
+        private void AddServices(IServiceCollection services)
+            => services
+                .AddTransient<IClientService, ClientService>()
+                .AddTransient<IOrderService, OrderService>()
+                .AddTransient<ICreateTokenService, CreateTokenService>()
+                .AddTransient<IIdentificationService, IdentificationService>();
+
+        private void AddRepositories(IServiceCollection services)
+            => services
+                .AddTransient<IClientRepository, ClientRepository>()
+                .AddTransient<IOrderRepository, OrderRepository>();
+
+        private void AddSwagger(IServiceCollection services)
+            => services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v2", new OpenApiInfo { Title = "My API", Version = "v2" });
             });
-            services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
+
+        private void AddCors(IServiceCollection services)
+            => services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
             {
                 builder
                     //.WithMethods("Access-Control-Allow-Methods,GET,POST,PUT,DELETE,PATCH,OPTIONS")
@@ -45,7 +60,6 @@ namespace Authentication_authorization
                     .AllowAnyHeader()
                     .WithOrigins("https://localhost:5011", "http://localhost:5010");
             }));
-        }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

@@ -66,7 +66,10 @@ namespace CourseWork.Services.Interfaces
         /// <param name="newCount">Новое значение количества единиц товара.</param>
         /// <param name="orderId">Уникальный идентификатор заказа.</param>
         /// <returns>Результат операции.</returns>
-        Task<ServiceOperationResult> UpdateProductCountInOrder(string productId, int newCount, string orderId);
+        Task<ServiceOperationResult> UpdateProductCountInOrder(
+            string productId,
+            int newCount,
+            string orderId);
 
         /// <summary>
         /// Получить итоговую стоимость заказа.

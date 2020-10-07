@@ -34,9 +34,11 @@ namespace CourseWork.AdditionalClasses.ViewModels
         public string Description { get; set; }
 
         /// <inheritdoc cref="ICanBeSerialised.ToEntity"/>
-        public Entity ToEntity() => new Product(Id, Name, Price, Category, Description);
+        public Entity ToEntity()
+            => new Product(Id, Name, Price, Category, Description);
 
         /// <inheritdoc cref="ICanBeSerialised.ToNewEntity"/>
-        public Entity ToNewEntity() => new Product(Name, Price, Category, Description);
+        public Entity ToNewEntity()
+            => new Product(Name, Price, Category, Description);
     }
 }

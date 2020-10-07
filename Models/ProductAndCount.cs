@@ -25,5 +25,15 @@
             Product = product;
             Count = count;
         }
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ProductAndCount"/> с заданным продуктом в количестве 1 единица.
+        /// </summary>
+        /// <param name="product">Продукт.</param>
+        public ProductAndCount(Product product)
+        {
+            Product = product;
+            Count = 1;
+        }
     }
 }

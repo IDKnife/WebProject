@@ -18,9 +18,7 @@ namespace CourseWork.WebApi
     {
         private readonly string _secureKey = "some_secure_for_safety";
         public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+            => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
@@ -30,18 +28,33 @@ namespace CourseWork.WebApi
             var connection = new MongoUrlBuilder(connectionString);
             var client = new MongoClient(connectionString);
             services.AddControllers();
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IProductService, ProductService>();
-            services.AddTransient<IClientRepository, ClientRepository>();
-            services.AddTransient<IClientService, ClientService>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient<IOrderService, OrderService>();
-            services.AddSingleton<IMongoDatabase>(client.GetDatabase(connection.DatabaseName)); 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-            });
-            services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
+            AddServices(services);
+            AddRepositories(services);
+            services.AddSingleton<IMongoDatabase>(client.GetDatabase(connection.DatabaseName));
+            AddSwagger(services);
+            AddCors(services);
+            AddAuthentication(services);
+        }
+
+        private static void AddRepositories(IServiceCollection services)
+        => services
+            .AddTransient<IProductRepository, ProductRepository>()
+            .AddTransient<IClientRepository, ClientRepository>()
+            .AddTransient<IOrderRepository, OrderRepository>();
+
+        private void AddServices(IServiceCollection services)
+        => services
+            .AddTransient<IProductService, ProductService>()
+            .AddTransient<IClientService, ClientService>()
+            .AddTransient<IOrderService, OrderService>()
+            .AddTransient<IAccessService, AccessService>();
+
+        private void AddSwagger(IServiceCollection services)
+            => services.AddSwaggerGen(c =>
+            { c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" }); });
+
+        private void AddCors(IServiceCollection services)
+            => services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
             {
                 builder
                     //.WithMethods("Access-Control-Allow-Methods,GET,POST,PUT,DELETE,PATCH,OPTIONS")
@@ -50,7 +63,9 @@ namespace CourseWork.WebApi
                     .AllowAnyHeader()
                     .WithOrigins("https://localhost:5011", "http://localhost:5010");
             }));
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+
+        private void AddAuthentication(IServiceCollection services)
+            => services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
                     options.RequireHttpsMetadata = true;
@@ -63,7 +78,6 @@ namespace CourseWork.WebApi
                         ValidateIssuerSigningKey = true,
                     };
                 });
-        }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

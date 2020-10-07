@@ -33,7 +33,11 @@
         /// <param name="price">Стоимость товара.</param>
         /// <param name="category">Категория товара.</param>
         /// <param name="description">Описание товара.</param>
-        public Product(string name, double price, string category, string description)
+        public Product(
+            string name,
+            double price,
+            string category,
+            string description)
         {
             Name = name;
             Price = price;
@@ -49,7 +53,12 @@
         /// <param name="price">Стоимость товара.</param>
         /// <param name="category">Категория товара.</param>
         /// <param name="description">Описание товара.</param>
-        public Product(string id, string name, double price, string category, string description) : base(id)
+        public Product(
+            string id,
+            string name,
+            double price,
+            string category,
+            string description) : base(id)
         {
             Name = name;
             Price = price;

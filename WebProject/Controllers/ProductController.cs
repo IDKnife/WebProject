@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.Models;
 using Microsoft.AspNetCore.Http;
@@ -21,14 +20,17 @@ namespace CourseWork.WebApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly IAccessService _accessService;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ProductController"/>.
         /// </summary>
         /// <param name="productService">Сервис для работы с базой продуктов.</param>
-        public ProductController(IProductService productService)
+        /// <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
+        public ProductController(IProductService productService, IAccessService accessService)
         {
             _productService = productService;
+            _accessService = accessService;
         }
 
         /// <summary>
@@ -70,10 +72,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddProduct([FromBody] ProductViewModel product)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+            if (_accessService.IsUser(User))
                 return BadRequest("No access");
             var result = await _productService.AddProduct(product.ToNewEntity() as Product);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -112,10 +114,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(string id)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+            if (_accessService.IsUser(User))
                 return BadRequest("No access");
             var result = await _productService.DeleteProduct(id);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -132,10 +134,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductViewModel product)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value == "User")
+            if (_accessService.IsUser(User))
                 return BadRequest("No access");
             var result = await _productService.UpdateProduct(product.ToEntity() as Product);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.AdditionalClasses.ViewModels;
 using CourseWork.Models;
@@ -21,14 +20,17 @@ namespace CourseWork.WebApi.Controllers
     public class ClientController : ControllerBase
     {
         private readonly IClientService _clientService;
+        private readonly IAccessService _accessService;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ClientController"/>.
         /// </summary>
         /// <param name="clientService">Сервис для работы с базой клиентов.</param>
-        public ClientController(IClientService clientService)
+        /// <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
+        public ClientController(IClientService clientService, IAccessService accessService)
         {
             _clientService = clientService;
+            _accessService = accessService;
         }
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Clients()
         {
-            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+            if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             try
             {
@@ -78,23 +80,6 @@ namespace CourseWork.WebApi.Controllers
             }
         }
 
-        ///// <summary>
-        ///// Добавить клиента.
-        ///// </summary>
-        ///// <param name="сlient">Клиент.</param>
-        ///// <returns>Ответ сервера.</returns>
-        //[HttpPost]
-        //[Route("AddClient")]
-        //[ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
-        //[ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        //public async Task<IActionResult> AddClient([FromBody]ClientViewModel сlient)
-        //{
-        //    var result = await _clientService.AddClient(сlient.ToNewEntity() as Client);
-        //    if (result.Result)
-        //        return Ok();
-        //    return BadRequest(result.MessageResult);
-        //}
-
         /// <summary>
         /// Удалить клиента.
         /// </summary>
@@ -107,10 +92,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteClient(string id)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+            if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _clientService.DeleteClient(id);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -129,7 +114,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> AddOrderToClientList([FromBody] OrderViewModel order, string clientId)
         {
             var result = await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -147,7 +132,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> UpdateClient([FromBody] ClientViewModel сlient)
         {
             var result = await _clientService.UpdateClient(сlient.ToEntity() as Client);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }

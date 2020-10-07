@@ -16,18 +16,14 @@ namespace CourseWork.Repositories.Implementations
         /// </summary>
         /// <param name="database">База данных.</param>
         public OrderRepository(IMongoDatabase database) : base(database)
-        {
-            Entities = database.GetCollection<Order>("Orders");
-        }
+            => Entities = database.GetCollection<Order>("Orders");
 
         /// <summary>
         /// Получить список заказов.
         /// </summary>
         /// <returns>Список заказов.</returns>
         public async Task<IList<Order>> GetEntities()
-        {
-            return await Entities.Find(FilterDefinition<Order>.Empty).ToListAsync();
-        }
+            => await Entities.Find(EmptyFilter()).ToListAsync();
 
         /// <summary>
         /// Добавить заказ.
@@ -35,9 +31,7 @@ namespace CourseWork.Repositories.Implementations
         /// <param name="entity">Заказ.</param>
         /// <returns>Задача, ожидающая выполнения.</returns>
         public async Task AddEntity(Order entity)
-        {
-            await Entities.InsertOneAsync(entity);
-        }
+            => await Entities.InsertOneAsync(entity);
 
         /// <summary>
         /// Удалить заказ.
@@ -45,10 +39,7 @@ namespace CourseWork.Repositories.Implementations
         /// <param name="id">Уникальный идентификатор.</param>
         /// <returns>Задача, ожидающая выполнения.</returns>
         public async Task DeleteEntity(string id)
-        {
-            var filter = Builders<Order>.Filter.Eq("_id", id);
-            await Entities.DeleteOneAsync(filter);
-        }
+            => await Entities.DeleteOneAsync(IdFilter(id));
 
         /// <summary>
         /// Обновить заказ.
@@ -56,10 +47,7 @@ namespace CourseWork.Repositories.Implementations
         /// <param name="entity">Заказ.</param>
         /// <returns>Задача, ожидающая выполнения.</returns>
         public async Task UpdateEntity(Order entity)
-        {
-            var filter = Builders<Order>.Filter.Eq("_id", entity.Id);
-            await Entities.ReplaceOneAsync(filter, entity);
-        }
+            => await Entities.ReplaceOneAsync(IdFilter(entity.Id), entity);
 
         /// <summary>
         /// Получить заказ.
@@ -67,9 +55,6 @@ namespace CourseWork.Repositories.Implementations
         /// <param name="id">Уникальный идентификатор.</param>
         /// <returns>Заказ.</returns>
         public async Task<Order> GetEntity(string id)
-        {
-            var filter = Builders<Order>.Filter.Eq("_id", id);
-            return await Entities.Find(filter).FirstOrDefaultAsync();
-        }
+            => await Entities.Find(IdFilter(id)).FirstOrDefaultAsync();
     }
 }

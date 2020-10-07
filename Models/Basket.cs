@@ -16,17 +16,13 @@ namespace CourseWork.Models
         /// Инициализирует новый экземпляр класса <see cref="Basket"/>.
         /// </summary>
         public Basket()
-        {
-            Products = new List<ProductAndCount>();
-        }
+            => Products = new List<ProductAndCount>();
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Basket"/> с заданным списком продуктов.
         /// </summary>
         /// <param name="products">Список продуктов.</param>
         public Basket(List<ProductAndCount> products)
-        {
-            Products = products;
-        }
+            => Products = products;
     }
 }

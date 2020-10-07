@@ -26,9 +26,7 @@ namespace CourseWork.Repositories.Implementations
         /// </summary>
         /// <param name="database"></param>
         public MongoRepository(IMongoDatabase database)
-        {
-            Database = database;
-        }
+            => Database = database;
 
         /// <summary>
         /// Уничтожить данный экземпляр класса <see cref="MongoRepository"/>.
@@ -38,5 +36,20 @@ namespace CourseWork.Repositories.Implementations
             Entities = null;
             Database = null;
         }
+
+        /// <summary>
+        /// Составить фильтр равенства уникальному идентификатору.
+        /// </summary>
+        /// <param name="id">Уникальный идентификатор.</param>
+        /// <returns>Фильтр равенства уникальному идентификатору.</returns>
+        public FilterDefinition<T> IdFilter(string id)
+            => Builders<T>.Filter.Eq("_id", id);
+
+        /// <summary>
+        /// Составить пустой фильтр.
+        /// </summary>
+        /// <returns>Пустой фильтр.</returns>
+        public FilterDefinition<T> EmptyFilter()
+            => FilterDefinition<T>.Empty;
     }
 }

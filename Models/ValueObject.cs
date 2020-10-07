@@ -15,8 +15,6 @@
         /// </summary>
         /// <param name="value">Значение величины.</param>
         public ValueObject(object value)
-        {
-            Value = value;
-        }
+            => Value = value;
     }
 }

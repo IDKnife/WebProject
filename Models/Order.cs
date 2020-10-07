@@ -32,10 +32,12 @@ namespace CourseWork.Models
         /// Получить итоговую стоимость заказа.
         /// </summary>
         /// <returns>Стоимость заказа.</returns>
-        public double GetPriceOfOrder() => Basket.Products.Sum(item => item.Product.Price * item.Count);
+        public double GetPriceOfOrder()
+            => Basket.Products.Sum(item
+                => item.Product.Price * item.Count);
 
-        public void UpdateProductCountInOrder(string productId, int newCount) =>
-            Basket.Products.Find(a => a.Product.Id == productId)
+        public void UpdateProductCountInOrder(string productId, int newCount)
+            => Basket.Products.Find(a => a.Product.Id == productId)
                 .Count = newCount;
 
         /// <summary>
@@ -52,7 +54,8 @@ namespace CourseWork.Models
         /// Добавить продукт в заказ.
         /// </summary>
         /// <param name="product">Продукт.</param>
-        public void AddProductToOrder(Product product) => Basket.Products.Add(new ProductAndCount(product, 1));
+        public void AddProductToOrder(Product product)
+            => Basket.Products.Add(new ProductAndCount(product));
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Order"/> для заданного клиента.
@@ -74,7 +77,12 @@ namespace CourseWork.Models
         /// <param name="basket">Корзина товаров заказа.</param>
         /// <param name="state">Статус заказа.</param>
         /// <param name="date">Дата заказа.</param>
-        public Order(string id, string clientId, Basket basket, OrderState state, DateTime date) : base(id)
+        public Order(
+            string id,
+            string clientId,
+            Basket basket,
+            OrderState state,
+            DateTime date) : base(id)
         {
             ClientId = clientId;
             Basket = basket;

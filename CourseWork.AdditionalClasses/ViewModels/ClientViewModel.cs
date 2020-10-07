@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CourseWork.Models;
 using CourseWork.AdditionalClasses.Interfaces;
 
@@ -57,17 +58,17 @@ namespace CourseWork.AdditionalClasses.ViewModels
         /// <inheritdoc cref="ICanBeSerialised.ToEntity"/>
         public Entity ToEntity()
         {
-            List<Order> orders = new List<Order>();
-            if (Orders.Count != 0)
-            {
-                foreach (var item in Orders)
-                    orders.Add(item.ToEntity() as Order);
-            }
+            var orders = Orders.Any()
+                ? Orders
+                    .Select(o => o.ToEntity() as Order)
+                    .ToList()
+                : new List<Order>();
             return new Client(Id, FirstName, LastName, SecondName, PhoneNumber, Email, Password, orders, Access);
         }
-        
+
         /// <inheritdoc cref="ICanBeSerialised.ToNewEntity"/>
-        public Entity ToNewEntity() => new Client(FirstName, LastName, SecondName, PhoneNumber, Email, Password, Access);
-        
+        public Entity ToNewEntity()
+            => new Client(FirstName, LastName, SecondName, PhoneNumber, Email, Password, Access);
+
     }
 }

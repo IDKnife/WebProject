@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using CourseWork.AdditionalClasses.ViewModels;
 using CourseWork.Models;
@@ -21,14 +20,17 @@ namespace CourseWork.WebApi.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
+        private readonly IAccessService _accessService;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="OrderController"/>.
         /// </summary>
         /// <param name="orderService">Сервис для работы с базой заказов.</param>
-        public OrderController(IOrderService orderService)
+        /// <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
+        public OrderController(IOrderService orderService, IAccessService accessService)
         {
             _orderService = orderService;
+            _accessService = accessService;
         }
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Orders()
         {
-            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+            if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             try
             {
@@ -90,7 +92,7 @@ namespace CourseWork.WebApi.Controllers
         {
             var newOrder = order.ToNewEntity() as Order;
             var result = await _orderService.AddOrder(newOrder);
-            if (result.Result)
+            if (result.Success)
                 return Ok(newOrder.Id);
             return BadRequest(result.MessageResult);
         }
@@ -108,7 +110,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> AddProductToOrder([FromBody] ProductViewModel product, string orderId)
         {
             var result = await _orderService.AddProductToOrder(product.ToEntity() as Product, orderId);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -126,7 +128,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> DeleteProductFromOrder(string orderId, string productId)
         {
             var result = await _orderService.DeleteProductFromOrder(productId, orderId);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -142,10 +144,13 @@ namespace CourseWork.WebApi.Controllers
         [Route("{orderId}/UpdateProductCount/{productId}/{newCount}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateProductCountInOrder(string orderId, string productId, int newCount)
+        public async Task<IActionResult> UpdateProductCountInOrder(
+            string orderId,
+            string productId,
+            int newCount)
         {
             var result = await _orderService.UpdateProductCountInOrder(productId, newCount, orderId);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -185,10 +190,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(string id)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+            if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _orderService.DeleteOrder(id);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -204,12 +209,12 @@ namespace CourseWork.WebApi.Controllers
         [EnableCors("DefaultPolicy")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Delete([FromBody] OrderViewModel order)
+        public async Task<IActionResult> UpdateOrder([FromBody] OrderViewModel order)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+            if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _orderService.UpdateOrder(order.ToEntity() as Order);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -227,10 +232,10 @@ namespace CourseWork.WebApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteEmptyAnonymOrders(string id)
         {
-            if (User.Claims.First(a => a.Type == "Access").Value != "Admin")
+            if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _orderService.DeleteEmptyAnonymOrders(id);
-            if (result.Result)
+            if (result.Success)
                 return Ok();
             return BadRequest(result.MessageResult);
         }

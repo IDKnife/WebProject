@@ -22,9 +22,7 @@ namespace CourseWork.AdditionalClasses.ViewModels
         /// </summary>
         /// <returns>Заказанный продукт и количество его единиц.</returns>
         public ProductAndCount ToEntity()
-        {
-            return new ProductAndCount(Product.ToEntity() as Product, Count);
-        }
+            => new ProductAndCount(Product.ToEntity() as Product, Count);
 
     }
 }

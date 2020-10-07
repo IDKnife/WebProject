@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CourseWork.Models;
 
 namespace CourseWork.AdditionalClasses.ViewModels
@@ -18,12 +19,9 @@ namespace CourseWork.AdditionalClasses.ViewModels
         /// </summary>
         /// <returns>Корзина.</returns>
         public Basket ToEntity()
-        {
-            var products = new List<ProductAndCount>();
-            foreach (var item in Products)
-                products.Add(item.ToEntity());
-            return new Basket(products);
-        }
+            => new Basket(Products
+                .Select(p => p.ToEntity())
+                .ToList());
 
     }
 }

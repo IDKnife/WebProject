@@ -57,7 +57,14 @@ namespace CourseWork.Models
         /// <param name="email">Электронная почта клиента.</param>
         /// <param name="password">Пароль клиента.</param>
         /// <param name="access">Уровень доступа клиента.</param>
-        public Client(string firstName, string lastName, string secondName, string phoneNumber, string email, string password, AccessLevel access)
+        public Client(
+            string firstName,
+            string lastName,
+            string secondName,
+            string phoneNumber,
+            string email,
+            string password,
+            AccessLevel access)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -81,7 +88,16 @@ namespace CourseWork.Models
         /// <param name="password">Пароль клиента.</param>
         /// <param name="orders">Список заказов клиента.</param>
         /// <param name="access">Уровень доступа клиента.</param>
-        public Client(string id, string firstName, string lastName, string secondName, string phoneNumber, string email, string password, List<Order> orders, AccessLevel access) : base(id) 
+        public Client(
+            string id,
+            string firstName,
+            string lastName,
+            string secondName,
+            string phoneNumber,
+            string email,
+            string password,
+            List<Order> orders,
+            AccessLevel access) : base(id) 
         {
             FirstName = firstName;
             LastName = lastName;
