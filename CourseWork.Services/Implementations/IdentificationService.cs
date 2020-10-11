@@ -25,18 +25,15 @@ namespace CourseWork.Services.Implementations
         {
             var clients = await _clientService.GetClients();
             var client = clients.FirstOrDefault(item => item.Email == email && item.Password == password);
-            if (client != null)
+            if (client == null)
+                return null;
+            var claims = new List<Claim>
             {
-                var claims = new List<Claim>
-                {
-                    new Claim("Access", client.Access.ToString()),
-                    new Claim("Id", client.Id),
-                    new Claim("Email", client.Email)
-                };
-                var claimsIdentity = new ClaimsIdentity(claims, "Token");
-                return claimsIdentity;
-            }
-            return null;
+                new Claim("Access", client.Access.ToString()),
+                new Claim("Id", client.Id),
+                new Claim("Email", client.Email)
+            };
+            return new ClaimsIdentity(claims, "Token");
         }
     }
 }

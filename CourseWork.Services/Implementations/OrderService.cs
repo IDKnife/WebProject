@@ -41,12 +41,12 @@ namespace CourseWork.Services.Implementations
             try
             {
                 await _repository.AddEntity(entity);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -56,12 +56,12 @@ namespace CourseWork.Services.Implementations
             try
             {
                 await _repository.DeleteEntity(id);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -71,12 +71,12 @@ namespace CourseWork.Services.Implementations
             try
             {
                 await _repository.UpdateEntity(entity);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -102,12 +102,12 @@ namespace CourseWork.Services.Implementations
                 var order = await _repository.GetEntity(orderId);
                 order.AddProductToOrder(product);
                 await _repository.UpdateEntity(order);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -119,32 +119,31 @@ namespace CourseWork.Services.Implementations
                 var order = await _repository.GetEntity(orderId);
                 order.DeleteProductFromOrder(productId);
                 await _repository.UpdateEntity(order);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
         /// <inheritdoc cref="IOrderService.UpdateProductCountInOrder"/>
-        public async Task<ServiceOperationResult> UpdateProductCountInOrder(
-            string productId,
-            int newCount,
-            string orderId)
+        public async Task<ServiceOperationResult> UpdateProductCountInOrder(string productId,
+                                                                            int newCount,
+                                                                            string orderId)
         {
             try
             {
                 var order = await _repository.GetEntity(orderId);
                 order.UpdateProductCountInOrder(productId, newCount);
                 await _repository.UpdateEntity(order);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -177,14 +176,14 @@ namespace CourseWork.Services.Implementations
                     foreach (var order in orders)
                         if (order.ClientId == "anonym" && order.Basket.Products.Count == 0 && order.Id != id && order.Date < DateTime.Today)
                             await _repository.DeleteEntity(order.Id);
-                    return new ServiceOperationResult(true, "Success");
+                    return ServiceOperationResult.Success();
                 }
-                return new ServiceOperationResult(false, $"Fail: List of orders is empty");
+                return ServiceOperationResult.Fail("Fail: List of orders is empty");
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
     }

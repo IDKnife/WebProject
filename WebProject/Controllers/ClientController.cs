@@ -95,7 +95,7 @@ namespace CourseWork.WebApi.Controllers
             if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _clientService.DeleteClient(id);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -114,7 +114,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> AddOrderToClientList([FromBody] OrderViewModel order, string clientId)
         {
             var result = await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -132,7 +132,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> UpdateClient([FromBody] ClientViewModel сlient)
         {
             var result = await _clientService.UpdateClient(сlient.ToEntity() as Client);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }

@@ -92,7 +92,7 @@ namespace CourseWork.WebApi.Controllers
         {
             var newOrder = order.ToNewEntity() as Order;
             var result = await _orderService.AddOrder(newOrder);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok(newOrder.Id);
             return BadRequest(result.MessageResult);
         }
@@ -110,7 +110,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> AddProductToOrder([FromBody] ProductViewModel product, string orderId)
         {
             var result = await _orderService.AddProductToOrder(product.ToEntity() as Product, orderId);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -128,7 +128,7 @@ namespace CourseWork.WebApi.Controllers
         public async Task<IActionResult> DeleteProductFromOrder(string orderId, string productId)
         {
             var result = await _orderService.DeleteProductFromOrder(productId, orderId);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -144,13 +144,12 @@ namespace CourseWork.WebApi.Controllers
         [Route("{orderId}/UpdateProductCount/{productId}/{newCount}")]
         [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateProductCountInOrder(
-            string orderId,
-            string productId,
-            int newCount)
+        public async Task<IActionResult> UpdateProductCountInOrder(string orderId,
+                                                                   string productId,
+                                                                   int newCount)
         {
             var result = await _orderService.UpdateProductCountInOrder(productId, newCount, orderId);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -193,7 +192,7 @@ namespace CourseWork.WebApi.Controllers
             if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _orderService.DeleteOrder(id);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -214,7 +213,7 @@ namespace CourseWork.WebApi.Controllers
             if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _orderService.UpdateOrder(order.ToEntity() as Order);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -235,7 +234,7 @@ namespace CourseWork.WebApi.Controllers
             if (!_accessService.IsAdmin(User))
                 return BadRequest("No access");
             var result = await _orderService.DeleteEmptyAnonymOrders(id);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }

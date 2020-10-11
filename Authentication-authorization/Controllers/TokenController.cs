@@ -29,10 +29,9 @@ namespace Authentication_authorization.Controllers
         /// <param name="clientService">Сервис для работы с базой клиентов.</param>
         /// <param name="createTokenService">Сервис для создания токена авторизации.</param>
         /// /// <param name="identificationService">Сервис для идентификации клиента.</param>
-        public TokenController(
-            IClientService clientService,
-            ICreateTokenService createTokenService,
-            IIdentificationService identificationService)
+        public TokenController(IClientService clientService,
+                               ICreateTokenService createTokenService,
+                               IIdentificationService identificationService)
         {
             _clientService = clientService;
             _createTokenService = createTokenService;

@@ -75,7 +75,7 @@ namespace CourseWork.WebApi.Controllers
             if (_accessService.IsUser(User))
                 return BadRequest("No access");
             var result = await _productService.AddProduct(product.ToNewEntity() as Product);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -117,7 +117,7 @@ namespace CourseWork.WebApi.Controllers
             if (_accessService.IsUser(User))
                 return BadRequest("No access");
             var result = await _productService.DeleteProduct(id);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }
@@ -137,7 +137,7 @@ namespace CourseWork.WebApi.Controllers
             if (_accessService.IsUser(User))
                 return BadRequest("No access");
             var result = await _productService.UpdateProduct(product.ToEntity() as Product);
-            if (result.Success)
+            if (result.IsSuccess)
                 return Ok();
             return BadRequest(result.MessageResult);
         }

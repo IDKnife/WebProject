@@ -77,12 +77,11 @@ namespace CourseWork.Models
         /// <param name="basket">Корзина товаров заказа.</param>
         /// <param name="state">Статус заказа.</param>
         /// <param name="date">Дата заказа.</param>
-        public Order(
-            string id,
-            string clientId,
-            Basket basket,
-            OrderState state,
-            DateTime date) : base(id)
+        public Order(string id,
+                     string clientId,
+                     Basket basket,
+                     OrderState state,
+                     DateTime date) : base(id)
         {
             ClientId = clientId;
             Basket = basket;

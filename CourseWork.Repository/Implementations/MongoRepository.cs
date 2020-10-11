@@ -42,14 +42,14 @@ namespace CourseWork.Repositories.Implementations
         /// </summary>
         /// <param name="id">Уникальный идентификатор.</param>
         /// <returns>Фильтр равенства уникальному идентификатору.</returns>
-        public FilterDefinition<T> IdFilter(string id)
+        protected FilterDefinition<T> IdFilter(string id)
             => Builders<T>.Filter.Eq("_id", id);
 
         /// <summary>
         /// Составить пустой фильтр.
         /// </summary>
         /// <returns>Пустой фильтр.</returns>
-        public FilterDefinition<T> EmptyFilter()
+        protected FilterDefinition<T> EmptyFilter()
             => FilterDefinition<T>.Empty;
     }
 }

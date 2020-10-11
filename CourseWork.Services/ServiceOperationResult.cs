@@ -8,7 +8,7 @@
         /// <summary>
         /// Значение результата операции.
         /// </summary>
-        public bool Success { get; }
+        public bool IsSuccess { get; }
 
         /// <summary>
         /// Сообщение результата операции.
@@ -16,13 +16,28 @@
         public string MessageResult { get; }
 
         /// <summary>
+        /// Вернуть успешный результат операции.
+        /// </summary>
+        /// <returns>Успешный результат операции.</returns>
+        public static ServiceOperationResult Success()
+            => new ServiceOperationResult(true);
+
+        /// <summary>
+        /// Вернуть неудавшийся результат операции.
+        /// </summary>
+        /// <param name="message">Сообщение, раскрывающее причину неудачи.</param>
+        /// <returns>Неудавшийся результат операции.</returns>
+        public static ServiceOperationResult Fail(string message)
+            => new ServiceOperationResult(false, message);
+
+        /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ServiceOperationResult"/> с заданными значениями.
         /// </summary>
         /// <param name="success">Значение результата операции.</param>
         /// <param name="messageResult">Сообщение результата операции.</param>
-        public ServiceOperationResult(bool success, string messageResult)
+        private ServiceOperationResult(bool success, string messageResult = "")
         {
-            Success = success;
+            IsSuccess = success;
             MessageResult = messageResult;
         }
     }

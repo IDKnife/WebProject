@@ -63,12 +63,12 @@ namespace CourseWork.Services.Implementations
             try
             {
                 await _repository.AddEntity(entity);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -78,12 +78,12 @@ namespace CourseWork.Services.Implementations
             try
             {
                 await _repository.DeleteEntity(id);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -93,12 +93,12 @@ namespace CourseWork.Services.Implementations
             try
             {
                 await _repository.UpdateEntity(entity);
-                return new ServiceOperationResult(true, "Success");
+                return ServiceOperationResult.Success();
             }
             catch (Exception e)
             {
                 //ToDo: логирование
-                return new ServiceOperationResult(false, $"Fail: {e.Message}");
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 

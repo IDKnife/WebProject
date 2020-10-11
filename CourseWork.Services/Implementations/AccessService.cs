@@ -11,10 +11,12 @@ namespace CourseWork.Services.Implementations
     {
         /// <inheritdoc cref="IAccessService.IsAdmin"/>
         public bool IsAdmin(ClaimsPrincipal user)
-            => user.Claims.First(a => a.Type == "Access").Value == "Admin";
+            => user.Claims
+                .First(a => a.Type == "Access").Value == "Admin";
 
         /// <inheritdoc cref="IAccessService.IsUser"/>
         public bool IsUser(ClaimsPrincipal user)
-            => user.Claims.First(a => a.Type == "Access").Value == "User";
+            => user.Claims
+                .First(a => a.Type == "Access").Value == "User";
     }
 }
