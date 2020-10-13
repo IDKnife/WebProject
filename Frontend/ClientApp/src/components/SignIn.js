@@ -10,10 +10,11 @@ export class SignIn extends Component {
         super(props);
         this.onClickSignIn = this.onClickSignIn.bind(this);
         this.state = {
+            gotError: 0
         };
     }
 
-    onClickSignIn() {
+    async onClickSignIn() {
         let client = {
             firstName: document.getElementById("firstName").value,
             secondName: document.getElementById("secondName").value,
@@ -23,8 +24,13 @@ export class SignIn extends Component {
             password: document.getElementById("password").value,
             access: 2
         };
-        axios.post('https://localhost:5021/api/Token/Register', client);
-        window.location.replace('https://localhost:5011/log_in');
+        await axios.post('https://localhost:5021/api/Token/Register', client)
+            .catch(er => {
+                alert(er.response.data);
+                this.setState({ gotError: 1 });
+            });
+        if (this.state.gotError !== 1)
+            window.location.replace('https://localhost:5011/log_in');
     }
 
     render() {
@@ -37,7 +43,7 @@ export class SignIn extends Component {
                     <input type="text" id="phoneNumber" placeholder="Phone"></input>
                     <input type="email" id="email" placeholder="Email"></input>
                     <input type="password" id="password" placeholder="Password"></input>
-                    <input type="button" id="signInButton" value="Sign In" onClick={this.onClickSignIn}/>
+                    <input type="button" id="signInButton" value="Sign In" onClick={this.onClickSignIn} />
                 </form>
             </div >
         );

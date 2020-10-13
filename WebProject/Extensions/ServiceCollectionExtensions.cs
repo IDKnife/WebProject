@@ -24,7 +24,8 @@ namespace CourseWork.WebApi.Extensions
                 .AddTransient<IProductService, ProductService>()
                 .AddTransient<IClientService, ClientService>()
                 .AddTransient<IOrderService, OrderService>()
-                .AddTransient<IAccessService, AccessService>();
+                .AddTransient<IAccessService, AccessService>()
+                .AddTransient<ILoggedRequestsService, LoggedRequestService>();
 
         public static IServiceCollection AddSwagger(this IServiceCollection services)
             => services.AddSwaggerGen(c =>

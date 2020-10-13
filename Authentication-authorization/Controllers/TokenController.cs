@@ -22,20 +22,24 @@ namespace Authentication_authorization.Controllers
         private readonly IClientService _clientService;
         private readonly ICreateTokenService _createTokenService;
         private readonly IIdentificationService _identificationService;
+        private readonly ILoggedRequestsService _loggedRequestsService;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="TokenController"/>.
         /// </summary>
         /// <param name="clientService">Сервис для работы с базой клиентов.</param>
         /// <param name="createTokenService">Сервис для создания токена авторизации.</param>
-        /// /// <param name="identificationService">Сервис для идентификации клиента.</param>
+        /// <param name="identificationService">Сервис для идентификации клиента.</param>
+        /// <param name="loggedRequestsService">Сервис для возврата логгированных ответов сервера.</param>
         public TokenController(IClientService clientService,
                                ICreateTokenService createTokenService,
-                               IIdentificationService identificationService)
+                               IIdentificationService identificationService,
+                               ILoggedRequestsService loggedRequestsService)
         {
             _clientService = clientService;
             _createTokenService = createTokenService;
             _identificationService = identificationService;
+            _loggedRequestsService = loggedRequestsService;
         }
 
         /// <summary>
@@ -51,7 +55,7 @@ namespace Authentication_authorization.Controllers
         {
             var identity = await _identificationService.CheckIdentity(inputData.Email, inputData.Password);
             if (identity == null)
-                return BadRequest(new { errorText = "Invalid username or password." });
+                return _loggedRequestsService.BadLoggedRequest("Invalid username or password.");
             var responce = new
             {
                 token = _createTokenService.CreateToken(identity.Claims),
@@ -72,9 +76,9 @@ namespace Authentication_authorization.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Register([FromBody] ClientViewModel client)
         {
-            var item = await _clientService.GetClient(client.Id);
-            if (item != null)
-                return BadRequest(new { errorText = "This user already exists." });
+            var item = await _clientService.GetClients();
+            if (item.First(a => a.Email == client.Email) != null)
+                return _loggedRequestsService.BadLoggedRequest("This email already in system.");
             await _clientService.AddClient(client.ToNewEntity() as Client);
             return Ok();
         }

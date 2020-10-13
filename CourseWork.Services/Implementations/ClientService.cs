@@ -28,17 +28,7 @@ namespace CourseWork.Services.Implementations
 
         /// <inheritdoc cref="IClientService.GetClients"/>
         public async Task<IList<Client>> GetClients()
-        {
-            try
-            {
-                return await _repository.GetEntities();
-            }
-            catch (Exception e)
-            {
-                //ToDo: логирование
-                throw;
-            }
-        }
+            => await _repository.GetEntities();
 
         /// <inheritdoc cref="IClientService.AddClient"/>
         public async Task<ServiceOperationResult> AddClient(Client entity)
@@ -50,7 +40,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -65,8 +54,7 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
-                return ServiceOperationResult.Fail(e.ToString()); 
+                return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
@@ -80,24 +68,13 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
         /// <inheritdoc cref="IClientService.GetClient"/>
         public async Task<Client> GetClient(string id)
-        {
-            try
-            {
-                return await _repository.GetEntity(id);
-            }
-            catch (Exception e)
-            {
-                //ToDo: логирование
-                throw;
-            }
-        }
+            => await _repository.GetEntity(id);
 
         /// <inheritdoc cref="IClientService.AddOrderToClientList"/>
         public async Task<ServiceOperationResult> AddOrderToClientList(Order order, string clientId)
@@ -114,7 +91,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }

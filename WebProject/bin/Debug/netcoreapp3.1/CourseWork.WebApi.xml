@@ -4,22 +4,37 @@
         <name>CourseWork.WebApi</name>
     </assembly>
     <members>
+        <member name="T:CourseWork.WebApi.Controllers.ClientController">
+            <summary>
+            Представляет контроллер для работы с клиентами.
+            </summary>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.ClientController.#ctor(CourseWork.Services.Interfaces.IClientService,CourseWork.Services.Interfaces.IAccessService,CourseWork.Services.Interfaces.ILoggedRequestsService)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:CourseWork.WebApi.Controllers.ClientController"/>.
+            </summary>
+            <param name="clientService">Сервис для работы с базой клиентов.</param>
+            <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
+            <param name="loggedRequestsService">Сервис для возврата логгированных ответов сервера.</param>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.ClientController.Clients">
             <summary>
             Получить список клиентов.
             </summary>
-            <returns>Список клиентов.</returns>
+            <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ClientController.GetClient(System.String)">
             <summary>
             Получить клиента.
             </summary>
-            <returns>Клиент.</returns>
+            <param name="id">Уникальный идентификатор.</param>
+            <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ClientController.DeleteClient(System.String)">
             <summary>
             Удалить клиента.
             </summary>
+            <param name="id">Уникальный идентификатор.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ClientController.AddOrderToClientList(CourseWork.AdditionalClasses.ViewModels.OrderViewModel,System.String)">
@@ -37,68 +52,83 @@
             <param name="сlient">Клиент.</param>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="T:CourseWork.WebApi.Controllers.OrderController">
+            <summary>
+            Представляет контроллер для работы с заказами.
+            </summary>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.#ctor(CourseWork.Services.Interfaces.IOrderService,CourseWork.Services.Interfaces.IAccessService,CourseWork.Services.Interfaces.ILoggedRequestsService)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:CourseWork.WebApi.Controllers.OrderController"/>.
+            </summary>
+            <param name="orderService">Сервис для работы с базой заказов.</param>
+            <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
+            <param name="loggedRequestsService">Сервис для возврата логгированных ответов сервера.</param>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.Orders">
             <summary>
             Получить список заказов.
             </summary>
-            <returns>Список заказов.</returns>
+            <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.Order(System.String)">
             <summary>
             Получить заказ.
             </summary>
-            <param name="id">Уникальный идентификатор заказа.</param>
-            <returns>Заказ.</returns>
+            <param name="id">Уникальный идентификатор.</param>
+            <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.AddOrder(CourseWork.AdditionalClasses.ViewModels.OrderViewModel)">
             <summary>
             Добавить заказ.
             </summary>
-            <param name="order">заказ.</param>
+            <param name="order">Заказ.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.AddProductToOrder(CourseWork.AdditionalClasses.ViewModels.ProductViewModel,System.String)">
             <summary>
             Добавить продукт в корзину.
             </summary>
-            <param name="product">Продукт</param>
-            <param name="orderId">Уникальный идентификатор заказа</param>
+            <param name="product">Продукт.</param>
+            <param name="orderId">Уникальный идентификатор заказа.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.DeleteProductFromOrder(System.String,System.String)">
             <summary>
             Удалить продукт из корзины.
             </summary>
-            <param name="orderId">Уникальный идентификатор заказа</param>
-            <param name="productId">Уникальный идентификатор продукта</param>
+            <param name="orderId">Уникальный идентификатор заказа.</param>
+            <param name="productId">Уникальный идентификатор продукта.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.UpdateProductCountInOrder(System.String,System.String,System.Int32)">
             <summary>
             Обновить количество единиц продукта в корзине.
             </summary>
-            <param name="newCount">Новое количество единиц продукта</param>
-            <param name="productId">Уникальный идентификатор продукта</param>
-            <param name="orderId">Уникальный идентификатор заказа</param>
+            <param name="newCount">Новое количество единиц продукта.</param>
+            <param name="productId">Уникальный идентификатор продукта.</param>
+            <param name="orderId">Уникальный идентификатор заказа.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder(System.String)">
             <summary>
             Получить цену корзины.
             </summary>
-            <param name="id">Уникальный идентификатор заказа.</param>
+            <param name="id">Уникальный идентификатор.</param>
             <returns>Цена корзины.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.Delete(System.String)">
             <summary>
             Удалить заказ.
             </summary>
+            <param name="id">Уникальный идентификатор.</param>
             <returns>Ответ сервера.</returns>
         </member>
-        <member name="M:CourseWork.WebApi.Controllers.OrderController.Delete(CourseWork.AdditionalClasses.ViewModels.OrderViewModel)">
+        <member name="M:CourseWork.WebApi.Controllers.OrderController.UpdateOrder(CourseWork.AdditionalClasses.ViewModels.OrderViewModel)">
             <summary>
             Обновить заказ.
             </summary>
+            <param name="order">Заказ.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.OrderController.DeleteEmptyAnonymOrders(System.String)">
@@ -108,36 +138,53 @@
             <param name="id">Уникальный идентификатор текущего заказа.</param>
             <returns>Ответ сервера.</returns>
         </member>
+        <member name="T:CourseWork.WebApi.Controllers.ProductController">
+            <summary>
+            Представляет контроллер для работы с продуктами.
+            </summary>
+        </member>
+        <member name="M:CourseWork.WebApi.Controllers.ProductController.#ctor(CourseWork.Services.Interfaces.IProductService,CourseWork.Services.Interfaces.IAccessService,CourseWork.Services.Interfaces.ILoggedRequestsService)">
+            <summary>
+            Инициализирует новый экземпляр класса <see cref="T:CourseWork.WebApi.Controllers.ProductController"/>.
+            </summary>
+            <param name="productService">Сервис для работы с базой продуктов.</param>
+            <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
+            <param name="loggedRequestsService">Сервис для возврата логгированных ответов сервера.</param>
+        </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.Products(System.String,System.String)">
             <summary>
-            Получить список товаров.
+            Получить список продуктов.
             </summary>
-            <returns>Список товаров.</returns>
+            <param name="name">Фильтр по наименованию.</param>
+            <param name="category">Фильтр по категории.</param>
+            <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.AddProduct(CourseWork.AdditionalClasses.ViewModels.ProductViewModel)">
             <summary>
-            Добавить товар.
+            Добавить продукт.
             </summary>
-            <param name="product">Товар.</param>
+            <param name="product">Продукт.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.Product(System.String)">
             <summary>
-            Получить товар по Id.
+            Получить продукт.
             </summary>
-            <returns>Товар.</returns>
+            <param name="id">Уникальный идентификатор.</param>
+            <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.Delete(System.String)">
             <summary>
             Удалить товар.
             </summary>
+            <param name="id">Уникальный идентификатор.</param>
             <returns>Ответ сервера.</returns>
         </member>
         <member name="M:CourseWork.WebApi.Controllers.ProductController.UpdateProduct(CourseWork.AdditionalClasses.ViewModels.ProductViewModel)">
             <summary>
-            Обновить товар.
+            Обновить продукт.
             </summary>
-            <param name="product">Товар.</param>
+            <param name="product">Продукт.</param>
             <returns>Ответ сервера.</returns>
         </member>
     </members>

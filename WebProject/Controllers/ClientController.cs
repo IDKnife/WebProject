@@ -21,16 +21,21 @@ namespace CourseWork.WebApi.Controllers
     {
         private readonly IClientService _clientService;
         private readonly IAccessService _accessService;
+        private readonly ILoggedRequestsService _loggedRequestsService;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ClientController"/>.
         /// </summary>
         /// <param name="clientService">Сервис для работы с базой клиентов.</param>
         /// <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
-        public ClientController(IClientService clientService, IAccessService accessService)
+        /// <param name="loggedRequestsService">Сервис для возврата логгированных ответов сервера.</param>
+        public ClientController(IClientService clientService,
+                                IAccessService accessService,
+                                ILoggedRequestsService loggedRequestsService)
         {
             _clientService = clientService;
             _accessService = accessService;
+            _loggedRequestsService = loggedRequestsService;
         }
 
         /// <summary>
@@ -53,7 +58,7 @@ namespace CourseWork.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return _loggedRequestsService.BadLoggedRequest(e.ToString());
             }
         }
 
@@ -76,7 +81,7 @@ namespace CourseWork.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return _loggedRequestsService.BadLoggedRequest(e.ToString());
             }
         }
 
@@ -97,7 +102,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _clientService.DeleteClient(id);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -116,7 +121,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _clientService.AddOrderToClientList(order.ToEntity() as Order, clientId);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -134,7 +139,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _clientService.UpdateClient(сlient.ToEntity() as Client);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
     }
 }

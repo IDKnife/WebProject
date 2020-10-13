@@ -21,16 +21,21 @@ namespace CourseWork.WebApi.Controllers
     {
         private readonly IProductService _productService;
         private readonly IAccessService _accessService;
+        private readonly ILoggedRequestsService _loggedRequestsService;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ProductController"/>.
         /// </summary>
         /// <param name="productService">Сервис для работы с базой продуктов.</param>
         /// <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
-        public ProductController(IProductService productService, IAccessService accessService)
+        /// <param name="loggedRequestsService">Сервис для возврата логгированных ответов сервера.</param>
+        public ProductController(IProductService productService,
+                                 IAccessService accessService,
+                                 ILoggedRequestsService loggedRequestsService)
         {
             _productService = productService;
             _accessService = accessService;
+            _loggedRequestsService = loggedRequestsService;
         }
 
         /// <summary>
@@ -56,7 +61,7 @@ namespace CourseWork.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return _loggedRequestsService.BadLoggedRequest(e.ToString());
             }
         }
 
@@ -77,7 +82,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _productService.AddProduct(product.ToNewEntity() as Product);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -98,7 +103,7 @@ namespace CourseWork.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return _loggedRequestsService.BadLoggedRequest(e.ToString());
             }
         }
 
@@ -119,7 +124,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _productService.DeleteProduct(id);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -139,7 +144,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _productService.UpdateProduct(product.ToEntity() as Product);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
     }
 }

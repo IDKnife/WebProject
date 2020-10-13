@@ -43,7 +43,7 @@ export default class App extends Component {
                 sessionStorage.setItem("access_level", data.access);
                 sessionStorage.setItem("IsAuthorized", true);
             })
-            .catch(er => alert(er.response.data.errorText));
+            .catch(er => alert(er.response.data));
         if (sessionStorage.getItem("IsAuthorized") === "true") {
             document.getElementById("User").style.display = "block";
             document.getElementById("Auth").style.display = "none";

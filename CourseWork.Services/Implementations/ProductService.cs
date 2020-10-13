@@ -26,17 +26,7 @@ namespace CourseWork.Services.Implementations
         /// </summary>
         /// <returns>Список продуктов.</returns>
         public async Task<IList<Product>> GetProducts()
-        {
-            try
-            {
-                return await _repository.GetEntities();
-            }
-            catch (Exception e)
-            {
-                //ToDo: логирование
-                throw;
-            }
-        }
+            => await _repository.GetEntities();
 
         /// <summary>
         /// Получить отфильтрованный список продуктов.
@@ -45,17 +35,7 @@ namespace CourseWork.Services.Implementations
         /// <param name="category">Фильтр по категории.</param>
         /// <returns>Отфильтрованный список продуктов.</returns>
         public async Task<IList<Product>> GetProducts(string name, string category)
-        {
-            try
-            {
-                return await _repository.GetEntities(name, category);
-            }
-            catch (Exception e)
-            {
-                //ToDo: логирование
-                throw;
-            }
-        }
+            => await _repository.GetEntities(name, category);
 
         /// <inheritdoc cref="IProductService.AddProduct"/>
         public async Task<ServiceOperationResult> AddProduct(Product entity)
@@ -67,7 +47,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -82,7 +61,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -97,23 +75,12 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
         /// <inheritdoc cref="IProductService.GetProduct"/>
         public async Task<Product> GetProduct(string id)
-        {
-            try
-            {
-                return await _repository.GetEntity(id);
-            }
-            catch (Exception)
-            {
-                //ToDo: логирование
-                throw;
-            }
-        }
+            => await _repository.GetEntity(id);
     }
 }

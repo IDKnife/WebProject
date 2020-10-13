@@ -21,16 +21,21 @@ namespace CourseWork.WebApi.Controllers
     {
         private readonly IOrderService _orderService;
         private readonly IAccessService _accessService;
+        private readonly ILoggedRequestsService _loggedRequestsService;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="OrderController"/>.
         /// </summary>
         /// <param name="orderService">Сервис для работы с базой заказов.</param>
         /// <param name="accessService">Сервис для проверки уровня доступа клиента.</param>
-        public OrderController(IOrderService orderService, IAccessService accessService)
+        /// <param name="loggedRequestsService">Сервис для возврата логгированных ответов сервера.</param>
+        public OrderController(IOrderService orderService,
+                               IAccessService accessService,
+                               ILoggedRequestsService loggedRequestsService)
         {
             _orderService = orderService;
             _accessService = accessService;
+            _loggedRequestsService = loggedRequestsService;
         }
 
         /// <summary>
@@ -53,7 +58,7 @@ namespace CourseWork.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return _loggedRequestsService.BadLoggedRequest(e.ToString());
             }
         }
 
@@ -75,7 +80,7 @@ namespace CourseWork.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return _loggedRequestsService.BadLoggedRequest(e.ToString());
             }
         }
 
@@ -94,7 +99,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _orderService.AddOrder(newOrder);
             if (result.IsSuccess)
                 return Ok(newOrder.Id);
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -112,7 +117,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _orderService.AddProductToOrder(product.ToEntity() as Product, orderId);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -130,7 +135,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _orderService.DeleteProductFromOrder(productId, orderId);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -151,7 +156,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _orderService.UpdateProductCountInOrder(productId, newCount, orderId);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -172,7 +177,7 @@ namespace CourseWork.WebApi.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e.ToString());
+                return _loggedRequestsService.BadLoggedRequest(e.ToString());
             }
         }
 
@@ -194,7 +199,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _orderService.DeleteOrder(id);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -215,7 +220,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _orderService.UpdateOrder(order.ToEntity() as Order);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
 
         /// <summary>
@@ -236,7 +241,7 @@ namespace CourseWork.WebApi.Controllers
             var result = await _orderService.DeleteEmptyAnonymOrders(id);
             if (result.IsSuccess)
                 return Ok();
-            return BadRequest(result.MessageResult);
+            return _loggedRequestsService.BadLoggedRequest(result.MessageResult);
         }
     }
 }

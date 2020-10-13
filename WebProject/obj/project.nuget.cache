@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "62giDeFvuZTa8fQGi5PSS4ILhsSH1pUR+KEAEpkgA7bbP1sK12VMSNWDv0HvyM7CZW2ZM5lFA7HJWZme7YEskQ==",
-  "success": false,
+  "dgSpecHash": "xoutlMP1/3gUEAd+VZUGVVaCk2eMywr46vpT/5Yl8CmWYMWfRPB/E0KmJqz93y6JQU5tVSQ/a327eY40Lpv6zA==",
+  "success": true,
   "projectFilePath": "D:\\fu\\c#\\WebProject\\WebProject\\CourseWork.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ArhiS\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
-    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.6\\microsoft.aspnetcore.authentication.jwtbearer.3.1.6.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.9\\microsoft.aspnetcore.authentication.jwtbearer.3.1.9.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.razor.design\\2.2.0\\microsoft.aspnetcore.razor.design.2.2.0.nupkg.sha512",
@@ -17,8 +17,21 @@
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\3.3.1\\microsoft.codeanalysis.csharp.workspaces.3.3.1.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.codeanalysis.razor\\3.1.0\\microsoft.codeanalysis.razor.3.1.0.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\3.3.1\\microsoft.codeanalysis.workspaces.common.3.3.1.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\2.0.4\\microsoft.dotnet.platformabstractions.2.0.4.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.9\\microsoft.extensions.configuration.3.1.9.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.9\\microsoft.extensions.configuration.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.configuration.binder\\2.0.0\\microsoft.extensions.configuration.binder.2.0.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\3.1.9\\microsoft.extensions.configuration.fileextensions.3.1.9.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.configuration.json\\3.1.9\\microsoft.extensions.configuration.json.3.1.9.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.0\\microsoft.extensions.dependencyinjection.3.1.0.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.0\\microsoft.extensions.dependencyinjection.abstractions.3.1.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.dependencymodel\\2.0.4\\microsoft.extensions.dependencymodel.2.0.4.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.9\\microsoft.extensions.fileproviders.abstractions.3.1.9.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.9\\microsoft.extensions.fileproviders.physical.3.1.9.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.9\\microsoft.extensions.filesystemglobbing.3.1.9.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.options\\2.0.0\\microsoft.extensions.options.2.0.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\2.0.0\\microsoft.extensions.options.configurationextensions.2.0.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.9\\microsoft.extensions.primitives.3.1.9.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.5.0\\microsoft.identitymodel.jsonwebtokens.5.5.0.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.identitymodel.logging\\5.5.0\\microsoft.identitymodel.logging.5.5.0.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\microsoft.identitymodel.protocols\\5.5.0\\microsoft.identitymodel.protocols.5.5.0.nupkg.sha512",
@@ -59,6 +72,12 @@
     "C:\\Microsoft\\Xamarin\\NuGet\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\serilog.enrichers.environment\\2.1.3\\serilog.enrichers.environment.2.1.3.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\serilog.enrichers.thread\\3.1.0\\serilog.enrichers.thread.3.1.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\serilog.settings.configuration\\3.1.0\\serilog.settings.configuration.3.1.0.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\serilog.sinks.console\\3.1.1\\serilog.sinks.console.3.1.1.nupkg.sha512",
+    "C:\\Users\\ArhiS\\.nuget\\packages\\serilog.sinks.file\\4.1.0\\serilog.sinks.file.4.1.0.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\sharpcompress\\0.23.0\\sharpcompress.0.23.0.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.4.0\\swashbuckle.aspnetcore.swagger.5.4.0.nupkg.sha512",
     "C:\\Users\\ArhiS\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.4.0\\swashbuckle.aspnetcore.swaggergen.5.4.0.nupkg.sha512",
@@ -79,6 +98,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.diagnostics.diagnosticsource\\4.3.0\\system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.dynamic.runtime\\4.0.11\\system.dynamic.runtime.4.0.11.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.globalization.extensions\\4.3.0\\system.globalization.extensions.4.3.0.nupkg.sha512",
@@ -130,15 +150,5 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: Microsoft.AspNetCore.Authentication.JwtBearer from 3.1.8 to 3.1.6. Reference the package directly from the project to select a different version. \r\n CourseWork.WebApi -> CourseWork.Services -> Microsoft.AspNetCore.Authentication.JwtBearer (>= 3.1.8) \r\n CourseWork.WebApi -> Microsoft.AspNetCore.Authentication.JwtBearer (>= 3.1.6)",
-      "libraryId": "Microsoft.AspNetCore.Authentication.JwtBearer",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

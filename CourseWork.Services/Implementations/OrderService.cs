@@ -23,17 +23,7 @@ namespace CourseWork.Services.Implementations
 
         /// <inheritdoc cref="IOrderService.GetOrders"/>
         public async Task<IList<Order>> GetOrders()
-        {
-            try
-            {
-                return await _repository.GetEntities();
-            }
-            catch (Exception e)
-            {
-                //ToDo: логирование
-                throw;
-            }
-        }
+            => await _repository.GetEntities();
 
         /// <inheritdoc cref="IOrderService.AddOrder"/>
         public async Task<ServiceOperationResult> AddOrder(Order entity)
@@ -45,7 +35,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -60,7 +49,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -75,24 +63,13 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
 
         /// <inheritdoc cref="IOrderService.GetOrder"/>
         public async Task<Order> GetOrder(string id)
-        {
-            try
-            {
-                return await _repository.GetEntity(id);
-            }
-            catch (Exception)
-            {
-                //ToDo: логирование
-                throw;
-            }
-        }
+            => await _repository.GetEntity(id);
 
         /// <inheritdoc cref="IOrderService.AddProductToOrder"/>
         public async Task<ServiceOperationResult> AddProductToOrder(Product product, string orderId)
@@ -106,7 +83,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -123,7 +99,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -142,7 +117,7 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
+
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
@@ -150,19 +125,10 @@ namespace CourseWork.Services.Implementations
         /// <inheritdoc cref="IOrderService.GetPriceOfOrder"/>
         public async Task<double> GetPriceOfOrder(string id)
         {
-            try
-            {
-                var order = await _repository.GetEntity(id);
-                if (order != null)
-                    return order.GetPriceOfOrder();
-                else
-                    return 0;
-            }
-            catch (Exception e)
-            {
-                //ToDo: логирование
-                throw;
-            }
+            var order = await _repository.GetEntity(id);
+            if (order != null)
+                return order.GetPriceOfOrder();
+            return 0;
         }
 
         /// <inheritdoc cref="IOrderService.DeleteEmptyAnonymOrders"/>
@@ -182,7 +148,6 @@ namespace CourseWork.Services.Implementations
             }
             catch (Exception e)
             {
-                //ToDo: логирование
                 return ServiceOperationResult.Fail(e.ToString());
             }
         }
