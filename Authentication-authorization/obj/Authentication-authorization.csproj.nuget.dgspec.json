@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[2.10.0, )"
             },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "Serilog.Settings.Configuration": {
               "target": "Package",
               "version": "[3.1.0, )"

@@ -1,3 +1,143 @@
 2020-10-13 23:50:10.810 +03:00 [ERR] Invalid username or password.
 2020-10-13 23:52:05.343 +03:00 [ERR] Invalid username or password.
 2020-10-13 23:53:23.614 +03:00 [ERR] Invalid username or password.
+2020-10-14 20:12:05.853 +03:00 [DBG] Hosting starting
+2020-10-14 20:12:06.528 +03:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-10-14 20:12:06.590 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 4DDCED9D0C91D5A86D51338D1FB633DE890F365F)
+2020-10-14 20:12:06.606 +03:00 [DBG] Hosting started
+2020-10-14 20:12:06.609 +03:00 [DBG] Loaded hosting startup assembly Authentication-authorization
+2020-10-14 20:12:06.984 +03:00 [DBG] Connection id "0HM3GCH3MC5NB" received FIN.
+2020-10-14 20:12:06.984 +03:00 [DBG] Connection id "0HM3GCH3MC5NA" received FIN.
+2020-10-14 20:12:06.997 +03:00 [DBG] Connection id "0HM3GCH3MC5NB" accepted.
+2020-10-14 20:12:06.997 +03:00 [DBG] Connection id "0HM3GCH3MC5NA" accepted.
+2020-10-14 20:12:06.998 +03:00 [DBG] Connection id "0HM3GCH3MC5NB" started.
+2020-10-14 20:12:06.999 +03:00 [DBG] Connection id "0HM3GCH3MC5NA" started.
+2020-10-14 20:12:07.021 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Authentication failed because the remote party has closed the transport stream.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-10-14 20:12:07.021 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Authentication failed because the remote party has closed the transport stream.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-10-14 20:12:07.097 +03:00 [DBG] Connection id "0HM3GCH3MC5NB" stopped.
+2020-10-14 20:12:07.098 +03:00 [DBG] Connection id "0HM3GCH3MC5NA" stopped.
+2020-10-14 20:12:07.102 +03:00 [DBG] Connection id "0HM3GCH3MC5NA" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-14 20:12:07.102 +03:00 [DBG] Connection id "0HM3GCH3MC5NB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-14 20:12:09.395 +03:00 [DBG] Connection id "0HM3GCH3MC5NC" accepted.
+2020-10-14 20:12:09.396 +03:00 [DBG] Connection id "0HM3GCH3MC5NC" started.
+2020-10-14 20:12:09.531 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5021/swagger  
+2020-10-14 20:12:09.535 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2020-10-14 20:12:09.557 +03:00 [INF] Request finished in 29.0089ms 301 
+2020-10-14 20:12:09.561 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5021/swagger/index.html  
+2020-10-14 20:12:09.599 +03:00 [INF] Request finished in 37.7331ms 200 text/html;charset=utf-8
+2020-10-14 20:12:09.618 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5021/swagger/swagger-ui.css  
+2020-10-14 20:12:09.627 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5021/swagger/swagger-ui-bundle.js  
+2020-10-14 20:12:09.627 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5021/swagger/swagger-ui-standalone-preset.js  
+2020-10-14 20:12:09.711 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-10-14 20:12:09.711 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-10-14 20:12:09.728 +03:00 [INF] Request finished in 100.5288ms 200 application/javascript
+2020-10-14 20:12:09.728 +03:00 [INF] Request finished in 110.0021ms 200 text/css
+2020-10-14 20:12:09.732 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-10-14 20:12:09.733 +03:00 [INF] Request finished in 106.7234ms 200 application/javascript
+2020-10-14 20:12:09.923 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5021/swagger/v2/swagger.json  
+2020-10-14 20:12:10.031 +03:00 [DBG] Connection id "0HM3GCH3MC5ND" accepted.
+2020-10-14 20:12:10.032 +03:00 [DBG] Connection id "0HM3GCH3MC5ND" started.
+2020-10-14 20:12:10.037 +03:00 [DBG] Connection id "0HM3GCH3MC5NE" accepted.
+2020-10-14 20:12:10.039 +03:00 [DBG] Connection id "0HM3GCH3MC5NE" started.
+2020-10-14 20:12:10.049 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5021/swagger/swagger-ui-standalone-preset.js.map  
+2020-10-14 20:12:10.049 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5021/swagger/swagger-ui-bundle.js.map  
+2020-10-14 20:12:10.050 +03:00 [DBG] The request path /swagger-ui-standalone-preset.js.map does not match an existing file
+2020-10-14 20:12:10.052 +03:00 [DBG] The request path /swagger-ui-bundle.js.map does not match an existing file
+2020-10-14 20:12:10.078 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js.map'
+2020-10-14 20:12:10.078 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js.map'
+2020-10-14 20:12:10.079 +03:00 [DBG] Request did not match any endpoints
+2020-10-14 20:12:10.080 +03:00 [DBG] Request did not match any endpoints
+2020-10-14 20:12:10.092 +03:00 [INF] Request finished in 168.9081ms 200 application/json;charset=utf-8
+2020-10-14 20:12:10.107 +03:00 [INF] Request finished in 58.3956ms 404 
+2020-10-14 20:12:10.107 +03:00 [INF] Request finished in 58.3956ms 404 
+2020-10-14 20:12:10.109 +03:00 [DBG] Connection id "0HM3GCH3MC5ND" disconnecting.
+2020-10-14 20:12:10.109 +03:00 [DBG] Connection id "0HM3GCH3MC5NE" disconnecting.
+2020-10-14 20:12:10.110 +03:00 [DBG] Connection id "0HM3GCH3MC5ND" received FIN.
+2020-10-14 20:12:10.110 +03:00 [DBG] Connection id "0HM3GCH3MC5NF" accepted.
+2020-10-14 20:12:10.120 +03:00 [DBG] Connection id "0HM3GCH3MC5NF" started.
+2020-10-14 20:12:10.112 +03:00 [DBG] Connection id "0HM3GCH3MC5NE" stopped.
+2020-10-14 20:12:10.112 +03:00 [DBG] Connection id "0HM3GCH3MC5ND" stopped.
+2020-10-14 20:12:10.112 +03:00 [DBG] Connection id "0HM3GCH3MC5NE" received FIN.
+2020-10-14 20:12:10.126 +03:00 [DBG] Connection id "0HM3GCH3MC5NG" accepted.
+2020-10-14 20:12:10.145 +03:00 [DBG] Connection id "0HM3GCH3MC5ND" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-14 20:12:10.146 +03:00 [INF] Request starting HTTP/1.1 GET https://127.0.0.1:5021/swagger/swagger-ui-standalone-preset.js.map  
+2020-10-14 20:12:10.160 +03:00 [DBG] The request path /swagger-ui-standalone-preset.js.map does not match an existing file
+2020-10-14 20:12:10.150 +03:00 [DBG] Connection id "0HM3GCH3MC5NG" started.
+2020-10-14 20:12:10.148 +03:00 [DBG] Connection id "0HM3GCH3MC5NE" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-14 20:12:10.163 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js.map'
+2020-10-14 20:12:10.166 +03:00 [DBG] Request did not match any endpoints
+2020-10-14 20:12:10.177 +03:00 [INF] Request starting HTTP/1.1 GET https://127.0.0.1:5021/swagger/swagger-ui-bundle.js.map  
+2020-10-14 20:12:10.178 +03:00 [INF] Request finished in 32.6243ms 404 
+2020-10-14 20:12:10.182 +03:00 [DBG] Connection id "0HM3GCH3MC5NF" received FIN.
+2020-10-14 20:12:10.186 +03:00 [DBG] The request path /swagger-ui-bundle.js.map does not match an existing file
+2020-10-14 20:12:10.190 +03:00 [DBG] Connection id "0HM3GCH3MC5NF" disconnecting.
+2020-10-14 20:12:10.200 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js.map'
+2020-10-14 20:12:10.206 +03:00 [DBG] Connection id "0HM3GCH3MC5NF" sending FIN because: "The client closed the connection."
+2020-10-14 20:12:10.209 +03:00 [DBG] Request did not match any endpoints
+2020-10-14 20:12:10.212 +03:00 [INF] Request finished in 35.2982ms 404 
+2020-10-14 20:12:10.213 +03:00 [DBG] Connection id "0HM3GCH3MC5NG" disconnecting.
+2020-10-14 20:12:10.213 +03:00 [DBG] Connection id "0HM3GCH3MC5NG" received FIN.
+2020-10-14 20:12:10.214 +03:00 [DBG] Connection id "0HM3GCH3MC5NG" stopped.
+2020-10-14 20:12:10.217 +03:00 [DBG] Connection id "0HM3GCH3MC5NG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-14 20:12:10.217 +03:00 [DBG] Connection id "0HM3GCH3MC5NF" stopped.
+2020-10-14 20:12:20.709 +03:00 [INF] Request starting HTTP/2 POST https://localhost:5021/api/Token/GetToken application/json 38
+2020-10-14 20:12:20.713 +03:00 [DBG] POST requests are not supported
+2020-10-14 20:12:20.730 +03:00 [DBG] 1 candidate(s) found for the request path '/api/Token/GetToken'
+2020-10-14 20:12:20.733 +03:00 [DBG] Endpoint 'Authentication_authorization.Controllers.TokenController.Identification (Authentication-authorization)' with route pattern 'api/Token/GetToken' is valid for the request path '/api/Token/GetToken'
+2020-10-14 20:12:20.739 +03:00 [DBG] Request matched endpoint 'Authentication_authorization.Controllers.TokenController.Identification (Authentication-authorization)'
+2020-10-14 20:12:20.742 +03:00 [DBG] The request has an origin header: 'https://localhost:5021'.
+2020-10-14 20:12:20.743 +03:00 [INF] CORS policy execution failed.
+2020-10-14 20:12:20.743 +03:00 [INF] Request origin https://localhost:5021 does not have permission to access the resource.
+2020-10-14 20:12:20.748 +03:00 [INF] Executing endpoint 'Authentication_authorization.Controllers.TokenController.Identification (Authentication-authorization)'
+2020-10-14 20:12:20.763 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2020-10-14 20:12:20.832 +03:00 [INF] Route matched with {action = "Identification", controller = "Token"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Identification(Authentication_authorization.Classes.Identity) on controller Authentication_authorization.Controllers.TokenController (Authentication-authorization).
+2020-10-14 20:12:20.834 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2020-10-14 20:12:20.835 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2020-10-14 20:12:20.837 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2020-10-14 20:12:20.841 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2020-10-14 20:12:20.844 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2020-10-14 20:12:20.846 +03:00 [DBG] Executing controller factory for controller Authentication_authorization.Controllers.TokenController (Authentication-authorization)
+2020-10-14 20:12:20.944 +03:00 [DBG] Executed controller factory for controller Authentication_authorization.Controllers.TokenController (Authentication-authorization)
+2020-10-14 20:12:20.966 +03:00 [DBG] Attempting to bind parameter 'inputData' of type 'Authentication_authorization.Classes.Identity' ...
+2020-10-14 20:12:20.982 +03:00 [DBG] Attempting to bind parameter 'inputData' of type 'Authentication_authorization.Classes.Identity' using the name '' in request data ...
+2020-10-14 20:12:21.022 +03:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2020-10-14 20:12:21.055 +03:00 [DBG] Connection id "0HM3GCH3MC5NC", Request id "0HM3GCH3MC5NC:0000000D": started reading request body.
+2020-10-14 20:12:21.062 +03:00 [DBG] Connection id "0HM3GCH3MC5NC", Request id "0HM3GCH3MC5NC:0000000D": done reading request body.
+2020-10-14 20:12:21.084 +03:00 [DBG] JSON input formatter succeeded, deserializing to type 'Authentication_authorization.Classes.Identity'
+2020-10-14 20:12:21.199 +03:00 [DBG] Done attempting to bind parameter 'inputData' of type 'Authentication_authorization.Classes.Identity'.
+2020-10-14 20:12:21.200 +03:00 [DBG] Done attempting to bind parameter 'inputData' of type 'Authentication_authorization.Classes.Identity'.
+2020-10-14 20:12:21.208 +03:00 [DBG] Attempting to validate the bound parameter 'inputData' of type 'Authentication_authorization.Classes.Identity' ...
+2020-10-14 20:12:21.232 +03:00 [DBG] Done attempting to validate the bound parameter 'inputData' of type 'Authentication_authorization.Classes.Identity'.
+2020-10-14 20:12:21.416 +03:00 [INF] Executed action Authentication_authorization.Controllers.TokenController.Identification (Authentication-authorization) in 566.7995ms
+2020-10-14 20:12:21.418 +03:00 [INF] Executed endpoint 'Authentication_authorization.Controllers.TokenController.Identification (Authentication-authorization)'
+2020-10-14 20:12:21.428 +03:00 [INF] Request finished in 718.9209ms 400 text/plain; charset=utf-8
+2020-10-14 20:13:23.643 +03:00 [DBG] Hosting shutdown
+2020-10-14 20:13:23.660 +03:00 [DBG] Connection id "0HM3GCH3MC5NC" is closing.
+2020-10-14 20:13:23.663 +03:00 [DBG] Connection id "0HM3GCH3MC5NC" is closed. The last processed stream ID was 13.
+2020-10-14 20:13:23.665 +03:00 [DBG] Connection id "0HM3GCH3MC5NC" received FIN.
+2020-10-14 20:13:23.668 +03:00 [DBG] Connection id "0HM3GCH3MC5NC" sending FIN because: "The client closed the connection."
+2020-10-14 20:13:23.676 +03:00 [DBG] Connection id "0HM3GCH3MC5NC" stopped.

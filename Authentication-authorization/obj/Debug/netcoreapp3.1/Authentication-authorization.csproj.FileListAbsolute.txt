@@ -60,6 +60,17 @@ D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Serilog
 D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Serilog.Settings.Configuration.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Serilog.AspNetCore.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Serilog.Extensions.Hosting.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Serilog.Formatting.Compact.dll
+D:\fu\c#\WebProject\Authentication-authorization\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.csproj.CoreCompileInputs.cache
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.MvcApplicationPartsAssemblyInfo.cs
 D:\fu\c#\WebProject\Authentication-authorization\obj\Debug\netcoreapp3.1\Authentication-authorization.MvcApplicationPartsAssemblyInfo.cache

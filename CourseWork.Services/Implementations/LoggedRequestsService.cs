@@ -9,21 +9,21 @@ namespace CourseWork.Services.Implementations
     /// <summary>
     /// Представляет логгированные ответы сервера.
     /// </summary>
-    public class LoggedRequestService : ILoggedRequestsService
+    public class LoggedRequestsService : ILoggedRequestsService
     {
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="LoggedRequestService"/>.
+        /// Инициализирует новый экземпляр класса <see cref="LoggedRequestsService"/>.
         /// </summary>
-        public LoggedRequestService()
-        {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(configuration)
-                .CreateLogger();
-        }
+        //public LoggedRequestsService()
+        //{
+        //    var configuration = new ConfigurationBuilder()
+        //        .SetBasePath(Directory.GetCurrentDirectory())
+        //        .AddJsonFile("appsettings.json")
+        //        .Build();
+        //    Log.Logger = new LoggerConfiguration()
+        //        .ReadFrom.Configuration(configuration)
+        //        .CreateLogger();
+        //}
 
         /// <inheritdoc cref="ILoggedRequestsService.BadLoggedRequest"/>
         public BadRequestObjectResult BadLoggedRequest(string message)
