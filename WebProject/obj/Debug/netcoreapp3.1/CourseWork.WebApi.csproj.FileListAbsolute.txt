@@ -133,3 +133,17 @@ D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Enrichers.Thread.
 D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Settings.Configuration.dll
 D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
 D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.AspNetCore.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Extensions.Hosting.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Formatting.Compact.dll
+D:\fu\c#\WebProject\WebProject\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
+D:\fu\c#\WebProject\WebProject\obj\Debug\netcoreapp3.1\CourseWork.WebApi.csproj.CoreCompileInputs.cache
+D:\fu\c#\WebProject\WebProject\obj\Debug\netcoreapp3.1\CourseWork.WebApi.MvcApplicationPartsAssemblyInfo.cs
+D:\fu\c#\WebProject\WebProject\obj\Debug\netcoreapp3.1\CourseWork.WebApi.MvcApplicationPartsAssemblyInfo.cache

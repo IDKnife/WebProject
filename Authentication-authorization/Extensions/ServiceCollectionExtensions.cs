@@ -19,7 +19,7 @@ namespace Authentication_authorization.Extensions
                 .AddTransient<IClientService, ClientService>()
                 .AddTransient<ICreateTokenService, CreateTokenService>()
                 .AddTransient<IIdentificationService, IdentificationService>()
-                .AddTransient<ILoggedRequestsService, LoggedRequestService>();
+                .AddTransient<ILoggedRequestsService, LoggedRequestsService>();
 
         public static IServiceCollection AddSwagger(this IServiceCollection services)
             => services.AddSwaggerGen(c =>
