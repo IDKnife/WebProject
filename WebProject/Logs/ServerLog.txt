@@ -1404,3 +1404,474 @@ System.IO.IOException: Authentication failed because the remote party has closed
 2020-10-24 18:06:38.750 +03:00 [DBG] Connection id "0HM3O5GJVSVRH" received FIN.
 2020-10-24 18:06:38.751 +03:00 [DBG] Connection id "0HM3O5GJVSVRH" sending FIN because: "The client closed the connection."
 2020-10-24 18:06:38.757 +03:00 [DBG] Connection id "0HM3O5GJVSVRH" stopped.
+2020-10-26 15:57:42.682 +03:00 [DBG] Hosting starting
+2020-10-26 15:57:43.155 +03:00 [INF] User profile is available. Using 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-10-26 15:57:43.169 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-6c71015d-82c9-404a-8537-3b668c1f8a84.xml'.
+2020-10-26 15:57:43.214 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-77c2e7ad-3bf3-41c0-b355-2415820773d4.xml'.
+2020-10-26 15:57:43.217 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-a5042680-928a-4f85-9aaf-989b3bc8075b.xml'.
+2020-10-26 15:57:43.218 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-a9d404a3-5c7b-45e6-ad62-fe606dc707db.xml'.
+2020-10-26 15:57:43.227 +03:00 [DBG] Found key {6c71015d-82c9-404a-8537-3b668c1f8a84}.
+2020-10-26 15:57:43.233 +03:00 [DBG] Found key {77c2e7ad-3bf3-41c0-b355-2415820773d4}.
+2020-10-26 15:57:43.234 +03:00 [DBG] Found key {a5042680-928a-4f85-9aaf-989b3bc8075b}.
+2020-10-26 15:57:43.234 +03:00 [DBG] Found key {a9d404a3-5c7b-45e6-ad62-fe606dc707db}.
+2020-10-26 15:57:43.241 +03:00 [DBG] Considering key {6c71015d-82c9-404a-8537-3b668c1f8a84} with expiration date 2020-11-01 09:12:12Z as default key.
+2020-10-26 15:57:43.252 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2020-10-26 15:57:43.255 +03:00 [DBG] Decrypting secret element using Windows DPAPI.
+2020-10-26 15:57:43.257 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2020-10-26 15:57:43.260 +03:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2020-10-26 15:57:43.264 +03:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2020-10-26 15:57:43.267 +03:00 [DBG] Using key {6c71015d-82c9-404a-8537-3b668c1f8a84} as the default key.
+2020-10-26 15:57:43.268 +03:00 [DBG] Key ring with default key {6c71015d-82c9-404a-8537-3b668c1f8a84} was loaded during application startup.
+2020-10-26 15:57:43.271 +03:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-10-26 15:57:43.316 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 4DDCED9D0C91D5A86D51338D1FB633DE890F365F)
+2020-10-26 15:57:43.330 +03:00 [DBG] Hosting started
+2020-10-26 15:57:43.334 +03:00 [DBG] Loaded hosting startup assembly CourseWork.WebApi
+2020-10-26 15:57:43.724 +03:00 [DBG] Connection id "0HM3PLQTBS32P" accepted.
+2020-10-26 15:57:43.724 +03:00 [DBG] Connection id "0HM3PLQTBS32Q" accepted.
+2020-10-26 15:57:43.726 +03:00 [DBG] Connection id "0HM3PLQTBS32P" started.
+2020-10-26 15:57:43.727 +03:00 [DBG] Connection id "0HM3PLQTBS32Q" started.
+2020-10-26 15:57:43.741 +03:00 [DBG] Connection id "0HM3PLQTBS32P" received FIN.
+2020-10-26 15:57:43.741 +03:00 [DBG] Connection id "0HM3PLQTBS32Q" received FIN.
+2020-10-26 15:57:43.753 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Authentication failed because the remote party has closed the transport stream.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslStream.ThrowIfExceptional()
+   at System.Net.Security.SslStream.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-10-26 15:57:43.753 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Authentication failed because the remote party has closed the transport stream.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.PartialFrameCallback(AsyncProtocolRequest asyncRequest)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Net.Security.SslStream.ThrowIfExceptional()
+   at System.Net.Security.SslStream.InternalEndProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.Security.SslStream.EndProcessAuthentication(IAsyncResult result)
+   at System.Net.Security.SslStream.EndAuthenticateAsServer(IAsyncResult asyncResult)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_1(IAsyncResult iar)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-10-26 15:57:43.826 +03:00 [DBG] Connection id "0HM3PLQTBS32P" stopped.
+2020-10-26 15:57:43.830 +03:00 [DBG] Connection id "0HM3PLQTBS32Q" stopped.
+2020-10-26 15:57:43.834 +03:00 [DBG] Connection id "0HM3PLQTBS32P" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 15:57:43.834 +03:00 [DBG] Connection id "0HM3PLQTBS32Q" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 15:57:45.723 +03:00 [DBG] Connection id "0HM3PLQTBS32R" accepted.
+2020-10-26 15:57:45.724 +03:00 [DBG] Connection id "0HM3PLQTBS32R" started.
+2020-10-26 15:57:45.824 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger  
+2020-10-26 15:57:45.828 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2020-10-26 15:57:45.849 +03:00 [INF] Request finished in 24.5499ms 301 
+2020-10-26 15:57:45.853 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2020-10-26 15:57:45.885 +03:00 [INF] Request finished in 31.4228ms 200 text/html;charset=utf-8
+2020-10-26 15:57:45.914 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+2020-10-26 15:57:45.919 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+2020-10-26 15:57:45.919 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+2020-10-26 15:57:45.973 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-10-26 15:57:45.976 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-10-26 15:57:45.985 +03:00 [INF] Request finished in 65.4718ms 200 text/css
+2020-10-26 15:57:45.987 +03:00 [INF] Request finished in 73.1693ms 200 application/javascript
+2020-10-26 15:57:45.994 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-10-26 15:57:45.999 +03:00 [INF] Request finished in 84.854ms 200 application/javascript
+2020-10-26 15:57:46.130 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2020-10-26 15:57:46.191 +03:00 [DBG] Connection id "0HM3PLQTBS32S" accepted.
+2020-10-26 15:57:46.192 +03:00 [DBG] Connection id "0HM3PLQTBS32S" started.
+2020-10-26 15:57:46.194 +03:00 [DBG] Connection id "0HM3PLQTBS32T" accepted.
+2020-10-26 15:57:46.199 +03:00 [DBG] Connection id "0HM3PLQTBS32T" started.
+2020-10-26 15:57:46.208 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-bundle.js.map  
+2020-10-26 15:57:46.208 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js.map  
+2020-10-26 15:57:46.210 +03:00 [DBG] The request path /swagger-ui-bundle.js.map does not match an existing file
+2020-10-26 15:57:46.211 +03:00 [DBG] The request path /swagger-ui-standalone-preset.js.map does not match an existing file
+2020-10-26 15:57:46.239 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js.map'
+2020-10-26 15:57:46.239 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js.map'
+2020-10-26 15:57:46.240 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:57:46.240 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:57:46.258 +03:00 [INF] Request finished in 127.9299ms 200 application/json;charset=utf-8
+2020-10-26 15:57:46.335 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:57:46.335 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:57:46.356 +03:00 [INF] Request finished in 147.9425ms 404 
+2020-10-26 15:57:46.356 +03:00 [INF] Request finished in 147.9425ms 404 
+2020-10-26 15:57:46.358 +03:00 [DBG] Connection id "0HM3PLQTBS32S" disconnecting.
+2020-10-26 15:57:46.360 +03:00 [DBG] Connection id "0HM3PLQTBS32T" disconnecting.
+2020-10-26 15:57:46.360 +03:00 [DBG] Connection id "0HM3PLQTBS32S" received FIN.
+2020-10-26 15:57:46.360 +03:00 [DBG] Connection id "0HM3PLQTBS32U" accepted.
+2020-10-26 15:57:46.363 +03:00 [DBG] Connection id "0HM3PLQTBS32T" received FIN.
+2020-10-26 15:57:46.364 +03:00 [DBG] Connection id "0HM3PLQTBS32S" stopped.
+2020-10-26 15:57:46.366 +03:00 [DBG] Connection id "0HM3PLQTBS32U" started.
+2020-10-26 15:57:46.366 +03:00 [DBG] Connection id "0HM3PLQTBS32V" accepted.
+2020-10-26 15:57:46.364 +03:00 [DBG] Connection id "0HM3PLQTBS32T" stopped.
+2020-10-26 15:57:46.370 +03:00 [DBG] Connection id "0HM3PLQTBS32V" started.
+2020-10-26 15:57:46.369 +03:00 [DBG] Connection id "0HM3PLQTBS32S" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 15:57:46.372 +03:00 [DBG] Connection id "0HM3PLQTBS32T" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 15:57:46.378 +03:00 [INF] Request starting HTTP/1.1 GET https://127.0.0.1:5001/swagger/swagger-ui-bundle.js.map  
+2020-10-26 15:57:46.379 +03:00 [DBG] The request path /swagger-ui-bundle.js.map does not match an existing file
+2020-10-26 15:57:46.380 +03:00 [INF] Request starting HTTP/1.1 GET https://127.0.0.1:5001/swagger/swagger-ui-standalone-preset.js.map  
+2020-10-26 15:57:46.380 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js.map'
+2020-10-26 15:57:46.381 +03:00 [DBG] The request path /swagger-ui-standalone-preset.js.map does not match an existing file
+2020-10-26 15:57:46.384 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:57:46.384 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js.map'
+2020-10-26 15:57:46.386 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:57:46.387 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:57:46.387 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:57:46.388 +03:00 [INF] Request finished in 7.4083ms 404 
+2020-10-26 15:57:46.388 +03:00 [INF] Request finished in 10.5113ms 404 
+2020-10-26 15:57:46.389 +03:00 [DBG] Connection id "0HM3PLQTBS32V" received FIN.
+2020-10-26 15:57:46.389 +03:00 [DBG] Connection id "0HM3PLQTBS32V" disconnecting.
+2020-10-26 15:57:46.389 +03:00 [DBG] Connection id "0HM3PLQTBS32U" received FIN.
+2020-10-26 15:57:46.390 +03:00 [DBG] Connection id "0HM3PLQTBS32U" disconnecting.
+2020-10-26 15:57:46.391 +03:00 [DBG] Connection id "0HM3PLQTBS32V" sending FIN because: "The client closed the connection."
+2020-10-26 15:57:46.392 +03:00 [DBG] Connection id "0HM3PLQTBS32U" sending FIN because: "The client closed the connection."
+2020-10-26 15:57:46.397 +03:00 [DBG] Connection id "0HM3PLQTBS32U" stopped.
+2020-10-26 15:57:46.397 +03:00 [DBG] Connection id "0HM3PLQTBS32V" stopped.
+2020-10-26 15:57:47.599 +03:00 [DBG] Connection id "0HM3PLQTBS32R" received FIN.
+2020-10-26 15:57:47.604 +03:00 [DBG] Connection id "0HM3PLQTBS32R" sending FIN because: "The client closed the connection."
+2020-10-26 15:57:47.612 +03:00 [DBG] Connection id "0HM3PLQTBS32R" is closed. The last processed stream ID was 11.
+2020-10-26 15:57:47.616 +03:00 [DBG] Connection id "0HM3PLQTBS32R" stopped.
+2020-10-26 15:59:16.434 +03:00 [DBG] Hosting starting
+2020-10-26 15:59:16.704 +03:00 [INF] User profile is available. Using 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-10-26 15:59:16.710 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-6c71015d-82c9-404a-8537-3b668c1f8a84.xml'.
+2020-10-26 15:59:16.728 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-77c2e7ad-3bf3-41c0-b355-2415820773d4.xml'.
+2020-10-26 15:59:16.731 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-a5042680-928a-4f85-9aaf-989b3bc8075b.xml'.
+2020-10-26 15:59:16.732 +03:00 [DBG] Reading data from file 'C:\Users\ArhiS\AppData\Local\ASP.NET\DataProtection-Keys\key-a9d404a3-5c7b-45e6-ad62-fe606dc707db.xml'.
+2020-10-26 15:59:16.738 +03:00 [DBG] Found key {6c71015d-82c9-404a-8537-3b668c1f8a84}.
+2020-10-26 15:59:16.743 +03:00 [DBG] Found key {77c2e7ad-3bf3-41c0-b355-2415820773d4}.
+2020-10-26 15:59:16.745 +03:00 [DBG] Found key {a5042680-928a-4f85-9aaf-989b3bc8075b}.
+2020-10-26 15:59:16.746 +03:00 [DBG] Found key {a9d404a3-5c7b-45e6-ad62-fe606dc707db}.
+2020-10-26 15:59:16.752 +03:00 [DBG] Considering key {6c71015d-82c9-404a-8537-3b668c1f8a84} with expiration date 2020-11-01 09:12:12Z as default key.
+2020-10-26 15:59:16.763 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2020-10-26 15:59:16.766 +03:00 [DBG] Decrypting secret element using Windows DPAPI.
+2020-10-26 15:59:16.767 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2020-10-26 15:59:16.770 +03:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2020-10-26 15:59:16.773 +03:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2020-10-26 15:59:16.777 +03:00 [DBG] Using key {6c71015d-82c9-404a-8537-3b668c1f8a84} as the default key.
+2020-10-26 15:59:16.778 +03:00 [DBG] Key ring with default key {6c71015d-82c9-404a-8537-3b668c1f8a84} was loaded during application startup.
+2020-10-26 15:59:16.781 +03:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-10-26 15:59:16.835 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 4DDCED9D0C91D5A86D51338D1FB633DE890F365F)
+2020-10-26 15:59:16.847 +03:00 [DBG] Hosting started
+2020-10-26 15:59:16.848 +03:00 [DBG] Loaded hosting startup assembly CourseWork.WebApi
+2020-10-26 15:59:17.009 +03:00 [DBG] Connection id "0HM3PLRP5H68P" received FIN.
+2020-10-26 15:59:17.023 +03:00 [DBG] Connection id "0HM3PLRP5H68P" accepted.
+2020-10-26 15:59:17.025 +03:00 [DBG] Connection id "0HM3PLRP5H68P" started.
+2020-10-26 15:59:17.043 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Authentication failed because the remote party has closed the transport stream.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-10-26 15:59:17.122 +03:00 [DBG] Connection id "0HM3PLRP5H68P" stopped.
+2020-10-26 15:59:17.131 +03:00 [DBG] Connection id "0HM3PLRP5H68P" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 15:59:20.538 +03:00 [DBG] Connection id "0HM3PLRP5H68Q" accepted.
+2020-10-26 15:59:20.542 +03:00 [DBG] Connection id "0HM3PLRP5H68Q" started.
+2020-10-26 15:59:20.663 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger  
+2020-10-26 15:59:20.665 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2020-10-26 15:59:20.682 +03:00 [INF] Request finished in 21.3186ms 301 
+2020-10-26 15:59:20.696 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+2020-10-26 15:59:20.718 +03:00 [INF] Request finished in 21.9082ms 200 text/html;charset=utf-8
+2020-10-26 15:59:20.743 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+2020-10-26 15:59:20.744 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+2020-10-26 15:59:20.744 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+2020-10-26 15:59:20.809 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-10-26 15:59:20.809 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-10-26 15:59:20.816 +03:00 [INF] Request finished in 72.3424ms 200 application/javascript
+2020-10-26 15:59:20.822 +03:00 [INF] Request finished in 78.6576ms 200 text/css
+2020-10-26 15:59:20.828 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-10-26 15:59:20.829 +03:00 [INF] Request finished in 85.5926ms 200 application/javascript
+2020-10-26 15:59:20.960 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2020-10-26 15:59:21.045 +03:00 [DBG] Connection id "0HM3PLRP5H68R" accepted.
+2020-10-26 15:59:21.055 +03:00 [DBG] Connection id "0HM3PLRP5H68S" accepted.
+2020-10-26 15:59:21.055 +03:00 [DBG] Connection id "0HM3PLRP5H68R" started.
+2020-10-26 15:59:21.058 +03:00 [DBG] Connection id "0HM3PLRP5H68S" started.
+2020-10-26 15:59:21.071 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js.map  
+2020-10-26 15:59:21.071 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-bundle.js.map  
+2020-10-26 15:59:21.073 +03:00 [DBG] The request path /swagger-ui-standalone-preset.js.map does not match an existing file
+2020-10-26 15:59:21.073 +03:00 [DBG] The request path /swagger-ui-bundle.js.map does not match an existing file
+2020-10-26 15:59:21.102 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js.map'
+2020-10-26 15:59:21.102 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js.map'
+2020-10-26 15:59:21.107 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:59:21.104 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:59:21.111 +03:00 [INF] Request finished in 151.4734ms 200 application/json;charset=utf-8
+2020-10-26 15:59:21.199 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:59:21.199 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:59:21.210 +03:00 [INF] Request finished in 138.5484ms 404 
+2020-10-26 15:59:21.210 +03:00 [INF] Request finished in 138.555ms 404 
+2020-10-26 15:59:21.211 +03:00 [DBG] Connection id "0HM3PLRP5H68S" disconnecting.
+2020-10-26 15:59:21.212 +03:00 [DBG] Connection id "0HM3PLRP5H68R" disconnecting.
+2020-10-26 15:59:21.213 +03:00 [DBG] Connection id "0HM3PLRP5H68T" accepted.
+2020-10-26 15:59:21.215 +03:00 [DBG] Connection id "0HM3PLRP5H68S" received FIN.
+2020-10-26 15:59:21.215 +03:00 [DBG] Connection id "0HM3PLRP5H68R" received FIN.
+2020-10-26 15:59:21.216 +03:00 [DBG] Connection id "0HM3PLRP5H68S" stopped.
+2020-10-26 15:59:21.216 +03:00 [DBG] Connection id "0HM3PLRP5H68T" started.
+2020-10-26 15:59:21.216 +03:00 [DBG] Connection id "0HM3PLRP5H68R" stopped.
+2020-10-26 15:59:21.221 +03:00 [DBG] Connection id "0HM3PLRP5H68S" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 15:59:21.217 +03:00 [DBG] Connection id "0HM3PLRP5H68U" accepted.
+2020-10-26 15:59:21.223 +03:00 [DBG] Connection id "0HM3PLRP5H68R" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 15:59:21.225 +03:00 [DBG] Connection id "0HM3PLRP5H68U" started.
+2020-10-26 15:59:21.227 +03:00 [INF] Request starting HTTP/1.1 GET https://127.0.0.1:5001/swagger/swagger-ui-bundle.js.map  
+2020-10-26 15:59:21.228 +03:00 [DBG] The request path /swagger-ui-bundle.js.map does not match an existing file
+2020-10-26 15:59:21.231 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js.map'
+2020-10-26 15:59:21.232 +03:00 [INF] Request starting HTTP/1.1 GET https://127.0.0.1:5001/swagger/swagger-ui-standalone-preset.js.map  
+2020-10-26 15:59:21.232 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:59:21.233 +03:00 [DBG] The request path /swagger-ui-standalone-preset.js.map does not match an existing file
+2020-10-26 15:59:21.237 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:59:21.238 +03:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js.map'
+2020-10-26 15:59:21.239 +03:00 [INF] Request finished in 12.1183ms 404 
+2020-10-26 15:59:21.240 +03:00 [DBG] Request did not match any endpoints
+2020-10-26 15:59:21.240 +03:00 [DBG] Connection id "0HM3PLRP5H68T" received FIN.
+2020-10-26 15:59:21.240 +03:00 [DBG] Connection id "0HM3PLRP5H68T" disconnecting.
+2020-10-26 15:59:21.241 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:59:21.242 +03:00 [DBG] Connection id "0HM3PLRP5H68T" sending FIN because: "The client closed the connection."
+2020-10-26 15:59:21.243 +03:00 [INF] Request finished in 10.7375ms 404 
+2020-10-26 15:59:21.243 +03:00 [DBG] Connection id "0HM3PLRP5H68U" received FIN.
+2020-10-26 15:59:21.248 +03:00 [DBG] Connection id "0HM3PLRP5H68U" disconnecting.
+2020-10-26 15:59:21.250 +03:00 [DBG] Connection id "0HM3PLRP5H68U" sending FIN because: "The client closed the connection."
+2020-10-26 15:59:21.260 +03:00 [DBG] Connection id "0HM3PLRP5H68U" stopped.
+2020-10-26 15:59:21.260 +03:00 [DBG] Connection id "0HM3PLRP5H68T" stopped.
+2020-10-26 15:59:31.250 +03:00 [DBG] Connection id "0HM3PLRP5H68V" accepted.
+2020-10-26 15:59:31.260 +03:00 [DBG] Connection id "0HM3PLRP5H68V" started.
+2020-10-26 15:59:31.271 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Order/GetPriceOfOrder/null  
+2020-10-26 15:59:31.271 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Product/Products  
+2020-10-26 15:59:31.272 +03:00 [DBG] The request path  does not match the path filter
+2020-10-26 15:59:31.274 +03:00 [DBG] The request path  does not match the path filter
+2020-10-26 15:59:31.287 +03:00 [DBG] 1 candidate(s) found for the request path '/api/Product/Products'
+2020-10-26 15:59:31.287 +03:00 [DBG] 1 candidate(s) found for the request path '/api/Order/GetPriceOfOrder/null'
+2020-10-26 15:59:31.298 +03:00 [DBG] Endpoint 'CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi)' with route pattern 'api/Product/Products/{name?}/{category?}' is valid for the request path '/api/Product/Products'
+2020-10-26 15:59:31.308 +03:00 [DBG] Endpoint 'CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder (CourseWork.WebApi)' with route pattern 'api/Order/GetPriceOfOrder/{id}' is valid for the request path '/api/Order/GetPriceOfOrder/null'
+2020-10-26 15:59:31.314 +03:00 [DBG] Request matched endpoint 'CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi)'
+2020-10-26 15:59:31.317 +03:00 [DBG] Request matched endpoint 'CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder (CourseWork.WebApi)'
+2020-10-26 15:59:31.323 +03:00 [DBG] The request has an origin header: 'https://localhost:5011'.
+2020-10-26 15:59:31.325 +03:00 [DBG] The request has an origin header: 'https://localhost:5011'.
+2020-10-26 15:59:31.329 +03:00 [INF] CORS policy execution successful.
+2020-10-26 15:59:31.328 +03:00 [INF] CORS policy execution successful.
+2020-10-26 15:59:31.332 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:59:31.332 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 15:59:31.333 +03:00 [INF] Executing endpoint 'CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi)'
+2020-10-26 15:59:31.334 +03:00 [INF] Executing endpoint 'CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder (CourseWork.WebApi)'
+2020-10-26 15:59:31.349 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2020-10-26 15:59:31.433 +03:00 [INF] Route matched with {action = "GetPriceOfOrder", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPriceOfOrder(System.String) on controller CourseWork.WebApi.Controllers.OrderController (CourseWork.WebApi).
+2020-10-26 15:59:31.433 +03:00 [INF] Route matched with {action = "Products", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Products(System.String, System.String) on controller CourseWork.WebApi.Controllers.ProductController (CourseWork.WebApi).
+2020-10-26 15:59:31.435 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2020-10-26 15:59:31.437 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2020-10-26 15:59:31.438 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2020-10-26 15:59:31.439 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2020-10-26 15:59:31.440 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2020-10-26 15:59:31.441 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2020-10-26 15:59:31.442 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2020-10-26 15:59:31.444 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2020-10-26 15:59:31.444 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2020-10-26 15:59:31.445 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2020-10-26 15:59:31.447 +03:00 [DBG] Executing controller factory for controller CourseWork.WebApi.Controllers.OrderController (CourseWork.WebApi)
+2020-10-26 15:59:31.447 +03:00 [DBG] Executing controller factory for controller CourseWork.WebApi.Controllers.ProductController (CourseWork.WebApi)
+2020-10-26 15:59:31.504 +03:00 [DBG] Executed controller factory for controller CourseWork.WebApi.Controllers.ProductController (CourseWork.WebApi)
+2020-10-26 15:59:31.504 +03:00 [DBG] Executed controller factory for controller CourseWork.WebApi.Controllers.OrderController (CourseWork.WebApi)
+2020-10-26 15:59:31.512 +03:00 [DBG] Attempting to bind parameter 'name' of type 'System.String' ...
+2020-10-26 15:59:31.512 +03:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' ...
+2020-10-26 15:59:31.517 +03:00 [DBG] Could not find a value in the request with name '' for binding parameter 'name' of type 'System.String'.
+2020-10-26 15:59:31.517 +03:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' using the name 'id' in request data ...
+2020-10-26 15:59:31.517 +03:00 [DBG] Done attempting to bind parameter 'name' of type 'System.String'.
+2020-10-26 15:59:31.519 +03:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2020-10-26 15:59:31.521 +03:00 [DBG] Done attempting to bind parameter 'name' of type 'System.String'.
+2020-10-26 15:59:31.522 +03:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2020-10-26 15:59:31.523 +03:00 [DBG] Attempting to validate the bound parameter 'name' of type 'System.String' ...
+2020-10-26 15:59:31.524 +03:00 [DBG] Attempting to validate the bound parameter 'id' of type 'System.String' ...
+2020-10-26 15:59:31.527 +03:00 [DBG] Done attempting to validate the bound parameter 'name' of type 'System.String'.
+2020-10-26 15:59:31.530 +03:00 [DBG] Done attempting to validate the bound parameter 'id' of type 'System.String'.
+2020-10-26 15:59:31.532 +03:00 [DBG] Attempting to bind parameter 'category' of type 'System.String' ...
+2020-10-26 15:59:31.534 +03:00 [DBG] Could not find a value in the request with name '' for binding parameter 'category' of type 'System.String'.
+2020-10-26 15:59:31.537 +03:00 [DBG] Done attempting to bind parameter 'category' of type 'System.String'.
+2020-10-26 15:59:31.539 +03:00 [DBG] Done attempting to bind parameter 'category' of type 'System.String'.
+2020-10-26 15:59:31.540 +03:00 [DBG] Attempting to validate the bound parameter 'category' of type 'System.String' ...
+2020-10-26 15:59:31.548 +03:00 [DBG] Done attempting to validate the bound parameter 'category' of type 'System.String'.
+2020-10-26 16:00:01.871 +03:00 [ERR] System.TimeoutException: A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/localhost:27017" }", EndPoint: "Unspecified/localhost:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:27017
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__274_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.ConnectAsync(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStreamAsync(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelperAsync(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelperAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnectionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.HeartbeatAsync(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2020-10-26T12:59:58.5505027Z", LastUpdateTimestamp: "2020-10-26T12:59:58.5505033Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedAsync(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServerAsync(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterSeverSelctionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSessionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSessionAsync[TResult](Func`2 funcAsync, CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.ToListAsync[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at CourseWork.Repositories.Implementations.ProductRepository.GetEntities() in D:\fu\c#\WebProject\CourseWork.Repository\Implementations\ProductRepository.cs:line 27
+   at CourseWork.Services.Implementations.ProductService.GetProducts() in D:\fu\c#\WebProject\CourseWork.Services\Implementations\ProductService.cs:line 29
+   at CourseWork.WebApi.Controllers.ProductController.Products(String name, String category) in D:\fu\c#\WebProject\WebProject\Controllers\ProductController.cs:line 59
+2020-10-26 16:00:01.871 +03:00 [ERR] System.TimeoutException: A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/localhost:27017" }", EndPoint: "Unspecified/localhost:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:27017
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__274_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.ConnectAsync(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStreamAsync(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelperAsync(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelperAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnectionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.HeartbeatAsync(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2020-10-26T12:59:58.5505027Z", LastUpdateTimestamp: "2020-10-26T12:59:58.5505033Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedAsync(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServerAsync(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterSeverSelctionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSessionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSessionAsync[TResult](Func`2 funcAsync, CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.FirstOrDefaultAsync[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at CourseWork.Repositories.Implementations.OrderRepository.GetEntity(String id) in D:\fu\c#\WebProject\CourseWork.Repository\Implementations\OrderRepository.cs:line 58
+   at CourseWork.Services.Implementations.OrderService.GetPriceOfOrder(String id) in D:\fu\c#\WebProject\CourseWork.Services\Implementations\OrderService.cs:line 128
+   at CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder(String id) in D:\fu\c#\WebProject\WebProject\Controllers\OrderController.cs:line 175
+2020-10-26 16:00:01.887 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2020-10-26 16:00:01.890 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2020-10-26 16:00:01.895 +03:00 [DBG] No information found on request to perform content negotiation.
+2020-10-26 16:00:01.899 +03:00 [DBG] No information found on request to perform content negotiation.
+2020-10-26 16:00:01.901 +03:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2020-10-26 16:00:01.902 +03:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2020-10-26 16:00:01.903 +03:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2020-10-26 16:00:01.905 +03:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2020-10-26 16:00:01.907 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2020-10-26 16:00:01.907 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2020-10-26 16:00:01.908 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-10-26 16:00:01.909 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-10-26 16:00:01.919 +03:00 [INF] Executed action CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder (CourseWork.WebApi) in 30469.0556ms
+2020-10-26 16:00:01.919 +03:00 [INF] Executed action CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi) in 30468.0277ms
+2020-10-26 16:00:01.922 +03:00 [INF] Executed endpoint 'CourseWork.WebApi.Controllers.OrderController.GetPriceOfOrder (CourseWork.WebApi)'
+2020-10-26 16:00:01.925 +03:00 [INF] Executed endpoint 'CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi)'
+2020-10-26 16:00:01.932 +03:00 [INF] Request finished in 30660.9795ms 400 text/plain; charset=utf-8
+2020-10-26 16:00:01.932 +03:00 [INF] Request finished in 30660.9893ms 400 text/plain; charset=utf-8
+2020-10-26 16:00:01.945 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:5001/api/Order/AddOrder  
+2020-10-26 16:00:01.947 +03:00 [DBG] OPTIONS requests are not supported
+2020-10-26 16:00:01.953 +03:00 [DBG] 1 candidate(s) found for the request path '/api/Order/AddOrder'
+2020-10-26 16:00:01.954 +03:00 [DBG] Endpoint 'CourseWork.WebApi.Controllers.OrderController.AddOrder (CourseWork.WebApi)' with route pattern 'api/Order/AddOrder' is valid for the request path '/api/Order/AddOrder'
+2020-10-26 16:00:01.956 +03:00 [DBG] Request matched endpoint 'CourseWork.WebApi.Controllers.OrderController.AddOrder (CourseWork.WebApi)'
+2020-10-26 16:00:01.960 +03:00 [DBG] The request has an origin header: 'https://localhost:5011'.
+2020-10-26 16:00:01.960 +03:00 [INF] CORS policy execution successful.
+2020-10-26 16:00:01.961 +03:00 [DBG] The request is a preflight request.
+2020-10-26 16:00:01.962 +03:00 [INF] Request finished in 17.7561ms 204 
+2020-10-26 16:00:01.964 +03:00 [INF] Request starting HTTP/2 POST https://localhost:5001/api/Order/AddOrder application/json;charset=UTF-8 90
+2020-10-26 16:00:01.965 +03:00 [DBG] POST requests are not supported
+2020-10-26 16:00:01.966 +03:00 [DBG] 1 candidate(s) found for the request path '/api/Order/AddOrder'
+2020-10-26 16:00:01.967 +03:00 [DBG] Endpoint 'CourseWork.WebApi.Controllers.OrderController.AddOrder (CourseWork.WebApi)' with route pattern 'api/Order/AddOrder' is valid for the request path '/api/Order/AddOrder'
+2020-10-26 16:00:01.968 +03:00 [DBG] Request matched endpoint 'CourseWork.WebApi.Controllers.OrderController.AddOrder (CourseWork.WebApi)'
+2020-10-26 16:00:01.968 +03:00 [DBG] The request has an origin header: 'https://localhost:5011'.
+2020-10-26 16:00:01.969 +03:00 [INF] CORS policy execution successful.
+2020-10-26 16:00:01.972 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 16:00:01.972 +03:00 [INF] Executing endpoint 'CourseWork.WebApi.Controllers.OrderController.AddOrder (CourseWork.WebApi)'
+2020-10-26 16:00:01.977 +03:00 [INF] Route matched with {action = "AddOrder", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddOrder(CourseWork.AdditionalClasses.ViewModels.OrderViewModel) on controller CourseWork.WebApi.Controllers.OrderController (CourseWork.WebApi).
+2020-10-26 16:00:01.979 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2020-10-26 16:00:01.980 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2020-10-26 16:00:01.981 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2020-10-26 16:00:01.982 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2020-10-26 16:00:01.983 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2020-10-26 16:00:01.984 +03:00 [DBG] Executing controller factory for controller CourseWork.WebApi.Controllers.OrderController (CourseWork.WebApi)
+2020-10-26 16:00:01.986 +03:00 [DBG] Executed controller factory for controller CourseWork.WebApi.Controllers.OrderController (CourseWork.WebApi)
+2020-10-26 16:00:01.992 +03:00 [DBG] Attempting to bind parameter 'order' of type 'CourseWork.AdditionalClasses.ViewModels.OrderViewModel' ...
+2020-10-26 16:00:01.994 +03:00 [DBG] Attempting to bind parameter 'order' of type 'CourseWork.AdditionalClasses.ViewModels.OrderViewModel' using the name '' in request data ...
+2020-10-26 16:00:01.995 +03:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json;charset=UTF-8'.
+2020-10-26 16:00:01.999 +03:00 [DBG] Connection id "0HM3PLRP5H68V", Request id "0HM3PLRP5H68V:00000007": started reading request body.
+2020-10-26 16:00:02.001 +03:00 [DBG] Connection id "0HM3PLRP5H68V", Request id "0HM3PLRP5H68V:00000007": done reading request body.
+2020-10-26 16:00:02.009 +03:00 [DBG] JSON input formatter succeeded, deserializing to type 'CourseWork.AdditionalClasses.ViewModels.OrderViewModel'
+2020-10-26 16:00:02.010 +03:00 [DBG] Done attempting to bind parameter 'order' of type 'CourseWork.AdditionalClasses.ViewModels.OrderViewModel'.
+2020-10-26 16:00:02.011 +03:00 [DBG] Done attempting to bind parameter 'order' of type 'CourseWork.AdditionalClasses.ViewModels.OrderViewModel'.
+2020-10-26 16:00:02.012 +03:00 [DBG] Attempting to validate the bound parameter 'order' of type 'CourseWork.AdditionalClasses.ViewModels.OrderViewModel' ...
+2020-10-26 16:00:02.017 +03:00 [DBG] Done attempting to validate the bound parameter 'order' of type 'CourseWork.AdditionalClasses.ViewModels.OrderViewModel'.
+2020-10-26 16:00:32.130 +03:00 [ERR] System.TimeoutException: A timeout occured after 30000ms selecting a server using CompositeServerSelector{ Selectors = MongoDB.Driver.MongoClient+AreSessionsSupportedServerSelector, LatencyLimitingServerSelector{ AllowedLatencyRange = 00:00:00.0150000 } }. Client view of cluster state is { ClusterId : "1", ConnectionMode : "Automatic", Type : "Unknown", State : "Disconnected", Servers : [{ ServerId: "{ ClusterId : 1, EndPoint : "Unspecified/localhost:27017" }", EndPoint: "Unspecified/localhost:27017", ReasonChanged: "Heartbeat", State: "Disconnected", ServerVersion: , TopologyVersion: , Type: "Unknown", HeartbeatException: "MongoDB.Driver.MongoConnectionException: An exception occurred while opening a connection to the server.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение. [::1]:27017
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.<>c.<ConnectAsync>b__274_0(IAsyncResult iar)
+--- End of stack trace from previous location where exception was thrown ---
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.ConnectAsync(Socket socket, EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.TcpStreamFactory.CreateStreamAsync(EndPoint endPoint, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelperAsync(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.Core.Connections.BinaryConnection.OpenHelperAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.InitializeConnectionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Servers.ServerMonitor.HeartbeatAsync(CancellationToken cancellationToken)", LastHeartbeatTimestamp: "2020-10-26T13:00:30.6698441Z", LastUpdateTimestamp: "2020-10-26T13:00:30.6698443Z" }] }.
+   at MongoDB.Driver.Core.Clusters.Cluster.ThrowTimeoutException(IServerSelector selector, ClusterDescription description)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedHelper.HandleCompletedTask(Task completedTask)
+   at MongoDB.Driver.Core.Clusters.Cluster.WaitForDescriptionChangedAsync(IServerSelector selector, ClusterDescription description, Task descriptionChangedTask, TimeSpan timeout, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Clusters.Cluster.SelectServerAsync(IServerSelector selector, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAfterSeverSelctionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.AreSessionsSupportedAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoClient.StartImplicitSessionAsync(CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSessionAsync[TResult](Func`2 funcAsync, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOneAsync(TDocument document, InsertOneOptions options, Func`3 bulkWriteAsync)
+   at CourseWork.Repositories.Implementations.OrderRepository.AddEntity(Order entity) in D:\fu\c#\WebProject\CourseWork.Repository\Implementations\OrderRepository.cs:line 34
+   at CourseWork.Services.Implementations.OrderService.AddOrder(Order entity) in D:\fu\c#\WebProject\CourseWork.Services\Implementations\OrderService.cs:line 33
+2020-10-26 16:00:32.140 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2020-10-26 16:00:32.145 +03:00 [DBG] No information found on request to perform content negotiation.
+2020-10-26 16:00:32.147 +03:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2020-10-26 16:00:32.148 +03:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2020-10-26 16:00:32.153 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response.
+2020-10-26 16:00:32.156 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2020-10-26 16:00:32.159 +03:00 [INF] Executed action CourseWork.WebApi.Controllers.OrderController.AddOrder (CourseWork.WebApi) in 30175.0358ms
+2020-10-26 16:00:32.161 +03:00 [INF] Executed endpoint 'CourseWork.WebApi.Controllers.OrderController.AddOrder (CourseWork.WebApi)'
+2020-10-26 16:00:32.165 +03:00 [INF] Request finished in 30200.7422ms 400 text/plain; charset=utf-8
+2020-10-26 16:00:51.460 +03:00 [DBG] Connection id "0HM3PLRP5H690" accepted.
+2020-10-26 16:00:51.463 +03:00 [DBG] Connection id "0HM3PLRP5H690" started.
+2020-10-26 16:00:51.486 +03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/api/Product/Products  
+2020-10-26 16:00:51.488 +03:00 [DBG] The request path  does not match the path filter
+2020-10-26 16:00:51.492 +03:00 [DBG] 1 candidate(s) found for the request path '/api/Product/Products'
+2020-10-26 16:00:51.493 +03:00 [DBG] Endpoint 'CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi)' with route pattern 'api/Product/Products/{name?}/{category?}' is valid for the request path '/api/Product/Products'
+2020-10-26 16:00:51.498 +03:00 [DBG] Request matched endpoint 'CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi)'
+2020-10-26 16:00:51.500 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2020-10-26 16:00:51.503 +03:00 [INF] Executing endpoint 'CourseWork.WebApi.Controllers.ProductController.Products (CourseWork.WebApi)'
+2020-10-26 16:00:51.512 +03:00 [INF] Route matched with {action = "Products", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Products(System.String, System.String) on controller CourseWork.WebApi.Controllers.ProductController (CourseWork.WebApi).
+2020-10-26 16:00:51.516 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2020-10-26 16:00:51.516 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2020-10-26 16:00:51.518 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2020-10-26 16:00:51.520 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2020-10-26 16:00:51.522 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2020-10-26 16:00:51.523 +03:00 [DBG] Executing controller factory for controller CourseWork.WebApi.Controllers.ProductController (CourseWork.WebApi)
+2020-10-26 16:00:51.525 +03:00 [DBG] Executed controller factory for controller CourseWork.WebApi.Controllers.ProductController (CourseWork.WebApi)
+2020-10-26 16:00:51.530 +03:00 [DBG] Attempting to bind parameter 'name' of type 'System.String' ...
+2020-10-26 16:00:51.533 +03:00 [DBG] Could not find a value in the request with name '' for binding parameter 'name' of type 'System.String'.
+2020-10-26 16:00:51.535 +03:00 [DBG] Done attempting to bind parameter 'name' of type 'System.String'.
+2020-10-26 16:00:51.536 +03:00 [DBG] Done attempting to bind parameter 'name' of type 'System.String'.
+2020-10-26 16:00:51.537 +03:00 [DBG] Attempting to validate the bound parameter 'name' of type 'System.String' ...
+2020-10-26 16:00:51.538 +03:00 [DBG] Done attempting to validate the bound parameter 'name' of type 'System.String'.
+2020-10-26 16:00:51.540 +03:00 [DBG] Attempting to bind parameter 'category' of type 'System.String' ...
+2020-10-26 16:00:51.545 +03:00 [DBG] Could not find a value in the request with name '' for binding parameter 'category' of type 'System.String'.
+2020-10-26 16:00:51.547 +03:00 [DBG] Done attempting to bind parameter 'category' of type 'System.String'.
+2020-10-26 16:00:51.548 +03:00 [DBG] Done attempting to bind parameter 'category' of type 'System.String'.
+2020-10-26 16:00:51.549 +03:00 [DBG] Attempting to validate the bound parameter 'category' of type 'System.String' ...
+2020-10-26 16:00:51.551 +03:00 [DBG] Done attempting to validate the bound parameter 'category' of type 'System.String'.
+2020-10-26 16:01:08.604 +03:00 [DBG] Hosting shutdown
+2020-10-26 16:01:08.609 +03:00 [DBG] Connection id "0HM3PLRP5H690" is closing.
+2020-10-26 16:01:08.609 +03:00 [DBG] Connection id "0HM3PLRP5H68V" is closing.
+2020-10-26 16:01:08.609 +03:00 [DBG] Connection id "0HM3PLRP5H68Q" is closing.
+2020-10-26 16:01:08.613 +03:00 [DBG] Connection id "0HM3PLRP5H68Q" is closed. The last processed stream ID was 11.
+2020-10-26 16:01:08.613 +03:00 [DBG] Connection id "0HM3PLRP5H690" is closed. The last processed stream ID was 1.
+2020-10-26 16:01:08.613 +03:00 [DBG] Connection id "0HM3PLRP5H68V" is closed. The last processed stream ID was 7.
+2020-10-26 16:01:08.619 +03:00 [DBG] Connection id "0HM3PLRP5H68Q" received FIN.
+2020-10-26 16:01:08.621 +03:00 [DBG] Connection id "0HM3PLRP5H690" received FIN.
+2020-10-26 16:01:08.621 +03:00 [DBG] Connection id "0HM3PLRP5H68Q" stopped.
+2020-10-26 16:01:08.622 +03:00 [DBG] Connection id "0HM3PLRP5H68V" received FIN.
+2020-10-26 16:01:08.623 +03:00 [DBG] Connection id "0HM3PLRP5H690" sending FIN because: "The client closed the connection."
+2020-10-26 16:01:08.622 +03:00 [DBG] Connection id "0HM3PLRP5H68V" stopped.
+2020-10-26 16:01:08.624 +03:00 [DBG] Connection id "0HM3PLRP5H68Q" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 16:01:08.626 +03:00 [DBG] Connection id "0HM3PLRP5H68V" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-10-26 16:01:13.618 +03:00 [DBG] Some connections failed to close gracefully during server shutdown.
+2020-10-26 16:01:14.630 +03:00 [DBG] Some connections failed to abort during server shutdown.
