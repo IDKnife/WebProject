@@ -77,7 +77,7 @@ namespace Authentication_authorization.Controllers
         public async Task<IActionResult> Register([FromBody] ClientViewModel client)
         {
             var item = await _clientService.GetClients();
-            if (item.First(a => a.Email == client.Email) != null)
+            if (item.FirstOrDefault(a => a.Email == client.Email) != null)
                 return _loggedRequestsService.BadLoggedRequest("This email already in system.");
             await _clientService.AddClient(client.ToNewEntity() as Client);
             return Ok();
